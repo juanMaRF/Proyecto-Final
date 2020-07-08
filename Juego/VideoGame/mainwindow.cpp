@@ -6,6 +6,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //if(boos1==0){
+    //niveles(1)
+    //}
+
+    niveles(0);
 
 }
 
@@ -14,14 +19,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::niveles()
+void MainWindow::niveles(int x)
 {
-
     if(x==0){
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(0,0,1060,570);
         scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
 
         o1=new obstaculos(55,50,50,50);scene->addItem(o1);lista_piedra.push_back(o1);
         o2=new obstaculos(55,100,50,50);scene->addItem(o2);lista_piedra.push_back(o2);
@@ -52,7 +57,6 @@ void MainWindow::niveles()
         o23=new obstaculos(500,300,50,50);scene->addItem(o23);lista_piedra.push_back(o23);
         o24=new obstaculos(550,250,50,50);scene->addItem(o24);lista_piedra.push_back(o24);
         o25=new obstaculos(450,250,50,50);scene->addItem(o25);lista_piedra.push_back(o25);
-//        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/06c80d40aaf4af88df5cb9638ab738a4.jpg")));
     }
     if(x==1){
 
@@ -60,6 +64,7 @@ void MainWindow::niveles()
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(0,0,1060,570);
         scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
 
         o1=new obstaculos(55,50,50,50);scene->addItem(o1);lista_piedra.push_back(o1);
         o2=new obstaculos(915,50,50,50);scene->addItem(o2);lista_piedra.push_back(o2);
