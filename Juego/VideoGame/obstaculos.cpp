@@ -20,6 +20,11 @@ void obstaculos::setY(int value)
     y = value;
 }
 
+void obstaculos::imagen(QString img)
+{
+    pixmap.load(img);
+}
+
 obstaculos::obstaculos()
 {
 
@@ -40,7 +45,5 @@ QRectF obstaculos::boundingRect() const
 
 void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPixmap pixmap;
-    pixmap.load(":/Imagenes Proyecto final/roca1.gif");
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }

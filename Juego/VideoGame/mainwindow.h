@@ -3,11 +3,16 @@
 
 #include <QGraphicsView>
 #include <QTimer>
+#include <QPainter>
+#include <QRectF>
 #include <QObject>
+#include <QDebug>
 #include <QWidget>
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QGraphicsItem>
 #include "obstaculos.h"
+#include "moob.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,13 +25,22 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QGraphicsScene *scene;
+
     void niveles(int tipo);
     void colision();
 
+
 private:
+    QGraphicsScene *scene;
     Ui::MainWindow *ui;
+    QTimer *time;
     QList <obstaculos*> lista_piedra;
-    obstaculos *o1,*o2,*o3,*o4,*o5,*o6,*o7,*o8,*o9,*o10,*o11,*o12,*o13,*o14,*o15,*o16,*o17,*o18,*o19,*o20,*o21,*o22,*o23,*o24,*o25;
+    QList <moob*> enemigos;
+    obstaculos *o1,*o2,*o3,*o4,*o5,*o6,*o7,*o8,*o9,*o10,*o11,*o12,*o13,*o14,*o15,*o16,*o17,*o18,*o19,*o20,*o21,*o22,*o23,*o24,*o25,*v1,*v2,*v3,*v4;
+    moob *e1;
+    QString piedra1=":/Imagenes Proyecto final/roca1.gif",valla1=":/Imagenes Proyecto final/valla1.gif";
+
+private slots:
+    void Mover();
 };
 #endif // MAINWINDOW_H

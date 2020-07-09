@@ -15,6 +15,7 @@ class obstaculos: public QGraphicsItem
     int y;
     int w;
     int h;
+    QPixmap pixmap;
 public:
     obstaculos();
     obstaculos(int x_, int y_, int w_, int h_);
@@ -24,6 +25,9 @@ public:
     void setX(int value);
     int getY() const;
     void setY(int value);
+    QPixmap *getPixmap() const;
+    void setPixmap(QPixmap *value);
+    void imagen(QString img);
 };
 
 #endif // OBSTACULOS_H

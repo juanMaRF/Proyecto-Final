@@ -18,10 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    moob.cpp \
     obstaculos.cpp
 
 HEADERS += \
     mainwindow.h \
+    moob.h \
     obstaculos.h
 
 FORMS += \
@@ -34,3 +36,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     imagenes.qrc
+
+DISTFILES += \
+    Imagenes Proyecto final/roca2.gif \
+    Imagenes Proyecto final/valla1.gif
