@@ -19,9 +19,18 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1080</width>
-      <height>600</height>
+      <width>1111</width>
+      <height>621</height>
      </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <property name="sceneRect">
      <rectf>

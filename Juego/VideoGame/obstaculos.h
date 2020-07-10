@@ -18,7 +18,7 @@ class obstaculos: public QGraphicsItem
     QPixmap pixmap;
 public:
     obstaculos();
-    obstaculos(int x_, int y_, int w_, int h_);
+    obstaculos(int x_, int y_, int w_, int h_,QString img);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     int getX() const;
@@ -27,7 +27,7 @@ public:
     void setY(int value);
     QPixmap *getPixmap() const;
     void setPixmap(QPixmap *value);
-    void imagen(QString img);
+    //void imagen(QString img);
 };
 
 #endif // OBSTACULOS_H

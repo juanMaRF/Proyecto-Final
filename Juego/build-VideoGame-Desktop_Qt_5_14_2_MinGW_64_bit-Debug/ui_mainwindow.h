@@ -43,7 +43,10 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(0, 0, 1080, 600));
+        graphicsView->setGeometry(QRect(0, 0, 1111, 621));
+        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        graphicsView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         graphicsView->setSceneRect(QRectF(0, 0, 0, 0));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));

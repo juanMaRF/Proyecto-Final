@@ -6,24 +6,29 @@
 #include <QPixmap>
 #include <QPainter>
 
-class moob : public QGraphicsItem
+class moob : public QObject, public QGraphicsItem
 {
-    //double g= 9.8;
-    double delta =0.1;
-    double y,x, vel, vel_x, vel_y;
-    int w,h;
+    Q_OBJECT
 public:
-    moob();
-    moob(int x_,int y_,int w_,int h_);
+    explicit moob(QObject *parent = nullptr);
+
+    QTimer *timer;
+    QPixmap *pixmap;
+    double vida=20,vel,vel_x,vel_y,x,y,delta=0.1;
+    float filas,columnas;
+
+    float ancho;
+    float alto;
+
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    void actualizar_y(int posx_per);
-    void actualizar_x(int posx_per);
+    void actualizar_y();
+    void actualizar_x();
 
 
-    double getX() const;
-    void setX(double value);
-    double getY() const;
-    void setY(double value);
+signals:
+
+public slots:
+    void Actualizacion();
 };
 #endif // MOOB_H

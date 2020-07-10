@@ -1,80 +1,59 @@
 #include "moob.h"
 
-
-double moob::getX() const
+moob::moob(QObject *parent) : QObject(parent)
 {
-    return x;
+
+    timer = new QTimer();
+    filas = 0;
+    columnas = 0;
+    pixmap = new QPixmap(":/Imagenes Proyecto final/2 Hyena/Hyena_walk.png");
+
+    //dimensiones de c/U de las imagenes
+    ancho = 50;
+    alto  = 50;
+
+    timer->start(100);// modifica la velocidad en que itera entre las imagenes
+
+    connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
+
+
 }
 
-void moob::setX(double value)
+void moob::Actualizacion()
 {
-    x = value;
-}
+    columnas +=50;
+    if(columnas >=300)
+    {
+        columnas =0;
+    }
+    this->update(-ancho/2,-alto/2,ancho,alto);
 
-double moob::getY() const
-{
-    return y;
 }
-
-void moob::setY(double value)
-{
-    y = value;
-}
-
-moob::moob(int x_, int y_, int w_, int h_)
-{
-    x=x_;
-    y=y_;
-    w=w_;
-    h=h_;
-}
-
 QRectF moob::boundingRect() const
 {
-    return QRectF(x,y,w,h);
+    return QRectF(-ancho/2,-alto/2,ancho,alto);
 }
 
 void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPixmap pixmap;
-    pixmap.load(":/Imagenes Proyecto final/2 Hyena/Hyena.png");
-    painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+    painter->drawPixmap(-ancho/2,-alto/2,*pixmap,columnas,0,ancho,alto);
 }
 
-void moob::actualizar_x(int posx_per)
+void moob::actualizar_x()
 {
-    if(posx_per>x){
-    vel_x=12;
+    vel_x=15;
     vel_y=0;
     x=x+vel_x*delta;
     y=y+vel_y*delta;
     setPos(x,y);
-    }
-    else if(posx_per<x){
-        vel_x=-12;
-        vel_y=0;
-        x=x+vel_x*delta;
-        y=y+vel_y*delta;
-        setPos(x,y);
-    }
-
 
 }
 
-void moob::actualizar_y(int posy_per)
+void moob::actualizar_y()
 {
-    if(posy_per>y){
     vel_x=0;
-    vel_y=12;
+    vel_y=15;
     x=x+vel_x*delta;
     y=y+vel_y*delta;
     setPos(x,y);
-    }
-    else if(posy_per>y){
-        vel_x=0;
-        vel_y=-12;
-        x=x+vel_x*delta;
-        y=y+vel_y*delta;
-        setPos(x,y);
-    }
 }
