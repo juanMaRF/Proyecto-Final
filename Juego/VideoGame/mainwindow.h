@@ -29,7 +29,7 @@ public:
 
     void niveles(int tipo);
     void colision();
-    void leer_lvl();
+    void leer_lvl(int lvl_);
 
 
 private:
