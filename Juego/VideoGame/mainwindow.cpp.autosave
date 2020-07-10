@@ -1,0 +1,162 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <math.h>
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    time=new QTimer;
+    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    leer_lvl(1);
+
+
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+bool MainWindow::colision(moob *cuerpo)
+{
+    for (QList <obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        if(cuerpo->collidesWithItem(*it)) return false;
+    }
+    return true;
+}
+
+
+
+void MainWindow::leer_lvl(int lvl_)
+{
+    QString lvl;
+    if(lvl_==1){
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+    }else if(lvl_==2){
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+    }
+    scene=new QGraphicsScene;
+    ui->graphicsView->setScene(scene);
+    scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
+    e1=new moob();scene->addItem(e1);enemigos.push_back(e1);
+
+    QFile file(lvl);
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::warning(this,"Title","File not open");
+    }
+    QTextStream in(&file);
+    QString text=in.readAll(),textura,temp,nomb;
+    file.close();
+    int comas=0,coordx=0,coordy=0,w_=0,h_=0,tempint;
+    for (int i=0;i<text.size();i++) {
+        if(text.at(i)=="\n"){
+            cant_obj+=1;
+            nomb=cant_obj;
+            textura=temp;
+            temp.clear();
+            //crear los objetos y luego agregar a la lista
+            scene->addItem(new obstaculos(coordx,coordy,w_,h_,textura));
+            lista_piedra.push_back(new obstaculos(coordx,coordy,w_,h_,textura));
+            comas=0;
+
+        }
+        if(text.at(i)==","){
+            if(comas==0){
+                tempint=temp.toInt();
+                coordx=tempint;
+                temp.clear();
+            }else if(comas==1){
+                tempint=temp.toInt();
+                coordy=tempint;
+                temp.clear();
+            }else if(comas==2){
+                tempint=temp.toInt();
+                w_=tempint;
+                temp.clear();
+            }else if(comas==3){
+                tempint=temp.toInt();
+                h_=tempint;
+                temp.clear();
+            }
+            comas+=1;
+            i++;
+        }
+
+
+        temp.append(text.at(i));
+    }
+    time->start(20);
+}
+
+void MainWindow::path(int x_play, int y_play, moob *enemy)
+{
+    char mapa[190][90];
+    int Fc=1000,Gc=1000,Hc=1000,Fctemp,Gctemp,Hctemp;
+    QVector <int> pf;
+    moob *prueba=new moob();
+    int x_en=enemy->getX()/5,y_en=enemy->getY()/5;
+    int fila_i,columna_i,fila_f,columna_f,x_a=x_en=enemy->getX()/5,y_a=enemy->getY()/5;
+    QVector <int> temp[3][3]; //orden Gc, Hc, Fc=Gc+Hc
+    fila_i=x_en;    columna_i=y_en; fila_f=x_play;  columna_f=y_play;
+    mapa[x_en][y_en]='i';
+    mapa[x_play/5][y_play/5]='f';
+    
+    if(x_a>0)   x_a-=1;
+    if(y_a>0)   y_a-=1;
+    
+    int xmover=enemy->getX(),ymover=enemy->getY();
+    
+    while(true){
+        enemy->mover_m(xmover,ymover,enemy);
+        if(xmover==x_play && ymover==y_pla){            
+            break;
+        }
+        int pos3x=0,pos3y=0;
+        for (int i=x_a;i<=x_a+2;i++) {
+            for (int j=y_a;j<=y_a+2;j++) {
+                //enemy->setPos(x_a*5,y_a*5);
+                prueba->setPos(i*5,j*5);
+                if(colision(prueba) or !(mapa[i][j]=='x')){
+                    if((pos3x==0 or pos3x==2) and (pos3y==0 or pos3y==2)){
+                        Gctemp=sqrt(pow(abs(i-columna_i),2)+pow(abs(j-fila_i),2));
+                        Hctemp=sqrt(pow(abs(columna_f-i),2)+pow(abs(j-fila_f),2));
+                        Fctemp=Gctemp+Hctemp;
+                    }else if(pos3x==1 and pos3y==1){
+                        //el nodo en el que estoy parado
+                    }else if(pos3x==1 and (pos3y==0 or pos3y==2)){
+                        Gctemp=abs(j-columna_i);
+                        Hctemp=abs(j-columna_f);
+                        Fctemp=Gctemp+Hctemp;
+                    }else{
+                        Gctemp=abs(i-fila_i);
+                        Hctemp=abs(i-fila_f);
+                        Fctemp=Gctemp+Hctemp;
+                    }
+                    if(Fctemp<Fc){
+                        Fc=Fctemp;
+                        Gc=Gctemp;
+                        Hc=Hctemp;
+                        xmover=i*5;
+                        ymover=j*5;
+                    }
+                    
+                    if (mapa[i][j]==NULL)   mapa[i][j]='o';
+                }else{
+                    mapa[i][j]='x';
+                }
+            }
+        }
+    }
+    
+}
+
+void MainWindow::Mover()
+{
+    for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
+        //(*it)->actualizar_x();
+    }
+}
