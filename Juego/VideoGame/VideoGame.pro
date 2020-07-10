@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    obstaculos.cpp
+    obstaculos.cpp \
+    player.cpp
 
 HEADERS += \
     mainwindow.h \
-    obstaculos.h
+    obstaculos.h \
+    player.h
 
 FORMS += \
     mainwindow.ui

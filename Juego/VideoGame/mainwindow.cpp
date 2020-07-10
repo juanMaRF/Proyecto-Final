@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,6 +28,8 @@ void MainWindow::niveles(int x)
         scene->setSceneRect(0,0,1060,570);
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
+        jugador = new player(95,90,70,70);
+        scene->addItem(jugador);
 
         o1=new obstaculos(55,50,50,50);scene->addItem(o1);lista_piedra.push_back(o1);
         o2=new obstaculos(55,100,50,50);scene->addItem(o2);lista_piedra.push_back(o2);

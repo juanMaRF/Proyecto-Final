@@ -11,18 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-<<<<<<< HEAD
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-=======
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
->>>>>>> master
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,15 +25,12 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-<<<<<<< HEAD
-=======
     QGraphicsView *graphicsView;
     QWidget *widget;
     QVBoxLayout *verticalLayout;
     QPushButton *Solo;
     QPushButton *Cop;
     QPushButton *pushButton_5;
->>>>>>> master
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -47,14 +38,6 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-<<<<<<< HEAD
-        MainWindow->resize(800, 600);
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-=======
         MainWindow->resize(1722, 900);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -87,7 +70,6 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1722, 20));
->>>>>>> master
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -101,12 +83,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-<<<<<<< HEAD
-=======
         Solo->setText(QApplication::translate("MainWindow", "Un Jugador", nullptr));
         Cop->setText(QApplication::translate("MainWindow", "Dos Jugadores", nullptr));
         pushButton_5->setText(QApplication::translate("MainWindow", "Guardar", nullptr));
->>>>>>> master
     } // retranslateUi
 
 };
