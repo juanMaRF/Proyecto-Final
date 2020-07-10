@@ -16,12 +16,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ataque_bas.cpp \
     main.cpp \
     mainwindow.cpp \
     obstaculos.cpp \
     player.cpp
 
 HEADERS += \
+    ataque_bas.h \
     mainwindow.h \
     obstaculos.h \
     player.h

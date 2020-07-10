@@ -2,11 +2,14 @@
 #define PLAYER_H
 
 #include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 #include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
+#include <QKeyEvent>
+#include "ataque_bas.h"
 
 class player:public QObject, public QGraphicsPixmapItem
 {
@@ -18,15 +21,18 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     void keyPressEvent(QKeyEvent *event);
-    int getX() const;
-    void setX(int value);
+    int getX1() const;
+    void setX1(int value);
 
-    int getY() const;
-    void setY(int value);
+    int getY1() const;
+    void setY1(int value);
 
 
 private:
-    int x,y,h,w;
+    short tipo;
+    short imagen=0;
+    int x1,y1,h1,w1;
+    ataque_Bas *disparo;
 };
 
 #endif // PLAYER_H

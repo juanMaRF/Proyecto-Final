@@ -28,9 +28,16 @@ void MainWindow::niveles(int x)
         scene->setSceneRect(0,0,1060,570);
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
-        jugador = new player(95,90,70,70);
-        scene->addItem(jugador);
 
+        //añadimos el jugador a la escena
+        jugador = new player(95,90,60,60);
+        scene->addItem(jugador);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+
+
+
+        //añadimos las piedras y limites a la escena
         o1=new obstaculos(55,50,50,50);scene->addItem(o1);lista_piedra.push_back(o1);
         o2=new obstaculos(55,100,50,50);scene->addItem(o2);lista_piedra.push_back(o2);
         o3=new obstaculos(55,150,50,50);scene->addItem(o3);lista_piedra.push_back(o3);

@@ -1,8 +1,15 @@
 <RCC>
     <qresource prefix="/">
-        <file>Imagenes Proyecto final/06c80d40aaf4af88df5cb9638ab738a4.jpg</file>
         <file>Imagenes Proyecto final/roca1.gif</file>
         <file>Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg</file>
-        <file>Imagenes Proyecto final/6 Deceased/Deceased.png</file>
+    </qresource>
+    <qresource prefix="/n">
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Ball.png</file>
     </qresource>
 </RCC>
