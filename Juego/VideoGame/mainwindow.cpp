@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -34,6 +35,8 @@ void MainWindow::niveles(int x)
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
+        jugador->setPos(95,90);
+        qDebug()<<"PROBLEMON 2: "<<jugador->pos().x()<<"  "<<jugador->pos().y();
 
 
 

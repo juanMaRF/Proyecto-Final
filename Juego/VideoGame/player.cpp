@@ -1,4 +1,5 @@
 #include "player.h"
+#include <QDebug>
 
 int player::getX1() const
 {
@@ -119,23 +120,33 @@ void player::keyPressEvent(QKeyEvent *event)
 
         setPos(x()-5,y());
         tipo=0;
+        qDebug()<<"IZQUIERDA: "<<x()<<"  "<<y();
     }
     else if (event->key() == Qt::Key_Right){
 
         setPos(x()+5,y());
         tipo=1;
+        qDebug()<<"DERECHA: "<<x()<<"  "<<y();
     }
     else if(event->key()== Qt::Key_Up){
         setPos(x(),y()-5);
+        qDebug()<<"ARRIBA: "<<x()<<"  "<<y();
 
     }
     else if(event->key()== Qt::Key_Down){
         setPos(x(),y()+5);
+        qDebug()<<"ABAJO: "<<x()<<"  "<<y();
 
     }
     else if(event->key()== Qt::Key_Space){
-        disparo = new ataque_Bas(tipo);
-        disparo->setPos(x(),y());
+        if(tipo==1){
+            disparo = new ataque_Bas(tipo,x()+50,y()+20,10,10);
+        }
+        if(tipo==0){
+            disparo = new ataque_Bas(tipo,x()-10,y()+20,10,10);
+        }
+
+        disparo->setPos(x1,y1);
         scene()->addItem(disparo);
     }
 }
