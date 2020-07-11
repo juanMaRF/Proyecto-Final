@@ -12,4 +12,12 @@
         <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png</file>
         <file>Imagenes Proyecto final/6 Deceased/Ball.png</file>
     </qresource>
+    <qresource prefix="/caminader">
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk6Der.png</file>
+    </qresource>
 </RCC>

@@ -39,40 +39,76 @@ void player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     QPixmap pixmap;
 
+    if(tipo==0){
 
+        if(imagen==0){
+            imagen=2;
 
-    if(imagen==0){
-        imagen=2;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==2){
+            imagen=3;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==3){
+            imagen=4;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==4){
+            imagen=5;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==5){
+            imagen=6;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==6){
+            imagen=0;
+            pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
 
-        //pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png");
-        pixmap.transformed(QTransform().scale(-1,-1)).load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png");
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
-    else if(imagen==2){
-        imagen=3;
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-    }
-    else if(imagen==3){
-        imagen=4;
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-    }
-    else if(imagen==4){
-        imagen=5;
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-    }
-    else if(imagen==5){
-        imagen=6;
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-    }
-    else if(imagen==6){
-        imagen=0;
-        pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+
+    if(tipo==1){
+
+        if(imagen==0){
+            imagen=2;
+
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk6Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==2){
+            imagen=3;
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==3){
+            imagen=4;
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==4){
+            imagen=5;
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==5){
+            imagen=6;
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+        else if(imagen==6){
+            imagen=0;
+            pixmap.load(":/caminader/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der.png");
+            painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        }
+
     }
 }
 
@@ -80,20 +116,22 @@ void player::keyPressEvent(QKeyEvent *event)
 {
 
     if(event->key()==Qt::Key_Left){
+
         setPos(x()-5,y());
         tipo=0;
     }
     else if (event->key() == Qt::Key_Right){
+
         setPos(x()+5,y());
         tipo=1;
     }
     else if(event->key()== Qt::Key_Up){
         setPos(x(),y()-5);
-        tipo=2;
+
     }
     else if(event->key()== Qt::Key_Down){
         setPos(x(),y()+5);
-        tipo=3;
+
     }
     else if(event->key()== Qt::Key_Space){
         disparo = new ataque_Bas(tipo);

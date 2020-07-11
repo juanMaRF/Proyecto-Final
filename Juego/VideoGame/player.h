@@ -29,7 +29,7 @@ public:
 
 
 private:
-    short tipo;
+    short tipo=1;
     short imagen=0;
     int x1,y1,h1,w1;
     ataque_Bas *disparo;

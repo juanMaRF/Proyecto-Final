@@ -10,7 +10,8 @@ public:
 public slots:
     void move();
 private:
-    short ataque;
+    int pos_inicial;
+    short ataque,con=1;
 
 };
 
