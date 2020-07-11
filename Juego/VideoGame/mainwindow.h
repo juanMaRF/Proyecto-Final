@@ -31,6 +31,7 @@ public:
     bool colision(moob *cuerpo);
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
+    void leer_ene(int lvl_,QGraphicsScene *scene);
 
 
 

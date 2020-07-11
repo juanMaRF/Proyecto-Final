@@ -1,42 +1,81 @@
 #include "moob.h"
 
-moob::moob(QObject *parent) : QObject(parent)
+float moob::getVel_tempx() const
 {
+    return vel_tempx;
+}
 
-    timer = new QTimer();
-    filas = 0;
-    columnas = 0;
-    pixmap = new QPixmap(":/Imagenes Proyecto final/2 Hyena/Hyena_walk.png");
+void moob::setVel_tempx(float value)
+{
+    vel_tempx = value;
+}
 
-    //dimensiones de c/U de las imagenes
-    ancho = 50;
-    alto  = 50;
+float moob::getVel_tempy() const
+{
+    return vel_tempy;
+}
 
-    timer->start(100);// modifica la velocidad en que itera entre las imagenes
+void moob::setVel_tempy(float value)
+{
+    vel_tempy = value;
+}
+
+moob::moob(int x_, int y_, int w_, int h_, QString img)
+{
+    x=x_;
+    y=y_;
+    w=w_;
+    h=h_;
+    if(img=="perro"){
+        pixmap.load(":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png");
+        Ider=":/Imagenes Proyecto final/2 Hyena/Hyena_walk_right.png";
+        Iizq=":/Imagenes Proyecto final/2 Hyena/Hyena_walk.png";
+        Ies=":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png";
+    }
+    timer=new QTimer();
+    timer->start(95);// modifica la velocidad en que itera entre las imagenes
 
     connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
-
-
 }
 
-double moob::getY() const
+QRectF moob::boundingRect() const
 {
-    return y;
+    return QRectF(-w/2,-h/2,w,h);
 }
 
-void moob::setY(double value)
+void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    y = value;
+    painter->drawPixmap(-h/2,-h/2,pixmap,columnas,0,w,h);
 }
 
-double moob::getX() const
+void moob::move_x()
 {
-    return x;
+    vel_x=1;
+    vel_tempx=2;
+    if(vel_tempx<vel_x){
+        vel_x=-16;
+    x=x+vel_x*delta;
+    y=y+vel_y*delta;
+    setPos(x,y);
+    pixmap.load(Iizq);
+    }else if(vel_tempx>vel_x){
+        vel_x=16;
+    x=x+vel_x*delta;
+    y=y+vel_y*delta;
+    setPos(x,y);
+    pixmap.load(Ider);
+    }else{
+        pixmap.load(Ies);
+    }
 }
 
-void moob::setX(double value)
+void moob::move_y()
 {
-    x = value;
+    vel_x=0;
+    vel_y=16;
+    x=x+vel_x*delta;
+    y=y+vel_y*delta;
+    setPos(x,y);
 }
 
 void moob::Actualizacion()
@@ -46,39 +85,7 @@ void moob::Actualizacion()
     {
         columnas =0;
     }
-    this->update(-ancho/2,-alto/2,ancho,alto);
-
-}
-QRectF moob::boundingRect() const
-{
-    return QRectF(-ancho/2,-alto/2,ancho,alto);
+    this->update(-w/2,-h/2,w,h);
 }
 
-void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    painter->drawPixmap(-ancho/2,-alto/2,*pixmap,columnas,0,ancho,alto);
-}
 
-void moob::actualizar_x()
-{
-    vel_x=15;
-    vel_y=0;
-    x=x+vel_x*delta;
-    y=y+vel_y*delta;
-    setPos(x,y);
-
-}
-
-void moob::mover_m(int x_, int y_)
-{
-
-}
-
-void moob::actualizar_y()
-{
-    vel_x=0;
-    vel_y=15;
-    x=x+vel_x*delta;
-    y=y+vel_y*delta;
-    setPos(x,y);
-}
