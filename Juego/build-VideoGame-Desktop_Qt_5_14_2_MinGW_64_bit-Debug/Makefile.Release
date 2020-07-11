@@ -131,7 +131,9 @@ release/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena.png \
 		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena_idle.png \
 		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena_attack_rigth.png \
-		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena_walk_right.png
+		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena_walk_right.png \
+		../VideoGame/Imagenes\ Proyecto\ final/4\ Vulture/Vulture_walk_der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/4\ Vulture/Vulture_walk.png
 	C:\Qt\5.14.2\mingw73_64\bin\rcc.exe -name imagenes ..\VideoGame\imagenes.qrc -o release\qrc_imagenes.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h

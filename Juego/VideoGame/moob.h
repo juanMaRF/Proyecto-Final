@@ -7,14 +7,16 @@
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
+#include <math.h>
 
 class moob: public QGraphicsItem,public QObject
 {
-    int x;
-    int y;
+    int x,xi;
+    int y,yi;
     int w;
     int h;
-    float vel_x,vel_y,delta=0.1;
+    int vida=30;
+    float vel_x=25,vel_y=25,delta=0.1;
     float vel_tempx=vel_x,vel_tempy=vel_y;
     QPixmap pixmap;
     int columnas=0;
@@ -34,11 +36,18 @@ public:
 
     void move_x();
     void move_y();
+    void move();
     float getVel_tempx() const;
     void setVel_tempx(float value);
 
     float getVel_tempy() const;
     void setVel_tempy(float value);
+
+    float getVel_x() const;
+    void setVel_x(float value);
+
+    float getVel_y() const;
+    void setVel_y(float value);
 
 public slots:
     void Actualizacion();

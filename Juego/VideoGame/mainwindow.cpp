@@ -21,11 +21,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-bool MainWindow::colision(moob *cuerpo)
+QString MainWindow::colision(moob *cuerpo)
 {
-    for (QList <obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
-        if(cuerpo->collidesWithItem(*it)) return false;
+    for (QList <obstaculos*>::iterator it=paredes_sup.begin();it!=paredes_sup.end();it++) {
+        if(cuerpo->collidesWithItem(*it)){ return "valla";}
     }
+    for (QList <obstaculos*>::iterator it=paredes_lateral.begin();it!=paredes_lateral.end();it++) {
+        if(cuerpo->collidesWithItem(*it)){ return "lat";}
+    }
+    return "no";
 }
 
 
@@ -43,7 +47,7 @@ void MainWindow::leer_lvl(int lvl_)
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(-85,-90,1111,621);
     scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
-    e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
+
     //leer_ene(1,scene);
 
     QFile file(lvl);
@@ -64,6 +68,11 @@ void MainWindow::leer_lvl(int lvl_)
             scene->addItem(new obstaculos(coordx,coordy,w_,h_,textura));
             lista_piedra.push_back(new obstaculos(coordx,coordy,w_,h_,textura));
             comas=0;
+            if(textura=="piedra2" or textura=="hojas1" or textura=="hongo1"){
+                paredes_lateral.push_back(new obstaculos(coordx,coordy,w_,h_,textura));
+            }else if(textura=="valla1"){
+                paredes_sup.push_back(new obstaculos(coordx,coordy,w_,h_,textura));
+            }
 
         }
         if(text.at(i)==","){
@@ -91,6 +100,8 @@ void MainWindow::leer_lvl(int lvl_)
 
         temp.append(text.at(i));
     }
+    e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
+    //leer_ene(lvl_,scene);
     time->start(20);
 }
 
@@ -99,9 +110,10 @@ void MainWindow::leer_ene(int lvl_, QGraphicsScene *scene)
     QString lvl;
     if(lvl_==1){
         lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/enem_lvl1.TXT";
-    }else if(lvl_==2){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
+//    else if(lvl_==2){
+//        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+//    }
 
     //e1=new moob(900,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
 
@@ -156,8 +168,17 @@ void MainWindow::leer_ene(int lvl_, QGraphicsScene *scene)
 
 void MainWindow::Mover()
 {
+
     for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
-        (*it)->move_x();
-        //(*it)->move_y();
+        QString onjto=colision((*it));
+        if(onjto=="lat")
+        {
+            (*it)->setVel_x((*it)->getVel_x()*-1);
+            //mover
+        }else if(onjto=="valla"){
+            (*it)->setVel_y((*it)->getVel_y()*-1);
+            //mover
+        }
+        (*it)->move();
     }
 }

@@ -20,17 +20,37 @@ void moob::setVel_tempy(float value)
     vel_tempy = value;
 }
 
+float moob::getVel_x() const
+{
+    return vel_x;
+}
+
+void moob::setVel_x(float value)
+{
+    vel_x = value;
+}
+
+float moob::getVel_y() const
+{
+    return vel_y;
+}
+
+void moob::setVel_y(float value)
+{
+    vel_y = value;
+}
+
 moob::moob(int x_, int y_, int w_, int h_, QString img)
 {
-    x=x_;
-    y=y_;
+    x=x_;xi=x_;
+    y=y_;yi=y_;
     w=w_;
     h=h_;
     if(img=="perro"){
-        pixmap.load(":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png");
-        Ider=":/Imagenes Proyecto final/2 Hyena/Hyena_walk_right.png";
-        Iizq=":/Imagenes Proyecto final/2 Hyena/Hyena_walk.png";
-        Ies=":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png";
+        pixmap.load(":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png");
+        Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png";
+        Iizq=":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png";
+        //Ies=":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png";
     }
     timer=new QTimer();
     timer->start(95);// modifica la velocidad en que itera entre las imagenes
@@ -40,7 +60,7 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
 
 QRectF moob::boundingRect() const
 {
-    return QRectF(-w/2,-h/2,w,h);
+    return QRectF(-w/2,-h/2,w*2,h*2);
 }
 
 void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -48,40 +68,23 @@ void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->drawPixmap(-h/2,-h/2,pixmap,columnas,0,w,h);
 }
 
-void moob::move_x()
+void moob::move()
 {
-    vel_x=1;
-    vel_tempx=2;
-    if(vel_tempx<vel_x){
-        vel_x=-16;
     x=x+vel_x*delta;
     y=y+vel_y*delta;
     setPos(x,y);
-    pixmap.load(Iizq);
-    }else if(vel_tempx>vel_x){
-        vel_x=16;
-    x=x+vel_x*delta;
-    y=y+vel_y*delta;
-    setPos(x,y);
-    pixmap.load(Ider);
-    }else{
-        pixmap.load(Ies);
-    }
-}
 
-void moob::move_y()
-{
-    vel_x=0;
-    vel_y=16;
-    x=x+vel_x*delta;
-    y=y+vel_y*delta;
-    setPos(x,y);
+    if(vel_x<0){
+        pixmap.load(Iizq);
+    }else{
+        pixmap.load(Ider);
+    }
 }
 
 void moob::Actualizacion()
 {
     columnas +=50;
-    if(columnas >=300)
+    if(columnas >=200)
     {
         columnas =0;
     }
