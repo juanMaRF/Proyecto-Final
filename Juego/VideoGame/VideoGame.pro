@@ -19,11 +19,13 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
+    nodos.cpp \
     obstaculos.cpp
 
 HEADERS += \
     mainwindow.h \
     moob.h \
+    nodos.h \
     obstaculos.h
 
 FORMS += \

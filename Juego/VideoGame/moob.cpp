@@ -19,6 +19,26 @@ moob::moob(QObject *parent) : QObject(parent)
 
 }
 
+double moob::getY() const
+{
+    return y;
+}
+
+void moob::setY(double value)
+{
+    y = value;
+}
+
+double moob::getX() const
+{
+    return x;
+}
+
+void moob::setX(double value)
+{
+    x = value;
+}
+
 void moob::Actualizacion()
 {
     columnas +=50;
@@ -46,6 +66,11 @@ void moob::actualizar_x()
     x=x+vel_x*delta;
     y=y+vel_y*delta;
     setPos(x,y);
+
+}
+
+void moob::mover_m(int x_, int y_)
+{
 
 }
 

@@ -17,6 +17,9 @@ public:
     double vida=20,vel,vel_x,vel_y,x,y,delta=0.1;
     float filas,columnas;
 
+
+
+
     float ancho;
     float alto;
 
@@ -24,9 +27,19 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void actualizar_y();
     void actualizar_x();
+    void mover_m(int x_, int y_);
 
+
+
+    double getX() const;
+    void setX(double value);
+
+    double getY() const;
+    void setY(double value);
 
 signals:
+
+
 
 public slots:
     void Actualizacion();

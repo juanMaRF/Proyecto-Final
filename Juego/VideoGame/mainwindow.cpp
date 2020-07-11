@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <math.h>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,6 +19,14 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::colision(moob *cuerpo)
+{
+    for (QList <obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        if(cuerpo->collidesWithItem(*it)) return false;
+    }
+    return true;
 }
 
 
@@ -82,9 +92,12 @@ void MainWindow::leer_lvl(int lvl_)
     time->start(20);
 }
 
+
+
 void MainWindow::Mover()
 {
     for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
         //(*it)->actualizar_x();
+
     }
 }
