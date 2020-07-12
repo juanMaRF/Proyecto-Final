@@ -36,7 +36,6 @@ void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 void ataque_Bas::move()
 {
-    qDebug()<<"PROBLEMON: "<<x()<<"  "<<y();
     if(con==1){
         pos_inicial=pos().x();
         con=2;

@@ -1,0 +1,11 @@
+release/ataque_bas.o
+release/enemi_dis.o
+release/main.o
+release/mainwindow.o
+release/obstaculos.o
+release/player.o
+release/qrc_imagenes.o
+release/moc_ataque_bas.o
+release/moc_enemi_dis.o
+release/moc_mainwindow.o
+release/moc_player.o

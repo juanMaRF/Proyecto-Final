@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ataque_bas.cpp \
+    enemi_dis.cpp \
     main.cpp \
     mainwindow.cpp \
     obstaculos.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 
 HEADERS += \
     ataque_bas.h \
+    enemi_dis.h \
     mainwindow.h \
     obstaculos.h \
     player.h

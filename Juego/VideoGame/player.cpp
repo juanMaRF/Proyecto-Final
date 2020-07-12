@@ -120,22 +120,22 @@ void player::keyPressEvent(QKeyEvent *event)
 
         setPos(x()-5,y());
         tipo=0;
-        qDebug()<<"IZQUIERDA: "<<x()<<"  "<<y();
+
     }
     else if (event->key() == Qt::Key_Right){
 
         setPos(x()+5,y());
         tipo=1;
-        qDebug()<<"DERECHA: "<<x()<<"  "<<y();
+
     }
     else if(event->key()== Qt::Key_Up){
         setPos(x(),y()-5);
-        qDebug()<<"ARRIBA: "<<x()<<"  "<<y();
+
 
     }
     else if(event->key()== Qt::Key_Down){
         setPos(x(),y()+5);
-        qDebug()<<"ABAJO: "<<x()<<"  "<<y();
+
 
     }
     else if(event->key()== Qt::Key_Space){

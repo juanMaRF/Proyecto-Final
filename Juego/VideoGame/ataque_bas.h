@@ -17,8 +17,9 @@ public:
     int getY1() const;
     void setY1(int value);
 
-public slots:
+private slots:
     void move();
+
 private:
     int pos_inicial;
     short ataque,con=1;

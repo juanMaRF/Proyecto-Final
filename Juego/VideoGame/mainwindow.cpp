@@ -36,7 +36,14 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
         jugador->setPos(95,90);
-        qDebug()<<"PROBLEMON 2: "<<jugador->pos().x()<<"  "<<jugador->pos().y();
+
+
+        //añadimos el enemigo con ataque a distancia
+        enemy_dis = new enemi_dis(0,460,100,70,60);
+        enemy_dis2 = new enemi_dis(1,35,100,70,60);
+        scene->addItem(enemy_dis);
+        scene->addItem(enemy_dis2);
+
 
 
 
