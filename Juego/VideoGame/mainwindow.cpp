@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    leer_lvl(1);
+    //leer_lvl(2);
+    Boss_1();
 
 
 
@@ -43,7 +44,7 @@ void MainWindow::leer_lvl(int lvl_)
         lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
-    ui->graphicsView->setScene(scene);
+
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(-85,-90,1111,621);
     scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
@@ -101,6 +102,9 @@ void MainWindow::leer_lvl(int lvl_)
         temp.append(text.at(i));
     }
     e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
+    e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
+    e3=new moob(300,400,50,50,"perro");scene->addItem(e3);enemigos.push_back(e3);
+    e4=new moob(700,400,50,50,"perro");scene->addItem(e4);enemigos.push_back(e4);
     //leer_ene(lvl_,scene);
     time->start(20);
 }
@@ -164,8 +168,19 @@ void MainWindow::leer_ene(int lvl_, QGraphicsScene *scene)
     }
 }
 
+void MainWindow::Boss_1()
+{
+    scene=new QGraphicsScene;
+
+    ui->graphicsView->setScene(scene);
+    scene->setSceneRect(0,0,1111,621);
+    scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
 
 
+
+
+
+}
 void MainWindow::Mover()
 {
 

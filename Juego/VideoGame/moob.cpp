@@ -51,9 +51,11 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
         Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png";
         Iizq=":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png";
         //Ies=":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png";
+    }else if(img=="sans"){
+        pixmap.load(":/Imagenes Proyecto final/sans.png");
     }
     timer=new QTimer();
-    timer->start(95);// modifica la velocidad en que itera entre las imagenes
+    timer->start(80);// modifica la velocidad en que itera entre las imagenes
 
     connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
 }

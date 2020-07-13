@@ -14,6 +14,8 @@
 #include <QFile>
 #include "obstaculos.h"
 #include "moob.h"
+#include <QLabel>
+#include <QMovie>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,6 +34,7 @@ public:
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
     void leer_ene(int lvl_,QGraphicsScene *scene);
+    void Boss_1();
 
 
 
@@ -41,10 +44,10 @@ private:
     QTimer *time;
     QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup;
     QList <moob*> enemigos;
-    obstaculos *o1,*o2,*o3,*o4,*o5,*o6,*o7,*o8,*o9,*o10,*o11,*o12,*o13,*o14,*o15,*o16,*o17,*o18,*o19,*o20,*o21,*o22,*o23,*o24,*o25,*v1,*v2,*v3,*v4,*v5,*v6,*v7,*v8,*v9,*v10;
-    obstaculos *m1,*m2,*m3,*m4,*m5,*m6,*m7,*m8,*m9,*m10;
-    moob *e1;
+    moob *e1,*e2,*e3,*e4;
+    moob *boss1;
     int cant_obj=0;
+
 
 
 

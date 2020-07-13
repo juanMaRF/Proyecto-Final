@@ -4,7 +4,6 @@
         <file>Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg</file>
         <file>Imagenes Proyecto final/2 Hyena/Hyena.png</file>
         <file>Imagenes Proyecto final/2 Hyena/Hyena_walk.png</file>
-        <file>Imagenes Proyecto final/valla1.gif</file>
         <file>Imagenes Proyecto final/roca2.gif</file>
         <file>Imagenes Proyecto final/hojas1.gif</file>
         <file>Imagenes Proyecto final/hongo1.gif</file>
@@ -13,5 +12,8 @@
         <file>Imagenes Proyecto final/2 Hyena/Hyena_walk_right.png</file>
         <file>Imagenes Proyecto final/4 Vulture/Vulture_walk.png</file>
         <file>Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png</file>
+        <file>Imagenes Proyecto final/valla1.png</file>
+        <file>Imagenes Proyecto final/escena_boss.png</file>
+        <file>Imagenes Proyecto final/sans.png</file>
     </qresource>
 </RCC>

@@ -20,11 +20,6 @@ void obstaculos::setY(int value)
     y = value;
 }
 
-//void obstaculos::imagen(QString img)
-//{
-//    pixmap.load(img);
-//}
-
 obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;
@@ -34,7 +29,7 @@ obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
     if(img=="piedra1"){
         pixmap.load(":/Imagenes Proyecto final/roca1.gif");
     }else if(img=="valla1"){
-        pixmap.load(":/Imagenes Proyecto final/valla1.gif");
+        pixmap.load(":/Imagenes Proyecto final/valla1.png");
     }else if (img=="piedra2"){
         pixmap.load(":/Imagenes Proyecto final/roca2.gif");
     }else if(img=="hongo1"){

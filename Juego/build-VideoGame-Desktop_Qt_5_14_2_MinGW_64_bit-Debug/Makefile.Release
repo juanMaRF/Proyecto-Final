@@ -123,9 +123,11 @@ release/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		C:/Qt/5.14.2/mingw73_64/bin/rcc.exe \
 		../VideoGame/Imagenes\ Proyecto\ final/roca1.gif \
 		../VideoGame/Imagenes\ Proyecto\ final/hongo1.gif \
+		../VideoGame/Imagenes\ Proyecto\ final/escena_boss.png \
+		../VideoGame/Imagenes\ Proyecto\ final/sans.png \
 		../VideoGame/Imagenes\ Proyecto\ final/WhatsApp\ Image\ 2020-07-08\ at\ 6.48.30\ PM.jpeg \
 		../VideoGame/Imagenes\ Proyecto\ final/hojas1.gif \
-		../VideoGame/Imagenes\ Proyecto\ final/valla1.gif \
+		../VideoGame/Imagenes\ Proyecto\ final/valla1.png \
 		../VideoGame/Imagenes\ Proyecto\ final/roca2.gif \
 		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena_walk.png \
 		../VideoGame/Imagenes\ Proyecto\ final/2\ Hyena/Hyena.png \
@@ -278,6 +280,19 @@ release/moc_mainwindow.cpp: ../VideoGame/mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QPixmap \
 		../VideoGame/moob.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QMovie \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qmovie.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimagereader.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qplugin.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonobject.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfactoryinterface.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\mainwindow.h -o release\moc_mainwindow.cpp
@@ -438,10 +453,21 @@ release/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QPixmap \
 		../VideoGame/moob.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QMovie \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qmovie.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimagereader.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qplugin.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonobject.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfactoryinterface.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h
@@ -580,12 +606,23 @@ release/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QPixmap \
 		../VideoGame/moob.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QMovie \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qmovie.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimagereader.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qplugin.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonobject.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfactoryinterface.h \
 		ui_mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
