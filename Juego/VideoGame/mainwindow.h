@@ -53,7 +53,7 @@ private:
     int cant_obj=0;
     int turn=1;
     corazon *p1;
-    boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10;
+    boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10,*b11,*b12,*b13,*b14,*b15,*b16,*b17;
     QList <boss*> atks;
 
 
@@ -66,5 +66,6 @@ private slots:
     void Mover();
     void on_pushButton_clicked();
     void atk_1();
+    void atk_2();
 };
 #endif // MAINWINDOW_H

@@ -8,14 +8,16 @@
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
-//#include "mainwindow.h"
+#include <math.h>
 
 
 
 class boss:public QObject,public QGraphicsItem
 {
-    int vida=100,x,y,velx=100,vely=50,r=10;
+    float pi=3.14159;
+    int vida=100,x,y,velx=100,vely=30,r=8;
     int xi,yi;
+    double W=5,R=5,xc,yc,S,Vc,Ac,Rx,Ry;
     double delta=0.1;
 public:
 
@@ -35,6 +37,12 @@ public:
 
     int getVelx() const;
     void setVelx(int value);
+
+    int getXi() const;
+    void setXi(int value);
+
+    int getYi() const;
+    void setYi(int value);
 
 private slots:
 

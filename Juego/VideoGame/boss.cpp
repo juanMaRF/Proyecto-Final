@@ -1,7 +1,5 @@
 #include "boss.h"
 
-//extern MainWindow * game;
-
 int boss::getX() const
 {
     return x;
@@ -32,6 +30,26 @@ void boss::setVelx(int value)
     velx = value;
 }
 
+int boss::getXi() const
+{
+    return xi;
+}
+
+void boss::setXi(int value)
+{
+    xi = value;
+}
+
+int boss::getYi() const
+{
+    return yi;
+}
+
+void boss::setYi(int value)
+{
+    yi = value;
+}
+
 boss::boss()
 {
 
@@ -43,11 +61,6 @@ boss::boss(int x_, int y_)
     y=y_;
     xi=x;
     yi=y;
-
-    //    QTimer *tiempo;
-//    tiempo=new QTimer;
-//    connect(tiempo,SIGNAL(timeout()),this,SLOT(atk_1()));
-//    tiempo->start(50);
 }
 
 QRectF boss::boundingRect() const
@@ -57,20 +70,22 @@ QRectF boss::boundingRect() const
 
 void boss::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::cyan);
+    painter->setBrush(Qt::white);
     painter->drawEllipse(boundingRect());
 }
 
 void boss::atk_1()
 {
-//    int te=1;
-//    velx=velx*te;
     y=y+vely*delta;
-//    te=te*-1;
-    if((xi+50==x) || (xi-50==x)){
+    if((xi+30==x) || (xi-30==x)){
         velx=velx*-1;
     }
     x=x+velx*delta;
     setPos(x,y);
+}
+
+void boss::atk_2()
+{
+
 
 }
