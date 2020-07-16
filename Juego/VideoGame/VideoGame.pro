@@ -16,17 +16,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    boss.cpp \
+    corazon.cpp \
+    gravitatorio.cpp \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
     nodos.cpp \
-    obstaculos.cpp
+    obstaculos.cpp \
+    tiropara.cpp
 
 HEADERS += \
+    boss.h \
+    corazon.h \
+    gravitatorio.h \
     mainwindow.h \
     moob.h \
     nodos.h \
-    obstaculos.h
+    obstaculos.h \
+    tiropara.h
 
 FORMS += \
     mainwindow.ui

@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QWidget>
 #include <QMainWindow>
+#include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QFile>
@@ -16,6 +17,8 @@
 #include "moob.h"
 #include <QLabel>
 #include <QMovie>
+#include "corazon.h"
+#include "boss.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,6 +38,7 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_ene(int lvl_,QGraphicsScene *scene);
     void Boss_1();
+    void keyPressEvent(QKeyEvent *evento);
 
 
 
@@ -47,12 +51,20 @@ private:
     moob *e1,*e2,*e3,*e4;
     moob *boss1;
     int cant_obj=0;
+    int turn=1;
+    corazon *p1;
+    boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10;
+    QList <boss*> atks;
 
 
 
 
+signals:
+    void keyCaught(QKeyEvent *e);
 
 private slots:
     void Mover();
+    void on_pushButton_clicked();
+    void atk_1();
 };
 #endif // MAINWINDOW_H
