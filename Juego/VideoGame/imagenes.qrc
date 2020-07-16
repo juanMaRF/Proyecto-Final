@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>Imagenes Proyecto final/roca1.gif</file>
         <file>Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg</file>
+        <file>Imagenes Proyecto final/fondo boss.jpeg</file>
     </qresource>
     <qresource prefix="/n">
         <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png</file>
@@ -29,6 +30,7 @@
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Ataque/Scorpio_attack2.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Ataque/Scorpio_attack3.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Ataque/Scorpio_attack4.png</file>
+        <file>Imagenes Proyecto final/3 Scorpio/Scorpio_walk.png</file>
     </qresource>
     <qresource prefix="/enemy_dis_der">
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png</file>
@@ -39,5 +41,6 @@
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Ataque_der/Scorpio_attack2_der.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Ataque_der/Scorpio_attack3_der.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Ataque_der/Scorpio_attack4_der.png</file>
+        <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk_der.png</file>
     </qresource>
 </RCC>

@@ -48,7 +48,7 @@ void ataque_Bas::move()
         setPos(x()+10,y());
     }
 
-    if(pos_inicial+150<=pos().x() or pos_inicial-150>=pos().x()){
+    if(pos_inicial+400<=pos().x() or pos_inicial-400>=pos().x()){
         scene()->removeItem(this);
         delete this;
     }

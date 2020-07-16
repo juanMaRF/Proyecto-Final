@@ -136,7 +136,6 @@ void player::keyPressEvent(QKeyEvent *event)
     else if(event->key()== Qt::Key_Down){
         setPos(x(),y()+5);
 
-
     }
     else if(event->key()== Qt::Key_Space){
         if(tipo==1){
@@ -149,4 +148,10 @@ void player::keyPressEvent(QKeyEvent *event)
         disparo->setPos(x1,y1);
         scene()->addItem(disparo);
     }
+    else if(event->key()==0x43){
+        ataque_es = new tiropara(x()-40,y()+10,20,-45);
+        //ataque_es->setPos(x(),y());
+        scene()->addItem(ataque_es);
+    }
+
 }

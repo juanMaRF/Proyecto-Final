@@ -1,13 +1,15 @@
 #include "enemi_dis.h"
 
-enemi_dis::enemi_dis(int tipo,int x, int y, int w, int h)
+enemi_dis::enemi_dis(int nivel, int tipo,int x, int y, int w, int h)
 {
     timer = new QTimer(this);
     tipo1=tipo;
+    nivel1=nivel;
     x1=x;
     y1=y;
     w1=w;
     h1=h;
+
     timer->start(60);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -26,10 +28,9 @@ void enemi_dis::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
     if(tipo1==0){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk4.png");
+        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
-
 
     /**
     if(imagen==0){
@@ -61,28 +62,13 @@ void enemi_dis::move()
         pos_inicial=this->getY1();
         con=1;
     }
-    if(this->getY1()<pos_inicial+40 && col==0){
-        this->setY1(this->getY1()+3);
-        this->setPos(x1,this->getY1());
-        if(this->getY1()>pos_inicial+40){
 
-        if(tipo1==0){
-            shot=new ataque_Bas(0,x1,y1,10,10);
-            shot->setPos(x1,y1);
-            scene()->addItem(shot);
-        }
-        if(tipo1==1){
-            shot= new ataque_Bas(1,x1,y1,10,10);
-            shot->setPos(x1,y1);
-            scene()->addItem(shot);
-        }
-        col=1;
-        }
-    }
-    if(this->getY1()>pos_inicial && col==1){
-        this->setY1(this->getY1()-3);
-        this->setPos(x1,this->getY1());
-        if(this->getY1()==pos_inicial){
+    if(nivel1==0){
+
+        if(this->getY1()<pos_inicial+40 && col==0){
+            this->setY1(this->getY1()+2);
+            this->setPos(x1,this->getY1());
+            if(this->getY1()==pos_inicial+40 or this->getY1()==pos_inicial+20){
 
             if(tipo1==0){
                 shot=new ataque_Bas(0,x1,y1,10,10);
@@ -90,16 +76,51 @@ void enemi_dis::move()
                 scene()->addItem(shot);
             }
             if(tipo1==1){
-                shot= new ataque_Bas(1,x1+10,y1,10,10);
-                shot->setPos(x1+10,y1);
+                shot= new ataque_Bas(1,x1,y1,10,10);
+                shot->setPos(x1,y1);
                 scene()->addItem(shot);
             }
+            if(this->getY1()==pos_inicial+40){
+               col=1;
+            }
 
-            col=0;
+            }
+        }
+        if(this->getY1()>pos_inicial && col==1){
+            this->setY1(this->getY1()-2);
+            this->setPos(x1,this->getY1());
+            if(this->getY1()==pos_inicial or this->getY1()==pos_inicial+20){
+
+                if(tipo1==0){
+                    shot=new ataque_Bas(0,x1,y1,10,10);
+                    shot->setPos(x1,y1);
+                    scene()->addItem(shot);
+                }
+                if(tipo1==1){
+                    shot= new ataque_Bas(1,x1+10,y1,10,10);
+                    shot->setPos(x1+10,y1);
+                    scene()->addItem(shot);
+                }
+                if(this->getY1()==pos_inicial){
+                   col=0;
+                }
+            }
         }
     }
 
 }
+
+/**
+void enemi_dis::actualizar()
+{
+    columnas+=46;
+    if(columnas>=186){
+        columnas = 0;
+    }
+    this->update(-w1/2,-h1/2,w1,h1);
+}
+**/
+
 
 int enemi_dis::getX1() const
 {

@@ -10,6 +10,7 @@
 #include <QPainter>
 #include <QKeyEvent>
 #include "ataque_bas.h"
+#include "tiropara.h"
 
 class player:public QObject, public QGraphicsPixmapItem
 {
@@ -33,6 +34,7 @@ private:
     short imagen=0;
     int x1,y1,h1,w1;
     ataque_Bas *disparo;
+    tiropara *ataque_es;
 };
 
 #endif // PLAYER_H

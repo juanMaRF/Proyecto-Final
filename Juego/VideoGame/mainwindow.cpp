@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     //niveles(1)
     //}
 
-    niveles(0);
+    niveles(1);
 
 }
 
@@ -21,9 +21,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::niveles(int x)
 {
     if(x==0){
+
+        //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(0,0,1060,570);
@@ -39,8 +42,8 @@ void MainWindow::niveles(int x)
 
 
         //añadimos el enemigo con ataque a distancia
-        enemy_dis = new enemi_dis(0,460,100,70,60);
-        enemy_dis2 = new enemi_dis(1,35,100,70,60);
+        enemy_dis = new enemi_dis(0,0,460,100,80,60);
+        enemy_dis2 = new enemi_dis(0,1,35,100,80,60);
         scene->addItem(enemy_dis);
         scene->addItem(enemy_dis2);
 
@@ -78,14 +81,29 @@ void MainWindow::niveles(int x)
         o24=new obstaculos(550,250,50,50);scene->addItem(o24);lista_piedra.push_back(o24);
         o25=new obstaculos(450,250,50,50);scene->addItem(o25);lista_piedra.push_back(o25);
     }
-    if(x==1){
 
+
+    if(x==1){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(0,0,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
+    }
+
+
+    if(x==2){
+
+        //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(0,0,1060,570);
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
 
+        //añadimos piedras y limites a la escena
         o1=new obstaculos(55,50,50,50);scene->addItem(o1);lista_piedra.push_back(o1);
         o2=new obstaculos(915,50,50,50);scene->addItem(o2);lista_piedra.push_back(o2);
         o3=new obstaculos(915,450,50,50);scene->addItem(o3);lista_piedra.push_back(o3);
@@ -95,5 +113,24 @@ void MainWindow::niveles(int x)
         o7=new obstaculos(460,250,50,50);scene->addItem(o7);lista_piedra.push_back(o7);
         o8=new obstaculos(55,250,50,50);scene->addItem(o8);lista_piedra.push_back(o8);
         o9=new obstaculos(915,250,50,50);scene->addItem(o9);lista_piedra.push_back(o9);
+        o10=new obstaculos(10,50,50,50);scene->addItem(o10);lista_piedra.push_back(o10);
+        o11=new obstaculos(960,50,50,50);scene->addItem(o11);lista_piedra.push_back(o11);
+
+        //añadimos el jugador a la escena
+        jugador = new player(95,90,60,60);
+        scene->addItem(jugador);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+        jugador->setPos(95,90);
+
+        //añadimos el enemigo con ataque a distancia
+        enemy_dis = new enemi_dis(0,0,460,50,70,60);
+        enemy_dis2 = new enemi_dis(0,1,35,50,70,60);
+        enemy_dis3 = new enemi_dis(0,0,460,150,70,60);
+        enemy_dis4 = new enemi_dis(0,1,35,150,70,60);
+        scene->addItem(enemy_dis);
+        scene->addItem(enemy_dis2);
+        scene->addItem(enemy_dis3);
+        scene->addItem(enemy_dis4);
     }
 }

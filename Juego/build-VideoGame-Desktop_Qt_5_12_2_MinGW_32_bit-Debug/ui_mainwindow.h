@@ -26,7 +26,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *Solo;
     QPushButton *Cop;
@@ -43,25 +43,25 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(30, 10, 1080, 600));
+        graphicsView->setGeometry(QRect(0, 0, 1121, 650));
         graphicsView->setSceneRect(QRectF(0, 0, 0, 0));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(1110, 10, 311, 221));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(1120, 10, 301, 221));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        Solo = new QPushButton(widget);
+        Solo = new QPushButton(layoutWidget);
         Solo->setObjectName(QString::fromUtf8("Solo"));
 
         verticalLayout->addWidget(Solo);
 
-        Cop = new QPushButton(widget);
+        Cop = new QPushButton(layoutWidget);
         Cop->setObjectName(QString::fromUtf8("Cop"));
 
         verticalLayout->addWidget(Cop);
 
-        pushButton_5 = new QPushButton(widget);
+        pushButton_5 = new QPushButton(layoutWidget);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
 
         verticalLayout->addWidget(pushButton_5);

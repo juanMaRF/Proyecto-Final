@@ -17,18 +17,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ataque_bas.cpp \
+    boss1.cpp \
+    caida_libre.cpp \
     enemi_dis.cpp \
     main.cpp \
     mainwindow.cpp \
     obstaculos.cpp \
-    player.cpp
+    player.cpp \
+    tiropara.cpp
 
 HEADERS += \
     ataque_bas.h \
+    boss1.h \
+    caida_libre.h \
     enemi_dis.h \
     mainwindow.h \
     obstaculos.h \
-    player.h
+    player.h \
+    tiropara.h
 
 FORMS += \
     mainwindow.ui

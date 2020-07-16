@@ -17,10 +17,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>1080</width>
-      <height>600</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1121</width>
+      <height>650</height>
      </rect>
     </property>
     <property name="sceneRect">
@@ -32,12 +32,12 @@
      </rectf>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>1110</x>
+      <x>1120</x>
       <y>10</y>
-      <width>311</width>
+      <width>301</width>
       <height>221</height>
      </rect>
     </property>
