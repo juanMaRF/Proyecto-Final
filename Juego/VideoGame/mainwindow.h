@@ -33,10 +33,10 @@ public:
     ~MainWindow();
 
     void niveles(int tipo);
-    QString colision(moob *cuerpo);
+    QString colision(moob *cuerpo,obstaculos *que);
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
-    void leer_ene(int lvl_,QGraphicsScene *scene);
+    void leer_atks(int lvl_);
     void Boss_1();
     void keyPressEvent(QKeyEvent *evento);
 

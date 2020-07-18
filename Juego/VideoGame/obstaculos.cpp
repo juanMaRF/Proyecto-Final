@@ -41,7 +41,7 @@ obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
 
 QRectF obstaculos::boundingRect() const
 {
-    return QRect(x,y,w,h);
+    return QRectF(x,y,w,h);
 }
 
 void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
