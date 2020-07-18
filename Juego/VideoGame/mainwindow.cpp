@@ -91,6 +91,11 @@ void MainWindow::niveles(int x)
         scene->setSceneRect(0,0,1111,621);
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
+
+        //añadimos al boss
+        B1 = new boss1(450,70,200,200);
+        scene->addItem(B1);
+
     }
 
 

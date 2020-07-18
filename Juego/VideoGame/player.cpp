@@ -147,10 +147,11 @@ void player::keyPressEvent(QKeyEvent *event)
 
         disparo->setPos(x1,y1);
         scene()->addItem(disparo);
+
     }
     else if(event->key()==0x43){
-        ataque_es = new tiropara(x()-40,y()+10,20,-45);
-        //ataque_es->setPos(x(),y());
+        ataque_es = new tiropara(x()+20,y()+10,20,-45);
+        ataque_es->setPos(x1,y1);
         scene()->addItem(ataque_es);
     }
 

@@ -42,10 +42,13 @@ void ataque_Bas::move()
     }
 
     if(ataque == 0){
-        setPos(x()-10,y());
+        setPos(x()-30,y());
     }
     if(ataque == 1){
-        setPos(x()+10,y());
+        setPos(x()+30,y());
+    }
+    if(ataque == 2){
+        setPos(x(),y()-30);
     }
 
     if(pos_inicial+400<=pos().x() or pos_inicial-400>=pos().x()){
