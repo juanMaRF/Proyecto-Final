@@ -86,6 +86,8 @@ void boss::atk_1()
 
 void boss::atk_2()
 {
-
-
+    xc=x+(R*cos((Vt/R)*delta));
+    yc=y+(R*sin((Vt/R)*delta));
+    setPos(xc,yc);
+    delta+=0.1;
 }

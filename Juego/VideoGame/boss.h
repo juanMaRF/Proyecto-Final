@@ -14,10 +14,9 @@
 
 class boss:public QObject,public QGraphicsItem
 {
-    float pi=3.14159;
     int vida=100,x,y,velx=100,vely=30,r=8;
     int xi,yi;
-    double W=5,R=5,xc,yc,S,Vc,Ac,Rx,Ry;
+    double W=30,R=100,xc,yc,Vt=100;
     double delta=0.1;
 public:
 
