@@ -6,6 +6,7 @@ debug/main.o
 debug/mainwindow.o
 debug/obstaculos.o
 debug/player.o
+debug/slime.o
 debug/tiropara.o
 debug/qrc_imagenes.o
 debug/moc_ataque_bas.o
@@ -14,4 +15,5 @@ debug/moc_caida_libre.o
 debug/moc_enemi_dis.o
 debug/moc_mainwindow.o
 debug/moc_player.o
+debug/moc_slime.o
 debug/moc_tiropara.o

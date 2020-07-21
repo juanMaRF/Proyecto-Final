@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 
@@ -8,11 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //if(boos1==0){
-    //niveles(1)
-    //}
 
-    niveles(1);
+    niveles(0);
 
 }
 
@@ -34,11 +31,13 @@ void MainWindow::niveles(int x)
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
 
         //añadimos el jugador a la escena
-        jugador = new player(95,90,60,60);
+        jugador = new player(0,95,90,60,60);
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
         jugador->setPos(95,90);
+        //añadimos slime a la escena
+        jugador->slime1();
 
 
         //añadimos el enemigo con ataque a distancia
@@ -94,8 +93,13 @@ void MainWindow::niveles(int x)
 
         //añadimos al boss
         B1 = new boss1(450,70,200,200);
-        scene->addItem(B1);
 
+        //añadimos al player
+        scene->addItem(B1);
+        jugador = new player(1,200,300,20,20);
+        scene->addItem(jugador);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
     }
 
 
@@ -122,11 +126,10 @@ void MainWindow::niveles(int x)
         o11=new obstaculos(960,50,50,50);scene->addItem(o11);lista_piedra.push_back(o11);
 
         //añadimos el jugador a la escena
-        jugador = new player(95,90,60,60);
+        jugador = new player(0,95,90,60,60);
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
-        jugador->setPos(95,90);
 
         //añadimos el enemigo con ataque a distancia
         enemy_dis = new enemi_dis(0,0,460,50,70,60);

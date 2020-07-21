@@ -71,12 +71,12 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial+40 or this->getY1()==pos_inicial+20){
 
             if(tipo1==0){
-                shot=new ataque_Bas(0,x1,y1,10,10);
+                shot=new ataque_Bas(0,0,x1,y1,10,10);
                 shot->setPos(x1,y1);
                 scene()->addItem(shot);
             }
             if(tipo1==1){
-                shot= new ataque_Bas(1,x1,y1,10,10);
+                shot= new ataque_Bas(0,1,x1,y1,10,10);
                 shot->setPos(x1,y1);
                 scene()->addItem(shot);
             }
@@ -92,12 +92,12 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial or this->getY1()==pos_inicial+20){
 
                 if(tipo1==0){
-                    shot=new ataque_Bas(0,x1,y1,10,10);
+                    shot=new ataque_Bas(0,0,x1,y1,10,10);
                     shot->setPos(x1,y1);
                     scene()->addItem(shot);
                 }
                 if(tipo1==1){
-                    shot= new ataque_Bas(1,x1+10,y1,10,10);
+                    shot= new ataque_Bas(0,1,x1+10,y1,10,10);
                     shot->setPos(x1+10,y1);
                     scene()->addItem(shot);
                 }

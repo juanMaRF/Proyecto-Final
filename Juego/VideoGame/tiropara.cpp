@@ -3,8 +3,9 @@
 
 extern MainWindow * game;
 
-tiropara::tiropara(double x, double y, double v, double a)
+tiropara::tiropara(int tipo,double x, double y, double v, double a)
 {
+    tipo1=tipo;
     posx=x;
     posy=y;
     vel=v;
@@ -29,20 +30,26 @@ double tiropara::getPosx() const
 
 void tiropara::ActualizarPosicion()
 {
-    //qDebug()<<"ANTES: "<<posx<<"  "<<posy;
-    ActualizarVelocidad();
-    posx=posx+vel_x*delta;
-    posy=posy+vel_y*delta-(0.5*g*delta*delta);
-    //qDebug()<<"DESPUES: "<<posx<<"  "<<posy;
-    setPos(posx,posy);
+    if(con==0){
+        pos_inicial=posy;
+        con=1;
+    }
 
-    /**
-    vel_x=0;
-    vel_y=2;
-    posx=posx+vel_x*delta;
-    posy=posy+vel_y*delta;
-    setPos(posx,-posy);
-    **/
+    ActualizarVelocidad();
+
+
+    //Direccion del Ataque especial: (Derecha)
+    if(tipo1==1){
+        setPosx(getPosx()+vel_x*delta);
+    }
+    //Direccion del Ataque especial: (Izquierda)
+    if(tipo1==0){
+        setPosx(getPosx()-vel_x*delta);
+    }
+
+
+    setPosy(getPosy()+vel_y*delta-(0.5*g*delta*delta));
+    setPos(getPosx(),getPosy());
 
 }
 
@@ -53,13 +60,16 @@ void tiropara::ActualizarVelocidad()
     ang=atan2(vel_y,vel_x);
     vel= sqrt((vel_x*vel_x) + (vel_y*vel_y));
 
-    /**
-    vel_x=2;
-    vel_y=0;
-    posx=posx+vel_x*delta;
-    posy=posy+vel_y*delta;
-    setPos(posx,-posy);
-    **/
+}
+
+void tiropara::setPosy(double value)
+{
+    posy = value;
+}
+
+void tiropara::setPosx(double value)
+{
+    posx = value;
 }
 
 QRectF tiropara::boundingRect() const

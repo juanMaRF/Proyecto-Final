@@ -24,6 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     obstaculos.cpp \
     player.cpp \
+    slime.cpp \
     tiropara.cpp
 
 HEADERS += \
@@ -34,6 +35,7 @@ HEADERS += \
     mainwindow.h \
     obstaculos.h \
     player.h \
+    slime.h \
     tiropara.h
 
 FORMS += \

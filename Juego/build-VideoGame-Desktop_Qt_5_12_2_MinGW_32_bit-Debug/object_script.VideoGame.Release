@@ -6,6 +6,7 @@ release/main.o
 release/mainwindow.o
 release/obstaculos.o
 release/player.o
+release/slime.o
 release/tiropara.o
 release/qrc_imagenes.o
 release/moc_ataque_bas.o
@@ -14,4 +15,5 @@ release/moc_caida_libre.o
 release/moc_enemi_dis.o
 release/moc_mainwindow.o
 release/moc_player.o
+release/moc_slime.o
 release/moc_tiropara.o

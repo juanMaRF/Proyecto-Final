@@ -4,11 +4,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QDebug>
+#include "enemi_dis.h"
 
 extern MainWindow * game;
 
-ataque_Bas::ataque_Bas(short tipo,int x, int y,int w, int h): QObject(), QGraphicsPixmapItem()
+ataque_Bas::ataque_Bas(short nivel, short tipo,int x, int y,int w, int h): QObject(), QGraphicsPixmapItem()
 {
+    nivel1=nivel;
     x1=x;
     y1=y;
     h1=h;
@@ -36,24 +38,34 @@ void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 void ataque_Bas::move()
 {
-    if(con==1){
-        pos_inicial=pos().x();
-        con=2;
-    }
+    if(nivel1==0){
+        if(con==1){
+            pos_inicial=pos().x();
+            con=2;
+        }
 
-    if(ataque == 0){
-        setPos(x()-30,y());
-    }
-    if(ataque == 1){
-        setPos(x()+30,y());
-    }
-    if(ataque == 2){
-        setPos(x(),y()-30);
-    }
+        if(ataque == 0){
+            setPos(x()-10,y());
+        }
+        if(ataque == 1){
+            setPos(x()+10,y());
+        }
 
-    if(pos_inicial+400<=pos().x() or pos_inicial-400>=pos().x()){
-        scene()->removeItem(this);
-        delete this;
+        if(pos_inicial+400<=pos().x() or pos_inicial-400>=pos().x()){
+            scene()->removeItem(this);
+            delete this;
+        }
+    }
+    if(nivel1==1){
+        if(ataque == 0){
+            setPos(x()-30,y());
+        }
+        if(ataque == 1){
+            setPos(x()+30,y());
+        }
+        if(ataque == 2){
+            setPos(x(),y()-30);
+        }
     }
 
 
