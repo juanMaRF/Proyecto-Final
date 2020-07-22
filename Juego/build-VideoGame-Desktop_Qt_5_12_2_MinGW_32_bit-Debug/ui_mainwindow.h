@@ -31,6 +31,8 @@ public:
     QPushButton *Solo;
     QPushButton *Cop;
     QPushButton *pushButton_5;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -38,16 +40,19 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1722, 900);
+        MainWindow->resize(1562, 769);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(0, 0, 1121, 650));
+        graphicsView->setGeometry(QRect(0, 0, 1141, 641));
+        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        graphicsView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         graphicsView->setSceneRect(QRectF(0, 0, 0, 0));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(1120, 10, 301, 221));
+        layoutWidget->setGeometry(QRect(1250, 20, 311, 221));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -66,10 +71,17 @@ public:
 
         verticalLayout->addWidget(pushButton_5);
 
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(160, 640, 191, 71));
+        pushButton->setStyleSheet(QString::fromUtf8(""));
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(400, 640, 191, 71));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1722, 20));
+        menubar->setGeometry(QRect(0, 0, 1562, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -86,6 +98,8 @@ public:
         Solo->setText(QApplication::translate("MainWindow", "Un Jugador", nullptr));
         Cop->setText(QApplication::translate("MainWindow", "Dos Jugadores", nullptr));
         pushButton_5->setText(QApplication::translate("MainWindow", "Guardar", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "hablar", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "rendirse", nullptr));
     } // retranslateUi
 
 };
