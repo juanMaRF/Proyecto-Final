@@ -16,19 +16,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ataque_bas.cpp \
     boss.cpp \
+    boss1.cpp \
+    caida_libre.cpp \
     corazon.cpp \
+    enemi_dis.cpp \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
-    obstaculos.cpp
+    obstaculos.cpp \
+    pendulo.cpp \
+    player.cpp \
+    slime.cpp \
+    tiropara.cpp
 
 HEADERS += \
+    ataque_bas.h \
     boss.h \
+    boss1.h \
+    caida_libre.h \
     corazon.h \
+    enemi_dis.h \
     mainwindow.h \
     moob.h \
-    obstaculos.h
+    obstaculos.h \
+    pendulo.h \
+    player.h \
+    slime.h \
+    tiropara.h
 
 FORMS += \
     mainwindow.ui
