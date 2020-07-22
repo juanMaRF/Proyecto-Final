@@ -62,7 +62,7 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
 
 QRectF moob::boundingRect() const
 {
-    return QRectF(-w/2,-h/2,w*2,h*2);
+    return QRectF(-w/2,-h/2,w,h);
 }
 
 void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

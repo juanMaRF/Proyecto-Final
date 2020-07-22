@@ -3,7 +3,6 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
@@ -27,7 +26,6 @@ public:
     void setY(int value);
     QPixmap *getPixmap() const;
     void setPixmap(QPixmap *value);
-    //void imagen(QString img);
 };
 
 #endif // OBSTACULOS_H
