@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
 //    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-//    leer_lvl(2);
+    //leer_lvl(2);
     Boss_1();
 
 
@@ -22,19 +22,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QString MainWindow::colision(moob *cuerpo, obstaculos *que)
+QString MainWindow::colision(moob *cuerpo)
 {
     for (QList <obstaculos*>::iterator it=paredes_sup.begin();it!=paredes_sup.end();it++) {
-        if(cuerpo->collidesWithItem((*it))){
-            que=(*it);
-            return "valla";
-        }
+        if(cuerpo->collidesWithItem(*it)){ return "valla";}
     }
     for (QList <obstaculos*>::iterator it=paredes_lateral.begin();it!=paredes_lateral.end();it++) {
-        if(cuerpo->collidesWithItem((*it))){
-            que=(*it);
-            return "lat";
-        }
+        if(cuerpo->collidesWithItem(*it)){ return "lat";}
     }
     return "no";
 }
@@ -115,46 +109,62 @@ void MainWindow::leer_lvl(int lvl_)
     time->start(20);
 }
 
-void MainWindow::leer_atks(int lvl_)
+void MainWindow::leer_ene(int lvl_, QGraphicsScene *scene)
 {
     QString lvl;
-    if(lvl_==0){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
+    if(lvl_==1){
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/enem_lvl1.TXT";
     }
-    else if(lvl_==1){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
-    }
+//    else if(lvl_==2){
+//        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+//    }
+
+    //e1=new moob(900,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
+
     QFile file(lvl);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::warning(this,"Title","File not open");
     }
     QTextStream in(&file);
-    QString text=in.readAll(),temp;
+    QString text=in.readAll(),textura,temp,nomb;
     file.close();
-    int comas=0,coordx=0,coordy=0,tempint;
+    int comas=0,coordx=0,coordy=0,w_=0,h_=0,tempint;
     for (int i=0;i<text.size();i++) {
+        if(text.at(i)=="\n"){
+            cant_obj+=1;
+            nomb=cant_obj;
+            textura=temp;
+            temp.clear();
+            //crear los objetos y luego agregar a la lista
+            scene->addItem(new moob(coordx,coordy,w_,h_,textura));
+            enemigos.push_back(new moob(coordx,coordy,w_,h_,textura));
+            comas=0;
+
+        }
         if(text.at(i)==","){
             if(comas==0){
                 tempint=temp.toInt();
                 coordx=tempint;
                 temp.clear();
+            }else if(comas==1){
+                tempint=temp.toInt();
+                coordy=tempint;
+                temp.clear();
+            }else if(comas==2){
+                tempint=temp.toInt();
+                w_=tempint;
+                temp.clear();
+            }else if(comas==3){
+                tempint=temp.toInt();
+                h_=tempint;
+                temp.clear();
             }
             comas+=1;
             i++;
         }
-        if(text.at(i)=="\n"){
-            tempint=temp.toInt();
-            coordy=tempint;
-            temp.clear();
-            //crear los objetos y luego agregar a la lista
-            //scene->addItem(new boss(coordx,coordy));
-            atks.push_back(new boss(coordx,coordy));
-            comas=0;
-        }else
+
+
         temp.append(text.at(i));
-    }
-    for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
-        scene->addItem((*it));
     }
 }
 
@@ -168,7 +178,20 @@ void MainWindow::Boss_1()
     scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
 //    p1=new corazon(250,250);scene->addItem(p1);
     if(alea==0){
-        leer_atks(alea);
+        b1=new boss(170,300);scene->addItem(b1);atks.push_back(b1);
+        b2=new boss(230,300);scene->addItem(b2);atks.push_back(b2);
+        b3=new boss(290,300);scene->addItem(b3);atks.push_back(b3);
+        b4=new boss(350,300);scene->addItem(b4);atks.push_back(b4);
+        b5=new boss(410,300);scene->addItem(b5);atks.push_back(b5);
+        b6=new boss(470,300);scene->addItem(b6);atks.push_back(b6);
+        b7=new boss(530,300);scene->addItem(b7);atks.push_back(b7);
+        b8=new boss(590,300);scene->addItem(b8);atks.push_back(b8);
+        b9=new boss(650,300);scene->addItem(b9);atks.push_back(b9);
+        b10=new boss(710,300);scene->addItem(b10);atks.push_back(b10);
+        b11=new boss(770,300);scene->addItem(b11);atks.push_back(b11);
+        b12=new boss(830,300);scene->addItem(b12);atks.push_back(b12);
+        b13=new boss(890,300);scene->addItem(b13);atks.push_back(b13);
+        b14=new boss(950,300);scene->addItem(b14);atks.push_back(b14);
         int pp=1;
         for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
             (*it)->setVelx((*it)->getVelx()*pp);
@@ -176,34 +199,23 @@ void MainWindow::Boss_1()
         }
         connect(time,SIGNAL(timeout()),this,SLOT(atk_1()));
     }else if(alea==1){
-//        b1=new boss(190,420);scene->addItem(b1);atks.push_back(b1);
-//        b2=new boss(250,450);scene->addItem(b2);atks.push_back(b2);
-//        b3=new boss(310,480);scene->addItem(b3);atks.push_back(b3);
-//        b4=new boss(370,410);scene->addItem(b4);atks.push_back(b4);
-//        b5=new boss(430,440);scene->addItem(b5);atks.push_back(b5);
-//        b6=new boss(490,470);scene->addItem(b6);atks.push_back(b6);
-//        b7=new boss(550,400);scene->addItem(b7);atks.push_back(b7);
-//        b8=new boss(610,470);scene->addItem(b8);atks.push_back(b8);
-//        b9=new boss(670,440);scene->addItem(b9);atks.push_back(b9);
-//        b10=new boss(730,410);scene->addItem(b10);atks.push_back(b10);
-//        b11=new boss(790,480);scene->addItem(b11);atks.push_back(b11);
-//        b12=new boss(850,450);scene->addItem(b12);atks.push_back(b12);
-//        b13=new boss(910,420);scene->addItem(b13);atks.push_back(b13);
-//        b14=new boss(970,490);scene->addItem(b14);atks.push_back(b14);
-//        b15=new boss(130,490);scene->addItem(b15);atks.push_back(b15);
-//        b16=new boss(130,420);scene->addItem(b16);atks.push_back(b16);
-//        b15=new boss(970,420);scene->addItem(b15);atks.push_back(b15);
-        leer_atks(alea);
-        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
-    }else if(alea==2){
-        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
-        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
-        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
-        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
-        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
-        for(int i=0;i<5;i++){
-
-        }
+        b1=new boss(190,420);scene->addItem(b1);atks.push_back(b1);
+        b2=new boss(250,450);scene->addItem(b2);atks.push_back(b2);
+        b3=new boss(310,480);scene->addItem(b3);atks.push_back(b3);
+        b4=new boss(370,410);scene->addItem(b4);atks.push_back(b4);
+        b5=new boss(430,440);scene->addItem(b5);atks.push_back(b5);
+        b6=new boss(490,470);scene->addItem(b6);atks.push_back(b6);
+        b7=new boss(550,400);scene->addItem(b7);atks.push_back(b7);
+        b8=new boss(610,470);scene->addItem(b8);atks.push_back(b8);
+        b9=new boss(670,440);scene->addItem(b9);atks.push_back(b9);
+        b10=new boss(730,410);scene->addItem(b10);atks.push_back(b10);
+        b11=new boss(790,480);scene->addItem(b11);atks.push_back(b11);
+        b12=new boss(850,450);scene->addItem(b12);atks.push_back(b12);
+        b13=new boss(910,420);scene->addItem(b13);atks.push_back(b13);
+        b14=new boss(970,490);scene->addItem(b14);atks.push_back(b14);
+        b15=new boss(130,490);scene->addItem(b15);atks.push_back(b15);
+        b16=new boss(130,420);scene->addItem(b16);atks.push_back(b16);
+        b15=new boss(970,420);scene->addItem(b15);atks.push_back(b15);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }
 
@@ -212,18 +224,16 @@ void MainWindow::Boss_1()
 }
 void MainWindow::Mover()
 {
-    obstaculos *puntero=nullptr;
+
     for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
-        QString onjto=colision((*it),puntero);
+        QString onjto=colision((*it));
         if(onjto=="lat")
         {
-            if(!(*it)->collidesWithItem(puntero)){
-                (*it)->setVel_x((*it)->getVel_x()*-1);
-            }
+            (*it)->setVel_x((*it)->getVel_x()*-1);
+            //mover
         }else if(onjto=="valla"){
-            if(!(*it)->collidesWithItem(puntero)){
-                (*it)->setVel_y((*it)->getVel_y()*-1);
-            }
+            (*it)->setVel_y((*it)->getVel_y()*-1);
+            //mover
         }
         (*it)->move();
     }

@@ -16,7 +16,7 @@ class boss:public QObject,public QGraphicsItem
 {
     int vida=100,x,y,velx=100,vely=30,r=8;
     int xi,yi;
-    double W=30,R=80,xc,yc,Vt=100;
+    double W=30,R=100,xc,yc,Vt=100;
     double delta=0.1;
 public:
 
