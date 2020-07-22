@@ -176,23 +176,6 @@ void MainWindow::Boss_1()
         }
         connect(time,SIGNAL(timeout()),this,SLOT(atk_1()));
     }else if(alea==1){
-//        b1=new boss(190,420);scene->addItem(b1);atks.push_back(b1);
-//        b2=new boss(250,450);scene->addItem(b2);atks.push_back(b2);
-//        b3=new boss(310,480);scene->addItem(b3);atks.push_back(b3);
-//        b4=new boss(370,410);scene->addItem(b4);atks.push_back(b4);
-//        b5=new boss(430,440);scene->addItem(b5);atks.push_back(b5);
-//        b6=new boss(490,470);scene->addItem(b6);atks.push_back(b6);
-//        b7=new boss(550,400);scene->addItem(b7);atks.push_back(b7);
-//        b8=new boss(610,470);scene->addItem(b8);atks.push_back(b8);
-//        b9=new boss(670,440);scene->addItem(b9);atks.push_back(b9);
-//        b10=new boss(730,410);scene->addItem(b10);atks.push_back(b10);
-//        b11=new boss(790,480);scene->addItem(b11);atks.push_back(b11);
-//        b12=new boss(850,450);scene->addItem(b12);atks.push_back(b12);
-//        b13=new boss(910,420);scene->addItem(b13);atks.push_back(b13);
-//        b14=new boss(970,490);scene->addItem(b14);atks.push_back(b14);
-//        b15=new boss(130,490);scene->addItem(b15);atks.push_back(b15);
-//        b16=new boss(130,420);scene->addItem(b16);atks.push_back(b16);
-//        b15=new boss(970,420);scene->addItem(b15);atks.push_back(b15);
         leer_atks(alea);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }else if(alea==2){
