@@ -18,23 +18,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     boss.cpp \
     corazon.cpp \
-    gravitatorio.cpp \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
     nodos.cpp \
-    obstaculos.cpp \
-    tiropara.cpp
+    obstaculos.cpp
 
 HEADERS += \
     boss.h \
     corazon.h \
-    gravitatorio.h \
     mainwindow.h \
     moob.h \
     nodos.h \
-    obstaculos.h \
-    tiropara.h
+    obstaculos.h
 
 FORMS += \
     mainwindow.ui
