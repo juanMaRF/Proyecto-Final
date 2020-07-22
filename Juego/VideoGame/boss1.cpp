@@ -31,7 +31,7 @@ void boss1::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
 void boss1::ataques()
 {
     //Se escoge el ataque del jefe
-    tipo4 = 0;
+    tipo4 = 1;
 
     //ataque 1 del jefe
     if(tipo4==0){

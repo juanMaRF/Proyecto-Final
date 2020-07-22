@@ -35,6 +35,7 @@ void MainWindow::niveles(int x)
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
+        //keyPressEvent();
         jugador->setPos(95,90);
         //añadimos slime a la escena
         jugador->slime1();
@@ -85,7 +86,6 @@ void MainWindow::niveles(int x)
     if(x==1){
         //añadimos el fondo
         scene=new QGraphicsScene;
-
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(0,0,1111,621);
         scene->addRect(scene->sceneRect());
@@ -93,11 +93,12 @@ void MainWindow::niveles(int x)
 
         //añadimos al boss
         B1 = new boss1(450,70,200,200);
+        scene->addItem(B1);
 
         //añadimos al player
-        scene->addItem(B1);
         jugador = new player(1,200,300,20,20);
         scene->addItem(jugador);
+        jugador->setPos(200,100);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
@@ -141,4 +142,126 @@ void MainWindow::niveles(int x)
         scene->addItem(enemy_dis3);
         scene->addItem(enemy_dis4);
     }
+}
+
+bool MainWindow::colision()
+{
+    QList <obstaculos *>::iterator it=lista_piedra.begin();
+    for (it=lista_piedra.begin();it<lista_piedra.end();it++) {
+        if(jugador->collidesWithItem((*it))){
+            return  true;
+        }
+    }
+    return false;
+}
+
+/**
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    //Key Event's de movimiento del jugador
+
+    if(event->key()==0x41){
+            if(!colision()){
+                jugador->setPos(jugador->getX1()-5,jugador->getY1());
+                jugador->setX1(jugador->getX1()-5);
+                tipo=0;
+            }
+            else if(jugador->getX1()-5 < recorrer()->getX()){
+                jugador->setPos(jugador->getX1()-5,jugador->getY1());
+                jugador->setX1(jugador->getX1()-5);
+                tipo=0;
+            }
+    }
+    else if (event->key() == 0x44){
+
+        for(int i=0;i<lentitud.size();i++){
+            if(this->collidesWithItem(lentitud.at(i))){
+                rozamiento(1);
+            }
+            else{
+                rozamiento(0);
+            }
+        }
+
+        jugador->setPos(jugador->getX1()+5,jugador->getY1());
+        jugador->setX1(jugador->getX1()+5);
+        tipo=1;
+
+    }
+    else if(event->key()== 0x57){
+
+        for(int i=0;i<lentitud.size();i++){
+            if(this->collidesWithItem(lentitud.at(i))){
+                rozamiento(1);
+            }
+            else{
+                rozamiento(0);
+            }
+        }
+
+        jugador->setPos(jugador->getX1(),jugador->getY1()-5);
+        jugador->setY1(jugador->getY1()-5);
+
+
+    }
+    else if(event->key()== 0x53){
+
+        for(int i=0;i<lentitud.size();i++){
+            if(this->collidesWithItem(lentitud.at(i))){
+                rozamiento(1);
+            }
+            else{
+                rozamiento(0);
+            }
+        }
+
+        jugador->setPos(jugador->getX1(),jugador->getY1()+5);
+        jugador->setY1(jugador->getY1()+5);
+
+    }
+
+
+    //Ataque basico
+    else if(event->key()== Qt::Key_Space){
+        if(nivel1==0){
+            if(tipo==1){
+                disparo = new ataque_Bas(0,tipo,jugador->getX1()+50,jugador->getY1()+20,10,10);
+            }
+            if(tipo==0){
+                disparo = new ataque_Bas(0,tipo,jugador->getX1()-10,jugador->getY1()+20,10,10);
+            }
+
+            //disparo->setPos(x1,y1);
+            scene->addItem(disparo);
+        }
+    }
+
+    //Ataque especial (Mov Parabolico)
+    else if(event->key()==0x43){
+        if(nivel1==0){
+           if(tipo==1){
+                ataque_es = new tiropara(1,jugador->getX1(),jugador->getY1(),20,-45);
+                scene->addItem(ataque_es);
+
+           }
+           if(tipo==0){
+               ataque_es = new tiropara(0,jugador->getX1(),jugador->getY1(),20,-45);
+               scene->addItem(ataque_es);
+           }
+        }
+    }
+
+}
+**/
+
+
+obstaculos *MainWindow::recorrer()
+{
+    QList <obstaculos *>::iterator it=lista_piedra.begin();
+    for (it=lista_piedra.begin();it<lista_piedra.end();it++) {
+        if(jugador->collidesWithItem((*it))){
+            return (*it);
+        }
+    }
+    return (*it);
 }

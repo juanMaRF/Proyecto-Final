@@ -1,5 +1,7 @@
 #include "player.h"
+#include "mainwindow.h"
 #include <QDebug>
+extern MainWindow * game;
 
 int player::getX1() const
 {
@@ -147,59 +149,75 @@ void player::keyPressEvent(QKeyEvent *event)
 {
     //Key Event's de movimiento del jugador
     if(event->key()==Qt::Key_Left){
-        for(int i=0;i<lentitud.size();i++){
-            if(this->collidesWithItem(lentitud.at(i))){
-                rozamiento(1);
+        if(nivel1==0){
+            for(int i=0;i<lentitud.size();i++){
+                if(this->collidesWithItem(lentitud.at(i))){
+                    rozamiento(1);
+                }
+                else{
+                    rozamiento(0);
+                }
             }
-            else{
-                rozamiento(0);
-            }
+            setPos(getX1()-fuerzaT,getY1());
+            setX1(getX1()-fuerzaT);
+            tipo=0;
         }
-        setPos(getX1()-fuerzaT,getY1());
-        setX1(getX1()-fuerzaT);
-        tipo=0;
-
+        else{
+            setPos(x()-7,y());
+        }
     }
-    else if (event->key() == Qt::Key_Right){
-        for(int i=0;i<lentitud.size();i++){
-            if(this->collidesWithItem(lentitud.at(i))){
-                rozamiento(1);
-            }
-            else{
-                rozamiento(0);
-            }
-        }
-        setPos(getX1()+fuerzaT,getY1());
-        setX1(getX1()+fuerzaT);
-        tipo=1;
 
+    else if (event->key() == Qt::Key_Right){
+        if(nivel1==0){
+            for(int i=0;i<lentitud.size();i++){
+                if(this->collidesWithItem(lentitud.at(i))){
+                    rozamiento(1);
+                }
+                else{
+                    rozamiento(0);
+                }
+            }
+            setPos(getX1()+fuerzaT,getY1());
+            setX1(getX1()+fuerzaT);
+            tipo=1;
+        }
+        else{
+            setPos(x()+7,y());
+        }
     }
     else if(event->key()== Qt::Key_Up){
-        for(int i=0;i<lentitud.size();i++){
-            if(this->collidesWithItem(lentitud.at(i))){
-                rozamiento(1);
+        if(nivel1==0){
+            for(int i=0;i<lentitud.size();i++){
+                if(this->collidesWithItem(lentitud.at(i))){
+                    rozamiento(1);
+                }
+                else{
+                    rozamiento(0);
+                }
             }
-            else{
-                rozamiento(0);
-            }
+            setPos(getX1(),getY1()-fuerzaT);
+            setY1(getY1()-fuerzaT);
         }
-        setPos(getX1(),getY1()-fuerzaT);
-        setY1(getY1()-fuerzaT);
-
-
+        else{
+            setPos(x(),y()-7);
+        }
     }
     else if(event->key()== Qt::Key_Down){
-        for(int i=0;i<lentitud.size();i++){
-            if(this->collidesWithItem(lentitud.at(i))){
-                rozamiento(1);
+        if(nivel1==0){
+            for(int i=0;i<lentitud.size();i++){
+                if(this->collidesWithItem(lentitud.at(i))){
+                    rozamiento(1);
+                }
+                else{
+                    rozamiento(0);
+                }
             }
-            else{
-                rozamiento(0);
-            }
+            setPos(getX1(),getY1()+fuerzaT);
+            setY1(getY1()+fuerzaT);
         }
-        setPos(getX1(),getY1()+fuerzaT);
-        setY1(getY1()+fuerzaT);
-
+        else{
+            setPos(x(),y()+7);
+        }
     }
 
     //Ataque basico
@@ -221,11 +239,12 @@ void player::keyPressEvent(QKeyEvent *event)
     else if(event->key()==0x43){
         if(nivel1==0){
            if(tipo==1){
-                ataque_es = new tiropara(1,getX1(),getY1(),20,-45);
+                ataque_es = new tiropara(1,getX1(),getY1(),30,-45);
                 scene()->addItem(ataque_es);
+
            }
            if(tipo==0){
-               ataque_es = new tiropara(0,getX1(),getY1(),20,-45);
+               ataque_es = new tiropara(0,getX1(),getY1(),30,-45);
                scene()->addItem(ataque_es);
            }
         }

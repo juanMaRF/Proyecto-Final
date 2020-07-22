@@ -35,13 +35,13 @@ public:
 
 
 private:
+    tiropara *ataque_es;
+    ataque_Bas *disparo;
     double R1=2,R2=2.3;
     int fuerzaT;
     short tipo=1, nivel1;
     short imagen=0;
     int x1,y1,h1,w1;
-    tiropara *ataque_es;
-    ataque_Bas *disparo;
 };
 
 #endif // PLAYER_H
