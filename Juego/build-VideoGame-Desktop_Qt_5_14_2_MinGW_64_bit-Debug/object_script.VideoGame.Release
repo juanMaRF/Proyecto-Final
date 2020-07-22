@@ -6,6 +6,5 @@ release/mainwindow.o
 release/moob.o
 release/nodos.o
 release/obstaculos.o
-release/tiropara.o
 release/qrc_imagenes.o
 release/moc_mainwindow.o

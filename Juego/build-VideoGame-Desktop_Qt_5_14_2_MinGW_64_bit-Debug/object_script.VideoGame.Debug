@@ -6,6 +6,5 @@ debug/mainwindow.o
 debug/moob.o
 debug/nodos.o
 debug/obstaculos.o
-debug/tiropara.o
 debug/qrc_imagenes.o
 debug/moc_mainwindow.o
