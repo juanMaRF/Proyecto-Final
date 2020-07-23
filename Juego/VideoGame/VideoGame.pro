@@ -25,7 +25,6 @@ SOURCES += \
     mainwindow.cpp \
     moob.cpp \
     obstaculos.cpp \
-    pendulo.cpp \
     player.cpp \
     slime.cpp \
     tiropara.cpp
@@ -39,7 +38,6 @@ HEADERS += \
     mainwindow.h \
     moob.h \
     obstaculos.h \
-    pendulo.h \
     player.h \
     slime.h \
     tiropara.h

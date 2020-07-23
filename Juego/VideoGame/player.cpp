@@ -145,6 +145,7 @@ void player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     }
 }
 
+/**
 void player::keyPressEvent(QKeyEvent *event)
 {
     //Key Event's de movimiento del jugador
@@ -250,3 +251,4 @@ void player::keyPressEvent(QKeyEvent *event)
         }
     }
 }
+**/

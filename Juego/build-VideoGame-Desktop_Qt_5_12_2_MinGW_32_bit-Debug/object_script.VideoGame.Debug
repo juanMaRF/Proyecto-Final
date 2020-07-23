@@ -2,13 +2,11 @@ debug/ataque_bas.o
 debug/boss.o
 debug/boss1.o
 debug/caida_libre.o
-debug/corazon.o
 debug/enemi_dis.o
 debug/main.o
 debug/mainwindow.o
 debug/moob.o
 debug/obstaculos.o
-debug/pendulo.o
 debug/player.o
 debug/slime.o
 debug/tiropara.o

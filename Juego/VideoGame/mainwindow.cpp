@@ -8,10 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    time=new QTimer;
-    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+//    time=new QTimer;
+//    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
     //leer_lvl(1);
-    //Boss_1();
+    Boss_1();
 
     niveles(0);
 
@@ -25,7 +25,7 @@ MainWindow::~MainWindow()
 void MainWindow::niveles(int x)
 {
     if(x==0){
-
+        nivel1=0;
         //añadimos el fondo
         leer_lvl(x);
 
@@ -52,6 +52,25 @@ void MainWindow::niveles(int x)
         e4=new moob(700,400,50,50,"perro");scene->addItem(e4);enemigos.push_back(e4);
     }
 
+    if(x==1){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(0,0,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
+
+        //añadimos al boss
+        //B1 = new boss1(450,70,200,200);
+        scene->addItem(B1);
+
+        //añadimos al player
+        jugador = new player(1,200,300,20,20);
+        scene->addItem(jugador);
+        jugador->setPos(200,100);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+    }
 }
 
 QString MainWindow::colision(moob *cuerpo, obstaculos *que)
@@ -71,16 +90,11 @@ QString MainWindow::colision(moob *cuerpo, obstaculos *que)
     return "no";
 }
 
-
-
-
-
-
 void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
         lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
@@ -195,7 +209,13 @@ void MainWindow::Boss_1()
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0,0,1111,621);
     scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
-//    p1=new corazon(250,250);scene->addItem(p1);
+    //Añadimos al player
+    jugador = new player(1,200,300,20,20);
+    scene->addItem(jugador);
+    jugador->setPos(200,100);
+    jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+    jugador->setFocus();
+
     if(alea==0){
         leer_atks(alea);
         int pp=1;
@@ -231,6 +251,115 @@ bool MainWindow::colision_player()
         }
     }
 }
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    //Key Event's de movimiento del jugador
+    if(event->key()==65){
+        if(nivel1==0){
+            //friccion
+//            for(int i=0;i<lentitud.size();i++){
+//                if(this->collidesWithItem(lentitud.at(i))){
+//                    rozamiento(1);
+//                }
+//                else{
+//                    rozamiento(0);
+//                }
+//            }
+            jugador->setPos(jugador->getX1()-3,jugador->getY1());
+            jugador->setX1(jugador->getX1()-3);
+            tipo=0;
+        }
+        else{
+            jugador->setPos(x()-7,y());
+        }
+    }
+
+    else if (event->key() == 68){
+        if(nivel1==0){
+            //friccion
+//            for(int i=0;i<lentitud.size();i++){
+//                if(this->collidesWithItem(lentitud.at(i))){
+//                    rozamiento(1);
+//                }
+//                else{
+//                    rozamiento(0);
+//                }
+//            }
+            jugador->setPos(jugador->getX1()+3,jugador->getY1());
+            jugador->setX1(jugador->getX1()+3);
+            tipo=1;
+        }
+        else{
+            jugador->setPos(x()+7,y());
+        }
+    }
+    else if(event->key()== 87){
+        if(nivel1==0){
+            //friccion
+//            for(int i=0;i<lentitud.size();i++){
+//                if(this->collidesWithItem(lentitud.at(i))){
+//                    rozamiento(1);
+//                }
+//                else{
+//                    rozamiento(0);
+//                }
+//            }
+            jugador->setPos(jugador->getX1(),jugador->getY1()-3);
+            jugador->setY1(jugador->getY1()-3);
+        }
+        else{
+            jugador->setPos(x(),y()-7);
+        }
+    }
+    else if(event->key()== 83){
+        if(nivel1==0){
+//            for(int i=0;i<lentitud.size();i++){
+//                if(this->collidesWithItem(lentitud.at(i))){
+//                    rozamiento(1);
+//                }
+//                else{
+//                    rozamiento(0);
+//                }
+//            }
+            jugador->setPos(jugador->getX1(),jugador->getY1()+3);
+            jugador->setY1(jugador->getY1()+3);
+        }
+        else{
+            jugador->setPos(x(),y()+7);
+        }
+    }
+
+    //Ataque basico
+    else if(event->key()== Qt::Key_Space){
+        if(nivel1==0){
+            if(tipo==1){
+                disparo = new ataque_Bas(0,tipo,jugador->getX1()+50,jugador->getY1()+20,10,10);
+            }
+            if(tipo==0){
+                disparo = new ataque_Bas(0,tipo,jugador->getX1()-10,jugador->getY1()+20,10,10);
+            }
+
+            disparo->setPos(jugador->getX1(),jugador->getY1());
+            scene->addItem(disparo);
+        }
+    }
+
+    //Ataque especial (Mov Parabolico)
+    else if(event->key()==67){
+        if(nivel1==0){
+           if(tipo==1){
+                ataque_es = new tiropara(1,jugador->getX1(),jugador->getY1(),30,-45);
+           }
+           if(tipo==0){
+               ataque_es = new tiropara(0,jugador->getX1(),jugador->getY1(),30,-45);
+           }
+           ataque_es->setPos(jugador->getX1(),jugador->getY1());
+           scene->addItem(ataque_es);
+        }
+    }
+}
+
 void MainWindow::Mover()
 {
     obstaculos *puntero=nullptr;

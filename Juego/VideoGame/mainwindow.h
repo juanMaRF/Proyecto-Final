@@ -21,6 +21,8 @@
 #include "enemi_dis.h"
 #include "player.h"
 #include "boss1.h"
+#include "ataque_bas.h"
+#include "tiropara.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,8 +43,10 @@ public:
     void leer_atks(int lvl_);
     void Boss_1();
     bool colision_player();
+    void keyPressEvent(QKeyEvent *event);
 
 private:
+    short tipo,nivel1;
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss1 *B1;
@@ -57,8 +61,8 @@ private:
     int turn=1;
     boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10,*b11,*b12,*b13,*b14,*b15,*b16,*b17;
     QList <boss*> atks;
-
-
+    ataque_Bas *disparo;
+    tiropara *ataque_es;
 
 
 signals:
