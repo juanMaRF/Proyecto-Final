@@ -9,17 +9,48 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     time=new QTimer;
-//    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-//    leer_lvl(2);
-    Boss_1();
+    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    leer_lvl(1);
+    //Boss_1();
 
-
+    niveles(0);
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::niveles(int x)
+{
+    if(x==0){
+
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(0,0,1060,570);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
+
+        //añadimos el jugador a la escena
+        jugador = new player(0,95,90,60,60);
+        scene->addItem(jugador);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+        //keyPressEvent();
+        jugador->setPos(95,90);
+        //añadimos slime a la escena
+        jugador->slime1();
+
+
+        //añadimos el enemigo con ataque a distancia
+        enemy_dis = new enemi_dis(0,0,460,100,80,60);
+        enemy_dis2 = new enemi_dis(0,1,35,100,80,60);
+        scene->addItem(enemy_dis);
+        scene->addItem(enemy_dis2);
+    }
+
 }
 
 QString MainWindow::colision(moob *cuerpo, obstaculos *que)
@@ -41,13 +72,16 @@ QString MainWindow::colision(moob *cuerpo, obstaculos *que)
 
 
 
+
+
+
 void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==1){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==2){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -234,45 +268,4 @@ void MainWindow::atk_2()
 //       }
     }
 }
-void MainWindow::keyPressEvent(QKeyEvent *evento)
-{
 
-//    if(evento->key()==0x57){
-//        if(!bola->collidesWithItem(&choca(x))){
-//
-//        }
-//        else if(bola->getPosiy()-5 < choca(x).getY()){
-//
-
-//        }
-//    }
-//    if(evento->key()==0x53){
-//        if(!bola->collidesWithItem(&choca(x))){
-//
-//        }
-//        else if(bola->getPosiy()+5 > choca(x).getY()){
-//
-//        }
-//    }
-//    if(evento->key()==0x41){
-//        if(!bola->collidesWithItem(&choca(x))){
-//
-//        }
-//        else if(bola->getPosix()-5 < choca(x).getX()){
-//
-//        }
-//        }
-
-
-//    if(evento->key()==0x44){
-//        if(!bola->collidesWithItem(&choca(x))){
-//
-//        }
-//        else if(bola->getPosix()+5 > choca(x).getX()){
-
-//        }
-//    }
-
-
-
-}

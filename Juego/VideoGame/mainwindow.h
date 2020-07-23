@@ -19,6 +19,9 @@
 #include <QMovie>
 #include "corazon.h"
 #include "boss.h"
+#include "enemi_dis.h"
+#include "player.h"
+#include "boss1.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,11 +41,11 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
     void Boss_1();
-    void keyPressEvent(QKeyEvent *evento);
-
-
 
 private:
+    player *jugador;
+    enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
+    boss1 *B1;
     QGraphicsScene *scene;
     Ui::MainWindow *ui;
     QTimer *time;
