@@ -9,9 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     time=new QTimer;
-//    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-//    leer_lvl(2);
-    Boss_1();
+    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    leer_lvl(2);
+//    Boss_1();
 
 
 
