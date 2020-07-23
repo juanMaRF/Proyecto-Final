@@ -17,7 +17,6 @@
 #include "moob.h"
 #include <QLabel>
 #include <QMovie>
-#include "corazon.h"
 #include "boss.h"
 #include "enemi_dis.h"
 #include "player.h"
@@ -41,6 +40,7 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
     void Boss_1();
+    bool colision_player();
 
 private:
     player *jugador;
@@ -55,7 +55,6 @@ private:
     moob *boss1;
     int cant_obj=0;
     int turn=1;
-    corazon *p1;
     boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10,*b11,*b12,*b13,*b14,*b15,*b16,*b17;
     QList <boss*> atks;
 

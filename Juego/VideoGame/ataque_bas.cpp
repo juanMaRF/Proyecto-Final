@@ -32,7 +32,7 @@ void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 {
     QPixmap pixmap;
 
-    pixmap.load(":/n/Imagenes Proyecto final/6 Deceased/Ball.png");
+    pixmap.load(":/Imagenes Proyecto final/6 Deceased/Ball.png");
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 

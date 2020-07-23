@@ -77,30 +77,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>640</y>
-      <width>191</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>hablar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>640</y>
-      <width>191</width>
-      <height>71</height>
+      <x>1270</x>
+      <y>564</y>
+      <width>291</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>rendirse</string>
+     <string>Cargar partida</string>
     </property>
    </widget>
   </widget>

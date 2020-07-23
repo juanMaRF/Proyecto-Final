@@ -10,7 +10,7 @@
 #include <QDebug>
 #include "ataque_bas.h"
 
-class enemi_dis:public QObject, public QGraphicsPixmapItem
+class enemi_dis:public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:

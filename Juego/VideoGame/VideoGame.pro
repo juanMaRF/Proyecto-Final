@@ -20,7 +20,6 @@ SOURCES += \
     boss.cpp \
     boss1.cpp \
     caida_libre.cpp \
-    corazon.cpp \
     enemi_dis.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -36,7 +35,6 @@ HEADERS += \
     boss.h \
     boss1.h \
     caida_libre.h \
-    corazon.h \
     enemi_dis.h \
     mainwindow.h \
     moob.h \

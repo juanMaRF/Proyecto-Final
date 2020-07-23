@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    leer_lvl(1);
+    //leer_lvl(1);
     //Boss_1();
 
     niveles(0);
@@ -27,11 +27,7 @@ void MainWindow::niveles(int x)
     if(x==0){
 
         //añadimos el fondo
-        scene=new QGraphicsScene;
-        ui->graphicsView->setScene(scene);
-        scene->setSceneRect(0,0,1060,570);
-        scene->addRect(scene->sceneRect());
-        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/WhatsApp Image 2020-07-08 at 6.48.30 PM.jpeg")));
+        leer_lvl(x);
 
         //añadimos el jugador a la escena
         jugador = new player(0,95,90,60,60);
@@ -45,10 +41,15 @@ void MainWindow::niveles(int x)
 
 
         //añadimos el enemigo con ataque a distancia
-        enemy_dis = new enemi_dis(0,0,460,100,80,60);
-        enemy_dis2 = new enemi_dis(0,1,35,100,80,60);
+        enemy_dis = new enemi_dis(0,0,410,90,80,60);
+        enemy_dis2 = new enemi_dis(0,1,25,90,80,60);
         scene->addItem(enemy_dis);
         scene->addItem(enemy_dis2);
+
+        e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
+        e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
+        e3=new moob(300,400,50,50,"perro");scene->addItem(e3);enemigos.push_back(e3);
+        e4=new moob(700,400,50,50,"perro");scene->addItem(e4);enemigos.push_back(e4);
     }
 
 }
@@ -78,9 +79,9 @@ QString MainWindow::colision(moob *cuerpo, obstaculos *que)
 void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
-    if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-    }else if(lvl_==2){
+    if(lvl_==0){
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+    }else if(lvl_==1){
         lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
@@ -141,11 +142,7 @@ void MainWindow::leer_lvl(int lvl_)
 
         temp.append(text.at(i));
     }
-    e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
-    e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
-    e3=new moob(300,400,50,50,"perro");scene->addItem(e3);enemigos.push_back(e3);
-    e4=new moob(700,400,50,50,"perro");scene->addItem(e4);enemigos.push_back(e4);
-    //leer_ene(lvl_,scene);
+
     time->start(20);
 }
 
@@ -211,19 +208,28 @@ void MainWindow::Boss_1()
         leer_atks(alea);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }else if(alea==2){
-        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
-        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
-        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
-        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
-        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
-        for(int i=0;i<5;i++){
+//        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
+//        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
+//        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
+//        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
+//        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
+//        for(int i=0;i<5;i++){
 
-        }
-        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
+//        }
+//        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }
 
 
     time->start(50);
+}
+
+bool MainWindow::colision_player()
+{
+    for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        if(jugador->collidesWithItem((*it))){
+            return true;
+        }
+    }
 }
 void MainWindow::Mover()
 {

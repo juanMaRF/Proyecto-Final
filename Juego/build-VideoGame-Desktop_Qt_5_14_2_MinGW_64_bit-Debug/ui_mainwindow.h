@@ -32,7 +32,6 @@ public:
     QPushButton *Cop;
     QPushButton *pushButton_5;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -73,11 +72,7 @@ public:
 
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(160, 640, 191, 71));
-        pushButton->setStyleSheet(QString::fromUtf8(""));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(400, 640, 191, 71));
+        pushButton->setGeometry(QRect(1270, 564, 291, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -98,8 +93,7 @@ public:
         Solo->setText(QCoreApplication::translate("MainWindow", "Un Jugador", nullptr));
         Cop->setText(QCoreApplication::translate("MainWindow", "Dos Jugadores", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "Guardar", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "hablar", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "rendirse", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Cargar partida", nullptr));
     } // retranslateUi
 
 };

@@ -24,11 +24,11 @@ void enemi_dis::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 {
     QPixmap pixmap;
     if(tipo1==1){
-        pixmap.load(":/enemy_dis_der/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png");
+        pixmap.load(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png");
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
     if(tipo1==0){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
+        pixmap.load(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
 
