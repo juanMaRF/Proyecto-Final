@@ -36,6 +36,8 @@ void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 
+
+
 void ataque_Bas::move()
 {
     if(nivel1==0){

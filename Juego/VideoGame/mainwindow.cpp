@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     //Boss_1();
 
     niveles(0);
-
 }
 
 MainWindow::~MainWindow()
@@ -96,11 +95,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -260,47 +259,38 @@ obstaculos *MainWindow::colision_player()
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     //Key Event's de movimiento del jugador
+
     if(event->key()==65){       //izq
+
         if(!jugador->collidesWithItem(colision_player())){
             if(nivel1==0){
+
                 //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
+                /**
+                for(int i=0;i<lentitud.size();i++){
+                    if(this->collidesWithItem(lentitud.at(i))){
+                        rozamiento(1);
+                    }
+                    else{
+                        rozamiento(0);
+                    }
+                }
+                **/
+
                 jugador->setPos(jugador->getX1()-3,jugador->getY1());
                 jugador->setX1(jugador->getX1()-3);
                 tipo=0;
             }
             else{
                 jugador->setPos(jugador->x()-7,jugador->y());
-
-            }
-        }else if(jugador->getX1()+3 > colision_player()->getX()){
-            if(nivel1==0){
-                //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1()-3,jugador->getY1());
-                jugador->setX1(jugador->getX1()-3);
-                tipo=0;
-            }
-            else{
-                jugador->setPos(jugador->x()-7,jugador->y());
-
             }
         }
+        else{
+            jugador->setPos(jugador->getX1()+6,jugador->getY1());
+            jugador->setX1(jugador->getX1()+6);
+        }
     }
+
 
     else if (event->key() == 68){       //der
         if(!jugador->collidesWithItem(colision_player())){
@@ -321,26 +311,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             else{
                 jugador->setPos(jugador->x()+7,jugador->y());
             }
-        }else if(jugador->getX1()-3<colision_player()->getX()){
-            if(nivel1==0){
-                //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1()+3,jugador->getY1());
-                jugador->setX1(jugador->getX1()+3);
-                tipo=1;
-            }
-            else{
-                jugador->setPos(jugador->x()+7,jugador->y());
-            }
+        }
+        else{
+            jugador->setPos(jugador->getX1()-6,jugador->getY1());
+            jugador->setX1(jugador->getX1()-6);
         }
     }
+
 
     else if(event->key()== 87){     //up
         if(!jugador->collidesWithItem(colision_player())){
@@ -361,26 +338,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setPos(jugador->x(),jugador->y()-7);
 
             }
-        }else if(jugador->getY1()-3 < colision_player()->getY()){
-            if(nivel1==0){
-                //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()-3);
-                jugador->setY1(jugador->getY1()-3);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()-7);
-
-            }
+        }
+        else{
+            jugador->setPos(jugador->getX1(),jugador->getY1()+6);
+            jugador->setY1(jugador->getY1()+6);
         }
     }
+
 
     else if(event->key()== 83){     //down
         if(!jugador->collidesWithItem(colision_player())){
@@ -399,22 +363,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             else{
                 jugador->setPos(jugador->x(),jugador->y()+7);
             }
-        }else if(jugador->getY1()+10>colision_player()->getY()){
-            if(nivel1==0){
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()+3);
-                jugador->setY1(jugador->getY1()+3);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()+7);
-            }
+        }
+        else{
+            jugador->setPos(jugador->getX1(),jugador->getY1()-6);
+            jugador->setY1(jugador->getY1()-6);
         }
     }
 
