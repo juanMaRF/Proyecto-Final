@@ -8,12 +8,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//    time=new QTimer;
-//    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    time=new QTimer;
+    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
     //leer_lvl(1);
-    Boss_1();
+    //Boss_1();
 
-    niveles(0);
+    niveles(1);
 
 }
 
@@ -53,6 +53,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==1){
+        nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
@@ -61,8 +62,9 @@ void MainWindow::niveles(int x)
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
 
         //añadimos al boss
-        //B1 = new boss1(450,70,200,200);
-        scene->addItem(B1);
+        Jefe1 = new boss_CL(450,70,200,200);
+        scene->addItem(Jefe1);
+
 
         //añadimos al player
         jugador = new player(1,200,300,20,20);
@@ -201,7 +203,7 @@ void MainWindow::leer_atks(int lvl_)
     }
 }
 
-void MainWindow::Boss_1()
+void MainWindow::Boss_2()
 {
     int alea=1;
     scene=new QGraphicsScene;
@@ -210,11 +212,11 @@ void MainWindow::Boss_1()
     scene->setSceneRect(0,0,1111,621);
     scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
     //Añadimos al player
-    jugador = new player(1,200,300,20,20);
-    scene->addItem(jugador);
-    jugador->setPos(200,100);
-    jugador->setFlag(QGraphicsItem::ItemIsFocusable);
-    jugador->setFocus();
+//    jugador = new player(1,200,300,20,20);
+//    scene->addItem(jugador);
+//    jugador->setPos(200,100);
+//    jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+//    jugador->setFocus();
 
     if(alea==0){
         leer_atks(alea);
@@ -271,7 +273,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             tipo=0;
         }
         else{
-            jugador->setPos(x()-7,y());
+            jugador->setPos(jugador->x()-7,jugador->y());
+
         }
     }
 
@@ -291,7 +294,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             tipo=1;
         }
         else{
-            jugador->setPos(x()+7,y());
+            jugador->setPos(jugador->x()+7,jugador->y());
         }
     }
     else if(event->key()== 87){
@@ -309,7 +312,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             jugador->setY1(jugador->getY1()-3);
         }
         else{
-            jugador->setPos(x(),y()-7);
+            jugador->setPos(jugador->x(),jugador->y()-7);
+
         }
     }
     else if(event->key()== 83){
@@ -326,7 +330,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             jugador->setY1(jugador->getY1()+3);
         }
         else{
-            jugador->setPos(x(),y()+7);
+            jugador->setPos(jugador->x(),jugador->y()+7);
         }
     }
 

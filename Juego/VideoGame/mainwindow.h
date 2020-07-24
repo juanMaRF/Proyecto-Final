@@ -20,7 +20,7 @@
 #include "boss.h"
 #include "enemi_dis.h"
 #include "player.h"
-#include "boss1.h"
+#include "boss_CL.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
 
@@ -41,7 +41,7 @@ public:
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
-    void Boss_1();
+    void Boss_2();
     bool colision_player();
     void keyPressEvent(QKeyEvent *event);
 
@@ -49,7 +49,7 @@ private:
     short tipo,nivel1;
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
-    boss1 *B1;
+    boss_CL *Jefe1;
     QGraphicsScene *scene;
     Ui::MainWindow *ui;
     QTimer *time;
