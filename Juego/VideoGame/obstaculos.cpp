@@ -20,6 +20,26 @@ void obstaculos::setY(int value)
     y = value;
 }
 
+int obstaculos::getW() const
+{
+    return w;
+}
+
+void obstaculos::setW(int value)
+{
+    w = value;
+}
+
+int obstaculos::getH() const
+{
+    return h;
+}
+
+void obstaculos::setH(int value)
+{
+    h = value;
+}
+
 obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;

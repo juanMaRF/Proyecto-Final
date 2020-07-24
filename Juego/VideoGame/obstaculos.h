@@ -26,6 +26,10 @@ public:
     void setY(int value);
     QPixmap *getPixmap() const;
     void setPixmap(QPixmap *value);
+    int getW() const;
+    void setW(int value);
+    int getH() const;
+    void setH(int value);
 };
 
 #endif // OBSTACULOS_H

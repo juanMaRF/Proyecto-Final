@@ -42,7 +42,7 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
     void Boss_2();
-    bool colision_player();
+    obstaculos* colision_player();
     void keyPressEvent(QKeyEvent *event);
 
 private:
@@ -55,11 +55,11 @@ private:
     QTimer *time;
     QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup;
     QList <moob*> enemigos;
+    QList <ataque_Bas*> balas;
     moob *e1,*e2,*e3,*e4;
     moob *boss1;
     int cant_obj=0;
     int turn=1;
-    boss *b1,*b2,*b3,*b4,*b5,*b6,*b7,*b8,*b9,*b10,*b11,*b12,*b13,*b14,*b15,*b16,*b17;
     QList <boss*> atks;
     ataque_Bas *disparo;
     tiropara *ataque_es;
@@ -70,7 +70,6 @@ signals:
 
 private slots:
     void Mover();
-    void on_pushButton_clicked();
     void atk_1();
     void atk_2();
 };

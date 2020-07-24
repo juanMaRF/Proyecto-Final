@@ -13,7 +13,7 @@
 #include "tiropara.h"
 #include "slime.h"
 
-class player:public QObject, public QGraphicsPixmapItem
+class player:public QObject, public QGraphicsItem
 {
     Q_OBJECT
 //signals:
@@ -33,6 +33,12 @@ public:
     QList<slime *> lentitud;
     void slime1();
 
+
+    int getW1() const;
+    void setW1(int value);
+
+    int getH1() const;
+    void setH1(int value);
 
 private:
     tiropara *ataque_es;

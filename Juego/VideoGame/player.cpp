@@ -45,6 +45,26 @@ void player::slime1()
     }
 }
 
+int player::getW1() const
+{
+    return w1;
+}
+
+void player::setW1(int value)
+{
+    w1 = value;
+}
+
+int player::getH1() const
+{
+    return h1;
+}
+
+void player::setH1(int value)
+{
+    h1 = value;
+}
+
 player::player(short nivel,int x_, int y_, int w_, int h_)
 {
     nivel1=nivel;
@@ -56,7 +76,7 @@ player::player(short nivel,int x_, int y_, int w_, int h_)
 
 QRectF player::boundingRect() const
 {
-    return QRect(x1,y1,w1,h1);
+    return QRectF(x1,y1,w1,h1);
 }
 
 void player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
