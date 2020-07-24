@@ -49,6 +49,9 @@ public:
     float getVel_y() const;
     void setVel_y(float value);
 
+    int getVida() const;
+    void setVida(int value);
+
 public slots:
     void Actualizacion();
 };

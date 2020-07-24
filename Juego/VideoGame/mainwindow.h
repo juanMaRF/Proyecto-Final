@@ -64,7 +64,6 @@ signals:
 
 private slots:
     void Mover();
-    void on_pushButton_clicked();
     void atk_1();
     void atk_2();
 };

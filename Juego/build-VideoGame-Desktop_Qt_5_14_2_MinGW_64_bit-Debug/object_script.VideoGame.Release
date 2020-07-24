@@ -8,7 +8,6 @@ release/main.o
 release/mainwindow.o
 release/moob.o
 release/obstaculos.o
-release/pendulo.o
 release/player.o
 release/slime.o
 release/tiropara.o

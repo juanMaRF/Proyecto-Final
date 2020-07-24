@@ -25,6 +25,9 @@ public:
     void setY1(int value);
 
 
+    int getVida() const;
+    void setVida(int value);
+
 private slots:
     void move();
     //void actualizar();
@@ -34,7 +37,7 @@ private:
     QTimer *timer;
     //QTimer *time;
     short imagen=0,con=0,col=0;
-    int x1,y1,h1,w1,tipo1,nivel1;
+    int x1,y1,h1,w1,tipo1,nivel1,vida=30;
 };
 
 #endif // ENEMI_DIS_H

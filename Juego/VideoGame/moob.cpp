@@ -40,6 +40,16 @@ void moob::setVel_y(float value)
     vel_y = value;
 }
 
+int moob::getVida() const
+{
+    return vida;
+}
+
+void moob::setVida(int value)
+{
+    vida = value;
+}
+
 moob::moob(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;xi=x_;

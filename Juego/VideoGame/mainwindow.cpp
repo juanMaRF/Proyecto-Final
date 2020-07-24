@@ -10,9 +10,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+<<<<<<< Updated upstream
     leer_lvl(2);
 //    Boss_1();
 
+=======
+//    Boss_1();
+>>>>>>> Stashed changes
 
 
 }
@@ -44,9 +48,17 @@ QString MainWindow::colision(moob *cuerpo, obstaculos *que)
 void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
+<<<<<<< Updated upstream
     if(lvl_==1){
         lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==2){
+=======
+    if(lvl_==0){
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+    }else if(lvl_==1){
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+>>>>>>> Stashed changes
         lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
@@ -176,6 +188,7 @@ void MainWindow::Boss_1()
     }else if(alea==1){
         leer_atks(alea);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
+<<<<<<< Updated upstream
     }else if(alea==2){
         b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
         b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
@@ -184,6 +197,112 @@ void MainWindow::Boss_1()
         b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
         for(int i=0;i<5;i++){
 
+=======
+    }
+    time->start(50);
+}
+
+bool MainWindow::colision_player()
+{
+    int ip=0;
+    for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        if(jugador->collidesWithItem((*it))){
+            ip=1;
+        }
+    }
+    if(ip==1){
+        return false;
+    }else if(ip==0){
+        return true;
+    }
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    //Key Event's de movimiento del jugador
+    if(event->key()==65){
+        if(colision_player()){
+            if(nivel1==0){
+                //friccion
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1()-3,jugador->getY1());
+                jugador->setX1(jugador->getX1()-3);
+                tipo=0;
+            }
+            else{
+                jugador->setPos(x()-7,y());
+            }
+        }
+    }
+
+    else if (event->key() == 68){
+        if(colision_player()){
+            if(nivel1==0){
+                //friccion
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1()+3,jugador->getY1());
+                jugador->setX1(jugador->getX1()+3);
+                tipo=1;
+            }
+            else{
+                jugador->setPos(x()+7,y());
+            }
+        }
+    }
+
+    else if(event->key()== 87){
+        if(colision_player()){
+            if(nivel1==0){
+                //friccion
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1(),jugador->getY1()-3);
+                jugador->setY1(jugador->getY1()-3);
+            }
+            else{
+                jugador->setPos(x(),y()-7);
+            }
+        }
+    }
+
+    else if(event->key()== 83){
+        if(colision_player()){
+            if(nivel1==0){
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1(),jugador->getY1()+3);
+                jugador->setY1(jugador->getY1()+3);
+            }
+            else{
+                jugador->setPos(x(),y()+7);
+            }
+>>>>>>> Stashed changes
         }
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }
@@ -210,11 +329,6 @@ void MainWindow::Mover()
     }
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
-}
-
 void MainWindow::atk_1()
 {
     for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
@@ -229,9 +343,6 @@ void MainWindow::atk_2()
 {
     for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
         (*it)->atk_2();
-//        if((*it)->getYi()+300==(*it)->getY()){
-//            scene->removeItem((*it));
-//       }
     }
 }
 void MainWindow::keyPressEvent(QKeyEvent *evento)

@@ -110,6 +110,16 @@ void enemi_dis::move()
 
 }
 
+int enemi_dis::getVida() const
+{
+    return vida;
+}
+
+void enemi_dis::setVida(int value)
+{
+    vida = value;
+}
+
 /**
 void enemi_dis::actualizar()
 {
