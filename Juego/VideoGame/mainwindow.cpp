@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     //leer_lvl(1);
     //Boss_1();
 
-    niveles(1);
+    niveles(0);
 
 }
 
