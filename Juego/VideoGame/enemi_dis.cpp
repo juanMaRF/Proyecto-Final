@@ -6,6 +6,7 @@ enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): Q
     nivel1=nivel;
     x1=x;
     y1=y;
+    setPos(x1,y1);
 
 
     if(tipo1==1){
