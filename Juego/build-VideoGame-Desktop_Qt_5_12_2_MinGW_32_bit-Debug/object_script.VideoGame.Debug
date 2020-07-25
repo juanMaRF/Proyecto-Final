@@ -7,6 +7,7 @@ debug/health.o
 debug/main.o
 debug/mainwindow.o
 debug/moob.o
+debug/muneco.o
 debug/obstaculos.o
 debug/player.o
 debug/slime.o

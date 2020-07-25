@@ -28,17 +28,16 @@ void MainWindow::niveles(int x)
         leer_lvl(x);
 
         //añadimos el jugador a la escena
-//        jugador = new player(0,95,90,60,60);
-//        scene->addItem(jugador);
-//        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
-//        jugador->setFocus();
-//        //keyPressEvent();
-//        jugador->setPos(95,90);
-//        //añadimos slime a la escena
-//        jugador->slime1();
+        jugador = new player(0,95,90,60,60);
+        scene->addItem(jugador);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+        jugador->setPos(95,90);
+        //añadimos slime a la escena
+        jugador->slime1();
 
         //
-        per=new muneco(200,200,70,70);scene->addItem(per);per->setPos(200,200);
+        //per=new muneco(200,200,70,70);scene->addItem(per);per->setPos(200,200);
         //
 
         //añadimos el enemigo con ataque a distancia
@@ -264,67 +263,135 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     //Key Event's de movimiento del jugador
 
     if(event->key()==65){       //izq
-        if(!per->collidesWithItem(&colision_player())){
-            per->MoveLeft();
-            direc=0;
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1()-3,jugador->getY1());
+            jugador->setX1(jugador->getX1()-3);
+            tipo=0;
         }
-        else if(per->getX()-5 < colision_player().getX()){
-            per->MoveLeft();
-            direc=0;
-    }
+//        else if(per->getX()-5 < colision_player().getX()){
+//            jugador->MoveLeft();
+//            direc=0;
+//    }
     }
 
     else if (event->key() == 68){       //der
-        if(!per->collidesWithItem(&colision_player())){
-            per->MoveRight();
-            direc=1;
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1()+3,jugador->getY1());
+            jugador->setX1(jugador->getX1()+3);
+            tipo=1;
         }
-        else if(per->getX()+5 > colision_player().getX()){
-            per->MoveRight();
-            direc=1;
-        }
+//        else if(per->getX()+5 > colision_player().getX()){
+//            per->MoveRight();
+//            direc=1;
+//        }
 
     }
 
     else if(event->key()== 87){     //up
-        if(!per->collidesWithItem(&colision_player())){
-            per->MoveUp();
-            direc=2;
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1(),jugador->getY1()-3);
+            jugador->setY1(jugador->getY1()-3);
         }
-        else if(per->getY()-5 < colision_player().getY()){
-            per->MoveUp();
-            direc=2;
-        }
+//        else if(per->getY()-5 < colision_player().getY()){
+//            per->MoveUp();
+//            direc=2;
+//        }
     }
 
     else if(event->key()== 83){     //down
-        if(!per->collidesWithItem(&colision_player())){
-            per->MoveDown();
-            direc=3;
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1(),jugador->getY1()+3);
+            jugador->setY1(jugador->getY1()+3);
         }
-        else if(per->getY()+5 > colision_player().getY()){
-            per->MoveDown();
-            direc=3;
-        }
+//        else if(per->getY()+5 > colision_player().getY()){
+//            per->MoveDown();
+//            direc=3;
+//        }
     }
 
     //Ataque basico
     else if(event->key()== Qt::Key_Space){
+        if(nivel1==0){
+            if(tipo==1){
+                disparo = new ataque_Bas(0,tipo);
+                disparo->setPos(jugador->getX1()+70,jugador->getY1()+20);
+            }
+            if(tipo==0){
+                disparo = new ataque_Bas(0,tipo);
+                disparo->setPos(jugador->getX1()-20,jugador->getY1()+20);
+            }
 
+            scene->addItem(disparo);
+        }
     }
 
     //Ataque especial (Mov Parabolico)
     else if(event->key()==67){
         if(nivel1==0){
            if(tipo==1){
-                ataque_es = new tiropara(1,jugador->getX1(),jugador->getY1(),30,-45);
+                ataque_es = new tiropara(1,jugador->getX1()+50,jugador->getY1(),30,-45);
+                ataque_es->setPos(jugador->getX1()+50,jugador->getY1());
            }
            if(tipo==0){
-               ataque_es = new tiropara(0,jugador->getX1(),jugador->getY1(),30,-45);
+               ataque_es = new tiropara(0,jugador->getX1()-10,jugador->getY1(),30,-45);
+               ataque_es->setPos(jugador->getX1()-10,jugador->getY1());
            }
-           ataque_es->setPos(jugador->getX1(),jugador->getY1());
+
            scene->addItem(ataque_es);
         }
+    }
+
+    if(tipo==0){
+        if(imagen==2){
+            imagen=3;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png").scaled(60,60));
+
+        }
+        else if(imagen==3){
+            imagen=4;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png").scaled(60,60));
+
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png").scaled(60,60));
+        }
+    }
+
+    if(tipo==1){
+        if(imagen==2){
+            imagen=3;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png").scaled(60,60));
+        }
+        else if(imagen==3){
+            imagen=4;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png").scaled(60,60));
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der").scaled(60,60));
+        }
+
     }
 }
 
