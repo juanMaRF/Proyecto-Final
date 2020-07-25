@@ -42,10 +42,10 @@ void MainWindow::niveles(int x)
         //
 
         //añadimos el enemigo con ataque a distancia
-        enemy_dis = new enemi_dis(0,0,410,90,80,60);
-        enemy_dis2 = new enemi_dis(0,1,25,90,80,60);
-        scene->addItem(enemy_dis);
-        scene->addItem(enemy_dis2);
+//        enemy_dis = new enemi_dis(0,0,410,90,80);
+//        enemy_dis2 = new enemi_dis(0,1,25,90,80);
+//        scene->addItem(enemy_dis);
+//        scene->addItem(enemy_dis2);
 
         e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
         e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
@@ -161,9 +161,6 @@ void MainWindow::leer_lvl(int lvl_)
 
         temp.append(text.at(i));
     }
-//    for (QList <obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
-//        (*it)->setPos((*it)->getX(),(*it)->getY());
-//    }
     time->start(20);
 }
 
@@ -234,16 +231,6 @@ void MainWindow::Boss_2()
     }else if(alea==1){
         leer_atks(alea);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
-    }else if(alea==2){
-//        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
-//        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
-//        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
-//        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
-//        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
-//        for(int i=0;i<5;i++){
-
-//        }
-//        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }
 
 

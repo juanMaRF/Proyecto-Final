@@ -181,7 +181,9 @@ debug/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		../VideoGame/Imagenes\ Proyecto\ final/roca2.gif \
 		../VideoGame/Imagenes\ Proyecto\ final/proto_jefe.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_walk.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_idle.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Ball.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_walk_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Caminar_Player_Der/Deceased_walk5Der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Caminar_Player_Der/Deceased_walk6Der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Caminar_Player_Der/Deceased_walk3Der.png \
@@ -202,9 +204,11 @@ debug/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_der/Scorpio_walk3_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_der/Scorpio_walk4_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_der/Scorpio_walk1_der.png \
-		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_der/Scorpio_walk_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_der/Scorpio_walk2_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_izq/Scorpio_walk1.png \
+		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_izq/Scorpio_walk4.png \
+		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_izq/Scorpio_walk3.png \
+		../VideoGame/Imagenes\ Proyecto\ final/3\ Scorpio/Enemy_dis_izq/Scorpio_walk2.png \
 		../VideoGame/Imagenes\ Proyecto\ final/4\ Vulture/Vulture_walk_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/4\ Vulture/Vulture_walk.png
 	C:\Qt\5.14.2\mingw73_64\bin\rcc.exe -name imagenes ..\VideoGame\imagenes.qrc -o debug\qrc_imagenes.cpp

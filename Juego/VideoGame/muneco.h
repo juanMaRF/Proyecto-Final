@@ -13,6 +13,7 @@ class muneco: public QGraphicsItem,public QObject
     QTimer *timer;
     QPixmap pixmap;
     double delta=0.1;
+    QString Iiz,Ide,Ies;
 public:
     muneco();
     muneco(int x_, int y_, int w_, int h_);

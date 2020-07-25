@@ -41,5 +41,8 @@
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk2.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk3.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk4.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Deceased_walk.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Deceased_walk_der.png</file>
+        <file>Imagenes Proyecto final/6 Deceased/Deceased_idle.png</file>
     </qresource>
 </RCC>

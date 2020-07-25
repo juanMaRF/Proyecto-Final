@@ -42,7 +42,10 @@ muneco::muneco(int x_, int y_, int w_, int h_)
     w=w_;
     h=h_;
     setPos(x,y);
-    pixmap.load(":/Imagenes Proyecto final/6 Deceased/Deceased_walk.png");
+    pixmap.load(":/Imagenes Proyecto final/6 Deceased/Deceased_idle.png");
+    Iiz=":/Imagenes Proyecto final/6 Deceased/Deceased_walk.png";
+    Ide=":/Imagenes Proyecto final/6 Deceased/Deceased_walk_der.png";
+    Ies=":/Imagenes Proyecto final/6 Deceased/Deceased_idle.png";
     timer=new QTimer();
     timer->start(80);// modifica la velocidad en que itera entre las imagenes
 
@@ -51,38 +54,46 @@ muneco::muneco(int x_, int y_, int w_, int h_)
 
 void muneco::MoveUp()
 {
+    pixmap.load(Iiz);
     if(vel_y>0){
         vel_y=vel_y*-1;
     }
     y=y+vel_y*delta;
     setPos(x,y);
+    //pixmap.load(Ies);
 }
 
 void muneco::MoveDown()
 {
+    pixmap.load(Ide);
     if(vel_y<0){
         vel_y=vel_y*-1;
     }
     y=y+vel_y*delta;
     setPos(x,y);
+    //pixmap.load(Ies);
 }
 
 void muneco::MoveLeft()
 {
+    pixmap.load(Iiz);
     if(vel_x>0){
         vel_x=vel_x*-1;
     }
     x=x+vel_x*delta;
     setPos(x,y);
+    //pixmap.load(Ies);
 }
 
 void muneco::MoveRight()
 {
+    pixmap.load(Ide);
     if(vel_x<0){
         vel_x=vel_x*-1;
     }
     x=x+vel_x*delta;
     setPos(x,y);
+    //pixmap.load(Ies);
 }
 
 QRectF muneco::boundingRect() const
