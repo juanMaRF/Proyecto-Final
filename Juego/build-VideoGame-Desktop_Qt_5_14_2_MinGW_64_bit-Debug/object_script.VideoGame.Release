@@ -6,6 +6,7 @@ release/enemi_dis.o
 release/main.o
 release/mainwindow.o
 release/moob.o
+release/muneco.o
 release/obstaculos.o
 release/player.o
 release/slime.o

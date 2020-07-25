@@ -10,12 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    //leer_lvl(1);
     //Boss_1();
-
-    vidaScor= new Health();
-    scene->addItem(vidaScor);
-    vidaScor->setPos(vidaScor->x(),vidaScor->y()+25);
 
     niveles(0);
 }
@@ -33,26 +28,24 @@ void MainWindow::niveles(int x)
         leer_lvl(x);
 
         //añadimos el jugador a la escena
-        jugador = new player(0,95,90,60,60);
-        scene->addItem(jugador);
-        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
-        jugador->setFocus();
-        jugador->setPos(95,90);
-        //añadimos slime a la escena
-        jugador->slime1();
+//        jugador = new player(0,95,90,60,60);
+//        scene->addItem(jugador);
+//        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+//        jugador->setFocus();
+//        //keyPressEvent();
+//        jugador->setPos(95,90);
+//        //añadimos slime a la escena
+//        jugador->slime1();
 
+        //
+        per=new muneco(200,200,70,70);scene->addItem(per);per->setPos(200,200);
+        //
 
         //añadimos el enemigo con ataque a distancia
-        enemy_dis = new enemi_dis(0,0,850,180);
-        enemy_dis2 = new enemi_dis(0,1,10,180);
-
+        enemy_dis = new enemi_dis(0,0,850,200);
+        enemy_dis2 = new enemi_dis(0,1,25,200);
         scene->addItem(enemy_dis);
-        enemy_dis->setPos(850,180);
-
         scene->addItem(enemy_dis2);
-        enemy_dis2->setPos(10,180);
-
-
 
         e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
         e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
@@ -75,9 +68,9 @@ void MainWindow::niveles(int x)
 
 
         //añadimos al player
-        jugador = new player(1,200,400,20,20);
+        jugador = new player(1,200,300,20,20);
         scene->addItem(jugador);
-        jugador->setPos(200,400);
+        jugador->setPos(200,100);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
@@ -104,11 +97,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -168,7 +161,6 @@ void MainWindow::leer_lvl(int lvl_)
 
         temp.append(text.at(i));
     }
-
     time->start(20);
 }
 
@@ -176,12 +168,10 @@ void MainWindow::leer_atks(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
     }
     else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
     }
     QFile file(lvl);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
@@ -241,16 +231,6 @@ void MainWindow::Boss_2()
     }else if(alea==1){
         leer_atks(alea);
         connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
-    }else if(alea==2){
-//        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
-//        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
-//        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
-//        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
-//        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
-//        for(int i=0;i<5;i++){
-
-//        }
-//        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
     }
 
 
@@ -261,7 +241,7 @@ obstaculos &MainWindow::colision_player()
 {
     obstaculos* tempo=nullptr;
     for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
-        if(jugador->collidesWithItem((*it))){
+        if(per->collidesWithItem((*it))){
             obstaculos *pepo=(*it);
             return *pepo;
         }
@@ -269,255 +249,83 @@ obstaculos &MainWindow::colision_player()
     return *tempo;
 }
 
+bool MainWindow::prueba_colsion()
+{
+    for(int i=0,n=lista_piedra.size();i<n;i++){
+        if(typeid ((lista_piedra[i])) == typeid (per)){
+            return true;
+        }
+    }
+    return false;
+}
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     //Key Event's de movimiento del jugador
 
     if(event->key()==65){       //izq
-
-
-        if(!jugador->collidesWithItem(&colision_player())){
-            if(nivel1==0){
-
-                //friccion
-                /**
-                for(int i=0;i<lentitud.size();i++){
-                    if(this->collidesWithItem(lentitud.at(i))){
-                        rozamiento(1);
-                    }
-                    else{
-                        rozamiento(0);
-                    }
-                }
-                **/
-
-                jugador->setPos(jugador->getX1()-5,jugador->getY1());
-                jugador->setX1(jugador->getX1()-5);
-                tipo=0;
-            }
-            else{
-                jugador->setPos(jugador->x()-7,jugador->y());
-            }
+        if(!per->collidesWithItem(&colision_player())){
+            per->MoveLeft();
+            direc=0;
         }
-        else if(jugador->getX1()-5 < colision_player().getX()){
-
-            if(nivel1==0){
-
-                jugador->setPos(jugador->getX1()-5,jugador->getY1());
-                jugador->setX1(jugador->getX1()-5);
-                tipo=0;
-            }
-            else{
-                jugador->setPos(jugador->x()-7,jugador->y());
-            }
-        }
-        //        else{
-//            jugador->setPos(jugador->getX1()+6,jugador->getY1());
-//            jugador->setX1(jugador->getX1()+6);
-//        }
+        else if(per->getX()-5 < colision_player().getX()){
+            per->MoveLeft();
+            direc=0;
     }
-
+    }
 
     else if (event->key() == 68){       //der
-
-        if(!jugador->collidesWithItem(&colision_player())){
-            if(nivel1==0){
-                //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1()+5,jugador->getY1());
-                jugador->setX1(jugador->getX1()+5);
-                tipo=1;
-            }
-            else{
-                jugador->setPos(jugador->x()+7,jugador->y());
-            }
+        if(!per->collidesWithItem(&colision_player())){
+            per->MoveRight();
+            direc=1;
         }
-        else if(jugador->getX1()+5 > colision_player().getX()){
-
-            if(nivel1==0){
-                jugador->setPos(jugador->getX1()+5,jugador->getY1());
-                jugador->setX1(jugador->getX1()+5);
-                tipo=1;
-            }
-            else{
-                jugador->setPos(jugador->x()+7,jugador->y());
-            }
+        else if(per->getX()+5 > colision_player().getX()){
+            per->MoveRight();
+            direc=1;
         }
-        //        else{
-//            jugador->setPos(jugador->getX1()-6,jugador->getY1());
-//            jugador->setX1(jugador->getX1()-6);
-//        }
+
     }
 
-
     else if(event->key()== 87){     //up
-
-
-        if(!jugador->collidesWithItem(&colision_player())){
-            if(nivel1==0){
-                //friccion
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()-5);
-                jugador->setY1(jugador->getY1()-5);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()-7);
-
-            }
+        if(!per->collidesWithItem(&colision_player())){
+            per->MoveUp();
+            direc=2;
         }
-        else if(jugador->getY1()-5 < colision_player().getY()){
-
-            if(nivel1==0){
-                jugador->setPos(jugador->getX1(),jugador->getY1()-5);
-                jugador->setY1(jugador->getY1()-5);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()-7);
-
-            }
+        else if(per->getY()-5 < colision_player().getY()){
+            per->MoveUp();
+            direc=2;
         }
-        //        else{
-//            jugador->setPos(jugador->getX1(),jugador->getY1()+6);
-//            jugador->setY1(jugador->getY1()+6);
-//        }
-//    }
     }
 
     else if(event->key()== 83){     //down
-
-
-        if(!jugador->collidesWithItem(&colision_player())){
-            if(nivel1==0){
-    //            for(int i=0;i<lentitud.size();i++){
-    //                if(this->collidesWithItem(lentitud.at(i))){
-    //                    rozamiento(1);
-    //                }
-    //                else{
-    //                    rozamiento(0);
-    //                }
-    //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()+5);
-                jugador->setY1(jugador->getY1()+5);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()+7);
-            }
+        if(!per->collidesWithItem(&colision_player())){
+            per->MoveDown();
+            direc=3;
         }
-        else if(jugador->getY1()-5 < colision_player().getY()){
-
-            if(nivel1==0){
-                jugador->setPos(jugador->getX1(),jugador->getY1()+5);
-                jugador->setY1(jugador->getY1()+5);
-            }
-            else{
-                jugador->setPos(jugador->x(),jugador->y()+7);
-            }
+        else if(per->getY()+5 > colision_player().getY()){
+            per->MoveDown();
+            direc=3;
         }
-        //        else{
-//            jugador->setPos(jugador->getX1(),jugador->getY1()-6);
-//            jugador->setY1(jugador->getY1()-6);
-//        }
     }
 
     //Ataque basico
     else if(event->key()== Qt::Key_Space){
-        if(nivel1==0){
-            if(tipo==1){
-                disparo = new ataque_Bas(0,tipo);
-                disparo->setPos(jugador->getX1()+70,jugador->getY1()+20);
-            }
-            if(tipo==0){
-                disparo = new ataque_Bas(0,tipo);
-                disparo->setPos(jugador->getX1()-20,jugador->getY1()+20);
-            }
 
-            scene->addItem(disparo);
-        }
     }
 
     //Ataque especial (Mov Parabolico)
     else if(event->key()==67){
         if(nivel1==0){
            if(tipo==1){
-                ataque_es = new tiropara(1,jugador->getX1()+50,jugador->getY1(),30,-45);
-                ataque_es->setPos(jugador->getX1()+50,jugador->getY1());
+                ataque_es = new tiropara(1,jugador->getX1(),jugador->getY1(),30,-45);
            }
            if(tipo==0){
-               ataque_es = new tiropara(0,jugador->getX1()-10,jugador->getY1(),30,-45);
-               ataque_es->setPos(jugador->getX1()-10,jugador->getY1());
+               ataque_es = new tiropara(0,jugador->getX1(),jugador->getY1(),30,-45);
            }
-
+           ataque_es->setPos(jugador->getX1(),jugador->getY1());
            scene->addItem(ataque_es);
         }
     }
-
-    if(tipo==0){
-        if(imagen==2){
-            imagen=3;
-
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png").scaled(60,60));
-
-        }
-        else if(imagen==3){
-            imagen=4;
-
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png").scaled(60,60));
-
-        }
-        else if(imagen==4){
-            imagen=5;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png").scaled(60,60));
-        }
-        else if(imagen==5){
-            imagen=6;
-
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png").scaled(60,60));
-        }
-        else if(imagen==6){
-            imagen=2;
-
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png").scaled(60,60));
-        }
-    }
-
-    if(tipo==1){
-        if(imagen==2){
-            imagen=3;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png").scaled(60,60));
-        }
-        else if(imagen==3){
-            imagen=4;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png").scaled(60,60));
-        }
-        else if(imagen==4){
-            imagen=5;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png").scaled(60,60));
-        }
-        else if(imagen==5){
-            imagen=6;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png").scaled(60,60));
-        }
-        else if(imagen==6){
-            imagen=2;
-            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der").scaled(60,60));
-        }
-
-    }
-
 }
 
 void MainWindow::Mover()
@@ -539,6 +347,7 @@ void MainWindow::Mover()
     }
 }
 
+
 void MainWindow::atk_1()
 {
     for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
@@ -553,9 +362,6 @@ void MainWindow::atk_2()
 {
     for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
         (*it)->atk_2();
-//        if((*it)->getYi()+300==(*it)->getY()){
-//            scene->removeItem((*it));
-//       }
     }
 }
 

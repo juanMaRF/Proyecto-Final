@@ -23,7 +23,7 @@
 #include "boss_CL.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
-#include "health.h"
+#include "muneco.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -44,11 +44,11 @@ public:
     void leer_atks(int lvl_);
     void Boss_2();
     obstaculos& colision_player();
+    bool prueba_colsion();
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
 
 private:
-    Health *vidaScor;
     short tipo,nivel1,imagen=2;
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
@@ -62,10 +62,11 @@ private:
     moob *e1,*e2,*e3,*e4;
     moob *boss1;
     int cant_obj=0;
-    int turn=1;
+    int turn=1,direc;
     QList <boss*> atks;
     ataque_Bas *disparo;
     tiropara *ataque_es;
+    muneco *per;
 
 
 signals:
