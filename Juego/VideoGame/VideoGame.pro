@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ataque_bas.cpp \
-    basico.cpp \
     boss.cpp \
     boss_CL.cpp \
     caida_libre.cpp \
@@ -33,7 +32,6 @@ SOURCES += \
 
 HEADERS += \
     ataque_bas.h \
-    basico.h \
     boss.h \
     boss_CL.h \
     caida_libre.h \

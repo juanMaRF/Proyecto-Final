@@ -1,5 +1,4 @@
 debug/ataque_bas.o
-debug/basico.o
 debug/boss.o
 debug/boss_CL.o
 debug/caida_libre.o

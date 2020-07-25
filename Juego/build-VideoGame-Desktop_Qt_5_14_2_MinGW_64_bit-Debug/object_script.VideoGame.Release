@@ -1,5 +1,4 @@
 release/ataque_bas.o
-release/basico.o
 release/boss.o
 release/boss_CL.o
 release/caida_libre.o

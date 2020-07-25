@@ -323,8 +323,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     //Ataque basico
     else if(event->key()== Qt::Key_Space){
-        tiro=new basico(per->getX(),per->getY(),10,10,direc);scene->addItem(tiro);tiroteo.push_front(tiro);
-        connect(time,SIGNAL(timeout()),this,SLOT(Mover_tiro()));
+
     }
 
     //Ataque especial (Mov Parabolico)
@@ -361,16 +360,6 @@ void MainWindow::Mover()
     }
 }
 
-void MainWindow::Mover_tiro()
-{
-    for (QList<basico*>::iterator it=tiroteo.begin();it!=tiroteo.end();it++) {
-        if((*it)->getDireccion()==1 || (*it)->getDireccion()==0){
-            (*it)->movex();
-        }else if((*it)->getDireccion()==2 || (*it)->getDireccion()==3){
-            (*it)->movey();
-        }
-    }
-}
 
 void MainWindow::atk_1()
 {
