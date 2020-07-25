@@ -72,6 +72,7 @@ player::player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent
     y1=y_;
     w1=w_;
     h1=h_;
+    setPos(x1,y1);
 
     setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
 

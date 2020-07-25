@@ -33,6 +33,8 @@ void ataque_Bas::move()
 
             //delete colliding_items[i];
             delete this;
+
+
         }
     }
 

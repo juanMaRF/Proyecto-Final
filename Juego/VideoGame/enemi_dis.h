@@ -31,7 +31,7 @@ private:
     QTimer *timer;
     //QTimer *time;
     short imagen=0,con=0,col=0;
-    int x1,y1,tipo1,nivel1;
+    int x1,y1,tipo1,nivel1,vida=30;
 };
 
 #endif // ENEMI_DIS_H
