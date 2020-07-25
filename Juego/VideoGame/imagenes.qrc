@@ -20,7 +20,6 @@
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk2_der.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk3_der.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk4_der.png</file>
-        <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk_der.png</file>
         <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png</file>
         <file>Imagenes Proyecto final/6 Deceased/Ball.png</file>
         <file>Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png</file>
@@ -39,5 +38,8 @@
         <file>Imagenes Proyecto final/fondo boss.jpeg</file>
         <file>Imagenes Proyecto final/proto_jefe.png</file>
         <file>Imagenes Proyecto final/playerproto.png</file>
+        <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk2.png</file>
+        <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk3.png</file>
+        <file>Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk4.png</file>
     </qresource>
 </RCC>

@@ -7,10 +7,10 @@ class caida_libre:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
 
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+//    QRectF boundingRect() const;
+//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 
-    caida_libre(int x);
+    caida_libre(int x,QGraphicsItem * parent=0);
     void actu_vel();
 
 private slots:

@@ -1,4 +1,5 @@
 #include "ataque_bas.h"
+#include "mainwindow.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -7,14 +8,13 @@
 
 extern MainWindow * game;
 
-ataque_Bas::ataque_Bas(short nivel, short tipo,int x, int y,int w, int h): QObject(), QGraphicsPixmapItem()
+ataque_Bas::ataque_Bas(short nivel, short tipo,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
     nivel1=nivel;
-    x1=x;
-    y1=y;
-    h1=h;
-    w1=w;
     ataque=tipo;
+
+    setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Ball.png").scaled(10,10));
+
     QTimer * timer = new QTimer();
 
     connect(timer,SIGNAL(timeout()),this, SLOT(move()));
@@ -22,21 +22,20 @@ ataque_Bas::ataque_Bas(short nivel, short tipo,int x, int y,int w, int h): QObje
     timer->start(50);
 }
 
-QRectF ataque_Bas::boundingRect() const
-{
-    return QRect(x1,y1,w1,h1);
-}
-
-void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    QPixmap pixmap;
-
-    pixmap.load(":/Imagenes Proyecto final/6 Deceased/Ball.png");
-    painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-}
-
 void ataque_Bas::move()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player)){
+
+            //scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+
+            //delete colliding_items[i];
+            delete this;
+        }
+    }
+
     if(nivel1==0){
         if(con==1){
             pos_inicial=pos().x();
@@ -68,24 +67,4 @@ void ataque_Bas::move()
     }
 
 
-}
-
-int ataque_Bas::getY1() const
-{
-    return y1;
-}
-
-void ataque_Bas::setY1(int value)
-{
-    y1 = value;
-}
-
-int ataque_Bas::getX1() const
-{
-    return x1;
-}
-
-void ataque_Bas::setX1(int value)
-{
-    x1 = value;
 }

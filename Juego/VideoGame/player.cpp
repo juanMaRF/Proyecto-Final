@@ -65,15 +65,31 @@ void player::setH1(int value)
     h1 = value;
 }
 
-player::player(short nivel,int x_, int y_, int w_, int h_)
+player::player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
     nivel1=nivel;
     x1=x_;
     y1=y_;
     w1=w_;
     h1=h_;
+
+    setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
+
+    if(nivel1==0){
+          if(tipo==1){
+              setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk6Der.png").scaled(w1,h1));
+           }
+          else{
+              setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
+          }
+    }
+    if(nivel1==1){
+        setPixmap(QPixmap(":/Imagenes Proyecto final/playerproto.png").scaled(w1,h1));
+    }
 }
 
+
+/**
 QRectF player::boundingRect() const
 {
     return QRectF(x1,y1,w1,h1);
@@ -164,3 +180,4 @@ void player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
 }
+**/

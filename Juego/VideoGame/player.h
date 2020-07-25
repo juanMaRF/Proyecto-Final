@@ -13,16 +13,13 @@
 #include "tiropara.h"
 #include "slime.h"
 
-class player:public QObject, public QGraphicsItem
+class player:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
-//signals:
-//    void keyCaught(QKeyEvent *e);
 public:
-    player(short nivel,int x_, int y_, int w_, int h_);
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
-//    void keyPressEvent(QKeyEvent *event);
+    player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
+//    QRectF boundingRect() const;
+//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     int getX1() const;
     void setX1(int value);
 

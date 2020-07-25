@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     //leer_lvl(1);
     //Boss_1();
 
-    niveles(0);
+    niveles(1);
 }
 
 MainWindow::~MainWindow()
@@ -33,19 +33,21 @@ void MainWindow::niveles(int x)
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
-        //keyPressEvent();
         jugador->setPos(95,90);
         //añadimos slime a la escena
         jugador->slime1();
 
 
         //añadimos el enemigo con ataque a distancia
-        enemy_dis = new enemi_dis(0,0,410,90,80,60);
-        mru.push_back(enemy_dis);
-        enemy_dis2 = new enemi_dis(0,1,25,90,80,60);
-        mru.push_back(enemy_dis2);
+        enemy_dis = new enemi_dis(0,0,850,180);
+        enemy_dis2 = new enemi_dis(0,1,10,180);
+
         scene->addItem(enemy_dis);
+        enemy_dis->setPos(850,180);
+
         scene->addItem(enemy_dis2);
+        enemy_dis2->setPos(10,180);
+
 
 
         e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
@@ -69,9 +71,9 @@ void MainWindow::niveles(int x)
 
 
         //añadimos al player
-        jugador = new player(1,200,300,20,20);
+        jugador = new player(1,200,400,20,20);
         scene->addItem(jugador);
-        jugador->setPos(200,100);
+        jugador->setPos(200,400);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
@@ -98,11 +100,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -170,10 +172,12 @@ void MainWindow::leer_atks(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
     }
     else if(lvl_==1){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
     }
     QFile file(lvl);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
@@ -266,7 +270,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     //Key Event's de movimiento del jugador
 
     if(event->key()==65){       //izq
-        qDebug()<<"jugador x:"<<jugador->getX1()<<"    jugador y:"<<jugador->getY1();
+
 
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
@@ -292,7 +296,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else if(jugador->getX1()-5 < colision_player().getX()){
-            qDebug()<<"muro x:"<<colision_player().getX()<<"    muro y:"<<colision_player().getY();
+
             if(nivel1==0){
 
                 jugador->setPos(jugador->getX1()-3,jugador->getY1());
@@ -311,7 +315,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 
     else if (event->key() == 68){       //der
-        qDebug()<<"jugador x:"<<jugador->getX1()<<"    jugador y:"<<jugador->getY1();
 
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
@@ -333,7 +336,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else if(jugador->getX1()+5 > colision_player().getX()){
-            qDebug()<<"muro x:"<<colision_player().getX()<<"    muro y:"<<colision_player().getY();
+
             if(nivel1==0){
                 jugador->setPos(jugador->getX1()+3,jugador->getY1());
                 jugador->setX1(jugador->getX1()+3);
@@ -351,7 +354,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 
     else if(event->key()== 87){     //up
-        qDebug()<<"jugador x:"<<jugador->getX1()<<"    jugador y:"<<jugador->getY1();
+
 
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
@@ -373,7 +376,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else if(jugador->getY1()-5 < colision_player().getY()){
-            qDebug()<<"muro x:"<<colision_player().getX()<<"    muro y:"<<colision_player().getY();
+
             if(nivel1==0){
                 jugador->setPos(jugador->getX1(),jugador->getY1()-3);
                 jugador->setY1(jugador->getY1()-3);
@@ -391,7 +394,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 
     else if(event->key()== 83){     //down
-        qDebug()<<"jugador x:"<<jugador->getX1()<<"    jugador y:"<<jugador->getY1();
+
 
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
@@ -411,7 +414,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else if(jugador->getY1()-5 < colision_player().getY()){
-            qDebug()<<"muro x:"<<colision_player().getX()<<"    muro y:"<<colision_player().getY();
+
             if(nivel1==0){
                 jugador->setPos(jugador->getX1(),jugador->getY1()+3);
                 jugador->setY1(jugador->getY1()+3);
@@ -430,13 +433,14 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     else if(event->key()== Qt::Key_Space){
         if(nivel1==0){
             if(tipo==1){
-                disparo = new ataque_Bas(0,tipo,jugador->getX1()+50,jugador->getY1()+20,10,10);
+                disparo = new ataque_Bas(0,tipo);
+                disparo->setPos(jugador->getX1()+70,jugador->getY1()+20);
             }
             if(tipo==0){
-                disparo = new ataque_Bas(0,tipo,jugador->getX1()-10,jugador->getY1()+20,10,10);
+                disparo = new ataque_Bas(0,tipo);
+                disparo->setPos(jugador->getX1()-20,jugador->getY1()+20);
             }
 
-            disparo->setPos(jugador->getX1(),jugador->getY1());
             scene->addItem(disparo);
         }
     }
@@ -445,15 +449,71 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     else if(event->key()==67){
         if(nivel1==0){
            if(tipo==1){
-                ataque_es = new tiropara(1,jugador->getX1(),jugador->getY1(),30,-45);
+                ataque_es = new tiropara(1,jugador->getX1()+50,jugador->getY1(),30,-45);
+                ataque_es->setPos(jugador->getX1()+50,jugador->getY1());
            }
            if(tipo==0){
-               ataque_es = new tiropara(0,jugador->getX1(),jugador->getY1(),30,-45);
+               ataque_es = new tiropara(0,jugador->getX1()-10,jugador->getY1(),30,-45);
+               ataque_es->setPos(jugador->getX1()-10,jugador->getY1());
            }
-           ataque_es->setPos(jugador->getX1(),jugador->getY1());
+
            scene->addItem(ataque_es);
         }
     }
+
+    if(tipo==0){
+        if(imagen==2){
+            imagen=3;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png").scaled(60,60));
+
+        }
+        else if(imagen==3){
+            imagen=4;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png").scaled(60,60));
+
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png").scaled(60,60));
+        }
+    }
+
+    if(tipo==1){
+        if(imagen==2){
+            imagen=3;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png").scaled(60,60));
+        }
+        else if(imagen==3){
+            imagen=4;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png").scaled(60,60));
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der").scaled(60,60));
+        }
+
+    }
+
 }
 
 void MainWindow::Mover()

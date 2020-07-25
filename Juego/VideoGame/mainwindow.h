@@ -47,7 +47,7 @@ public:
     QList <enemi_dis*> mru;
 
 private:
-    short tipo,nivel1;
+    short tipo,nivel1,imagen=2;
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;

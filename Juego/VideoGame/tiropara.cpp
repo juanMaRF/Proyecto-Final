@@ -1,9 +1,10 @@
 #include "tiropara.h"
 #include "mainwindow.h"
+#include "enemi_dis.h"
 
 extern MainWindow * game;
 
-tiropara::tiropara(int tipo,double x, double y, double v, double a)
+tiropara::tiropara(int tipo,double x, double y, double v, double a,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
     tipo1=tipo;
     posx=x;
@@ -11,6 +12,9 @@ tiropara::tiropara(int tipo,double x, double y, double v, double a)
     vel=v;
     ang=a;
     r=10;
+
+    setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Ball.png").scaled(20,20));
+
     QTimer * timer = new QTimer();
 
     connect(timer,SIGNAL(timeout()),this, SLOT(ActualizarPosicion()));
@@ -30,6 +34,18 @@ double tiropara::getPosx() const
 
 void tiropara::ActualizarPosicion()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player)){
+
+            //scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+
+            //delete colliding_items[i];
+            delete this;
+        }
+    }
+
     if(con==0){
         pos_inicial=posy;
         con=1;
@@ -51,6 +67,10 @@ void tiropara::ActualizarPosicion()
     setPosy(getPosy()+vel_y*delta-(0.5*g*delta*delta));
     setPos(getPosx(),getPosy());
 
+    if(getPosy()>pos_inicial+40){
+        scene()->removeItem(this);
+        delete this;
+    }
 }
 
 void tiropara::ActualizarVelocidad()
@@ -71,20 +91,4 @@ void tiropara::setPosx(double value)
 {
     posx = value;
 }
-
-QRectF tiropara::boundingRect() const
-{
-    return QRectF(posx,posy,2*r,2*r);
-
-}
-
-void tiropara::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    QPixmap pixmap;
-
-    pixmap.load(":/Imagenes Proyecto final/6 Deceased/Ball.png");
-    painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-}
-
-
 

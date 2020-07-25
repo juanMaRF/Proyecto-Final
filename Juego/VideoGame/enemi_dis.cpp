@@ -1,40 +1,60 @@
 #include "enemi_dis.h"
 
-enemi_dis::enemi_dis(int nivel, int tipo,int x, int y, int w, int h)
+enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
-    timer = new QTimer(this);
     tipo1=tipo;
     nivel1=nivel;
     x1=x;
     y1=y;
-    w1=w;
-    h1=h;
 
-    timer->start(60);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
-}
-
-QRectF enemi_dis::boundingRect() const
-{
-    return QRect(x1,y1,w1,h1);
-}
-
-void enemi_dis::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    QPixmap pixmap;
     if(tipo1==1){
-        pixmap.load(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png").scaled(80,60));
     }
     if(tipo1==0){
-        pixmap.load(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+        setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png").scaled(80,60));
     }
+
+
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    timer->start(60);
+
 }
 
 void enemi_dis::move()
 {
+
+    if(tipo1==1){
+        if(imagen==0){
+            imagen=1;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk2_der.png").scaled(80,60));
+        }
+        else if(imagen==1){
+            imagen=2;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk3_der.png").scaled(80,60));
+        }
+        else if(imagen==2){
+            imagen=0;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk4_der.png").scaled(80,60));
+        }
+    }
+
+    if(tipo1==0){
+        if(imagen==0){
+            imagen=1;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk2.png").scaled(80,60));
+        }
+        else if(imagen==1){
+            imagen=2;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk3.png").scaled(80,60));
+        }
+        else if(imagen==2){
+            imagen=0;
+            setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk4.png").scaled(80,60));
+        }
+    }
+
     if(con==0){
         pos_inicial=this->getY1();
         con=1;
@@ -48,13 +68,13 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial+40 or this->getY1()==pos_inicial+20){
 
             if(tipo1==0){
-                shot=new ataque_Bas(0,0,x1,y1,10,10);
+                shot=new ataque_Bas(0,0);
                 shot->setPos(x1,y1);
                 scene()->addItem(shot);
             }
             if(tipo1==1){
-                shot= new ataque_Bas(0,1,x1,y1,10,10);
-                shot->setPos(x1,y1);
+                shot= new ataque_Bas(0,1);
+                shot->setPos(x1+50,y1);
                 scene()->addItem(shot);
             }
             if(this->getY1()==pos_inicial+40){
@@ -69,13 +89,13 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial or this->getY1()==pos_inicial+20){
 
                 if(tipo1==0){
-                    shot=new ataque_Bas(0,0,x1,y1,10,10);
+                    shot=new ataque_Bas(0,0);
                     shot->setPos(x1,y1);
                     scene()->addItem(shot);
                 }
                 if(tipo1==1){
-                    shot= new ataque_Bas(0,1,x1+10,y1,10,10);
-                    shot->setPos(x1+10,y1);
+                    shot= new ataque_Bas(0,1);
+                    shot->setPos(x1+50,y1);
                     scene()->addItem(shot);
                 }
                 if(this->getY1()==pos_inicial){
