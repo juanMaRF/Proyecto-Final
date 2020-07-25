@@ -23,6 +23,7 @@
 #include "boss_CL.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
+#include "health.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -47,6 +48,7 @@ public:
     QList <enemi_dis*> mru;
 
 private:
+    Health *vidaScor;
     short tipo,nivel1,imagen=2;
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;

@@ -3,6 +3,7 @@ debug/boss.o
 debug/boss_CL.o
 debug/caida_libre.o
 debug/enemi_dis.o
+debug/health.o
 debug/main.o
 debug/mainwindow.o
 debug/moob.o

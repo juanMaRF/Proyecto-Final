@@ -13,7 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
     //leer_lvl(1);
     //Boss_1();
 
-    niveles(1);
+    vidaScor= new Health();
+    scene->addItem(vidaScor);
+    vidaScor->setPos(vidaScor->x(),vidaScor->y()+25);
+
+    niveles(0);
 }
 
 MainWindow::~MainWindow()
@@ -287,8 +291,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 }
                 **/
 
-                jugador->setPos(jugador->getX1()-3,jugador->getY1());
-                jugador->setX1(jugador->getX1()-3);
+                jugador->setPos(jugador->getX1()-5,jugador->getY1());
+                jugador->setX1(jugador->getX1()-5);
                 tipo=0;
             }
             else{
@@ -299,8 +303,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
             if(nivel1==0){
 
-                jugador->setPos(jugador->getX1()-3,jugador->getY1());
-                jugador->setX1(jugador->getX1()-3);
+                jugador->setPos(jugador->getX1()-5,jugador->getY1());
+                jugador->setX1(jugador->getX1()-5);
                 tipo=0;
             }
             else{
@@ -327,8 +331,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     //                    rozamiento(0);
     //                }
     //            }
-                jugador->setPos(jugador->getX1()+3,jugador->getY1());
-                jugador->setX1(jugador->getX1()+3);
+                jugador->setPos(jugador->getX1()+5,jugador->getY1());
+                jugador->setX1(jugador->getX1()+5);
                 tipo=1;
             }
             else{
@@ -338,8 +342,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         else if(jugador->getX1()+5 > colision_player().getX()){
 
             if(nivel1==0){
-                jugador->setPos(jugador->getX1()+3,jugador->getY1());
-                jugador->setX1(jugador->getX1()+3);
+                jugador->setPos(jugador->getX1()+5,jugador->getY1());
+                jugador->setX1(jugador->getX1()+5);
                 tipo=1;
             }
             else{
@@ -367,8 +371,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     //                    rozamiento(0);
     //                }
     //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()-3);
-                jugador->setY1(jugador->getY1()-3);
+                jugador->setPos(jugador->getX1(),jugador->getY1()-5);
+                jugador->setY1(jugador->getY1()-5);
             }
             else{
                 jugador->setPos(jugador->x(),jugador->y()-7);
@@ -378,8 +382,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         else if(jugador->getY1()-5 < colision_player().getY()){
 
             if(nivel1==0){
-                jugador->setPos(jugador->getX1(),jugador->getY1()-3);
-                jugador->setY1(jugador->getY1()-3);
+                jugador->setPos(jugador->getX1(),jugador->getY1()-5);
+                jugador->setY1(jugador->getY1()-5);
             }
             else{
                 jugador->setPos(jugador->x(),jugador->y()-7);
@@ -406,8 +410,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     //                    rozamiento(0);
     //                }
     //            }
-                jugador->setPos(jugador->getX1(),jugador->getY1()+3);
-                jugador->setY1(jugador->getY1()+3);
+                jugador->setPos(jugador->getX1(),jugador->getY1()+5);
+                jugador->setY1(jugador->getY1()+5);
             }
             else{
                 jugador->setPos(jugador->x(),jugador->y()+7);
@@ -416,8 +420,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         else if(jugador->getY1()-5 < colision_player().getY()){
 
             if(nivel1==0){
-                jugador->setPos(jugador->getX1(),jugador->getY1()+3);
-                jugador->setY1(jugador->getY1()+3);
+                jugador->setPos(jugador->getX1(),jugador->getY1()+5);
+                jugador->setY1(jugador->getY1()+5);
             }
             else{
                 jugador->setPos(jugador->x(),jugador->y()+7);

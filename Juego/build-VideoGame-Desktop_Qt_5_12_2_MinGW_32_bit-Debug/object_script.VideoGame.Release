@@ -3,6 +3,7 @@ release/boss.o
 release/boss_CL.o
 release/caida_libre.o
 release/enemi_dis.o
+release/health.o
 release/main.o
 release/mainwindow.o
 release/moob.o

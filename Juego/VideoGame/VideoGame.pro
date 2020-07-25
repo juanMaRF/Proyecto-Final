@@ -21,6 +21,7 @@ SOURCES += \
     boss_CL.cpp \
     caida_libre.cpp \
     enemi_dis.cpp \
+    health.cpp \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     boss_CL.h \
     caida_libre.h \
     enemi_dis.h \
+    health.h \
     mainwindow.h \
     moob.h \
     obstaculos.h \

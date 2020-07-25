@@ -7,7 +7,6 @@ enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): Q
     x1=x;
     y1=y;
 
-
     if(tipo1==1){
         setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_der/Scorpio_walk1_der.png").scaled(80,60));
     }
