@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[8];
-    char stringdata0[53];
+    QByteArrayData data[9];
+    char stringdata0[64];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,12 +38,13 @@ QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 10), // "QKeyEvent*"
 QT_MOC_LITERAL(4, 33, 1), // "e"
 QT_MOC_LITERAL(5, 35, 5), // "Mover"
-QT_MOC_LITERAL(6, 41, 5), // "atk_1"
-QT_MOC_LITERAL(7, 47, 5) // "atk_2"
+QT_MOC_LITERAL(6, 41, 10), // "Mover_tiro"
+QT_MOC_LITERAL(7, 52, 5), // "atk_1"
+QT_MOC_LITERAL(8, 58, 5) // "atk_2"
 
     },
     "MainWindow\0keyCaught\0\0QKeyEvent*\0e\0"
-    "Mover\0atk_1\0atk_2"
+    "Mover\0Mover_tiro\0atk_1\0atk_2"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +54,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,17 +62,19 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   34,    2, 0x06 /* Public */,
+       1,    1,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   37,    2, 0x08 /* Private */,
-       6,    0,   38,    2, 0x08 /* Private */,
-       7,    0,   39,    2, 0x08 /* Private */,
+       5,    0,   42,    2, 0x08 /* Private */,
+       6,    0,   43,    2, 0x08 /* Private */,
+       7,    0,   44,    2, 0x08 /* Private */,
+       8,    0,   45,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -87,8 +90,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->keyCaught((*reinterpret_cast< QKeyEvent*(*)>(_a[1]))); break;
         case 1: _t->Mover(); break;
-        case 2: _t->atk_1(); break;
-        case 3: _t->atk_2(); break;
+        case 2: _t->Mover_tiro(); break;
+        case 3: _t->atk_1(); break;
+        case 4: _t->atk_2(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -132,13 +136,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

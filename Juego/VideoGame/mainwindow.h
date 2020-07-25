@@ -23,6 +23,8 @@
 #include "boss_CL.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
+#include "muneco.h"
+#include "basico.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +45,7 @@ public:
     void leer_atks(int lvl_);
     void Boss_2();
     obstaculos& colision_player();
+    bool prueba_colsion();
     void keyPressEvent(QKeyEvent *event);
 
 private:
@@ -56,13 +59,16 @@ private:
     QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup;
     QList <moob*> enemigos;
     QList <ataque_Bas*> balas;
+    QList <basico*> tiroteo;
     moob *e1,*e2,*e3,*e4;
     moob *boss1;
     int cant_obj=0;
-    int turn=1;
+    int turn=1,direc;
     QList <boss*> atks;
     ataque_Bas *disparo;
+    basico *tiro;
     tiropara *ataque_es;
+    muneco *per;
 
 
 signals:
@@ -70,6 +76,7 @@ signals:
 
 private slots:
     void Mover();
+    void Mover_tiro();
     void atk_1();
     void atk_2();
 };

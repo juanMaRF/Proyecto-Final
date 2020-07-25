@@ -1,4 +1,5 @@
 debug/ataque_bas.o
+debug/basico.o
 debug/boss.o
 debug/boss_CL.o
 debug/caida_libre.o
@@ -6,6 +7,7 @@ debug/enemi_dis.o
 debug/main.o
 debug/mainwindow.o
 debug/moob.o
+debug/muneco.o
 debug/obstaculos.o
 debug/player.o
 debug/slime.o

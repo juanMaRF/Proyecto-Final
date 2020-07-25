@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ataque_bas.cpp \
+    basico.cpp \
     boss.cpp \
     boss_CL.cpp \
     caida_libre.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
+    muneco.cpp \
     obstaculos.cpp \
     player.cpp \
     slime.cpp \
@@ -31,12 +33,14 @@ SOURCES += \
 
 HEADERS += \
     ataque_bas.h \
+    basico.h \
     boss.h \
     boss_CL.h \
     caida_libre.h \
     enemi_dis.h \
     mainwindow.h \
     moob.h \
+    muneco.h \
     obstaculos.h \
     player.h \
     slime.h \
