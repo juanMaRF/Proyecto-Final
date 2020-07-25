@@ -24,6 +24,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     moob.cpp \
+    muneco.cpp \
     obstaculos.cpp \
     player.cpp \
     slime.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     enemi_dis.h \
     mainwindow.h \
     moob.h \
+    muneco.h \
     obstaculos.h \
     player.h \
     slime.h \

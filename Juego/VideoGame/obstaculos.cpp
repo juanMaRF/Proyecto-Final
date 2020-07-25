@@ -46,6 +46,7 @@ obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
     y=y_;
     w=w_;
     h=h_;
+    //setPos(x,y);
     if(img=="piedra1"){
         pixmap.load(":/Imagenes Proyecto final/roca1.gif");
     }else if(img=="valla1"){
@@ -67,4 +68,5 @@ QRectF obstaculos::boundingRect() const
 void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
+    //painter->drawRect(boundingRect());
 }
