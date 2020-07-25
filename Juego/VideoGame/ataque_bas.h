@@ -1,6 +1,8 @@
 #ifndef ATAQUE_BAS_H
 #define ATAQUE_BAS_H
 #include <QGraphicsPixmapItem>
+#include "mainwindow.h"
+#include "enemi_dis.h"
 
 
 class ataque_Bas:public QObject, public QGraphicsPixmapItem
@@ -24,6 +26,8 @@ private slots:
     void move();
 
 private:
+    enemi_dis *prueba;
+    MainWindow *juego;
     int pos_inicial;
     short ataque,con=1,nivel1;
     int x1,y1,h1,w1;

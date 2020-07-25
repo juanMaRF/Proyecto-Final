@@ -1,5 +1,4 @@
 #include "ataque_bas.h"
-#include "mainwindow.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -35,8 +34,6 @@ void ataque_Bas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     pixmap.load(":/Imagenes Proyecto final/6 Deceased/Ball.png");
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
-
-
 
 void ataque_Bas::move()
 {

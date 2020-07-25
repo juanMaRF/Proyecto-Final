@@ -44,6 +44,7 @@ public:
     void Boss_2();
     obstaculos* colision_player();
     void keyPressEvent(QKeyEvent *event);
+    QList <enemi_dis*> mru;
 
 private:
     short tipo,nivel1;

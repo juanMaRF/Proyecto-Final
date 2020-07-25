@@ -31,29 +31,6 @@ void enemi_dis::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         pixmap.load(":/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
-
-    /**
-    if(imagen==0){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk4.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-        imagen=1;
-    }
-    if(imagen==1){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk3.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-        imagen=2;
-    }
-    if(imagen==2){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk2.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-        imagen=3;
-    }
-    if(imagen==3){
-        pixmap.load(":/enemy_dis/Imagenes Proyecto final/3 Scorpio/Enemy_dis_izq/Scorpio_walk1.png");
-        painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-        imagen=0;
-    }
-    **/
 }
 
 void enemi_dis::move()
@@ -109,18 +86,6 @@ void enemi_dis::move()
     }
 
 }
-
-/**
-void enemi_dis::actualizar()
-{
-    columnas+=46;
-    if(columnas>=186){
-        columnas = 0;
-    }
-    this->update(-w1/2,-h1/2,w1,h1);
-}
-**/
-
 
 int enemi_dis::getX1() const
 {

@@ -41,9 +41,7 @@ void caida_libre::move()
         pos_inicial=PosY;
         con=2;
     }
-    qDebug()<<"ANTES:  "<<PosX<<"   "<<PosY;
     PosY=PosY-(0.5*Vel*delta);
-    qDebug()<<"DESPUES:  "<<PosX<<"   "<<PosY;
     setPos(PosX,PosY);
     actu_vel();
 

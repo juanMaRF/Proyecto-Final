@@ -41,9 +41,12 @@ void MainWindow::niveles(int x)
 
         //añadimos el enemigo con ataque a distancia
         enemy_dis = new enemi_dis(0,0,410,90,80,60);
+        mru.push_back(enemy_dis);
         enemy_dis2 = new enemi_dis(0,1,25,90,80,60);
+        mru.push_back(enemy_dis2);
         scene->addItem(enemy_dis);
         scene->addItem(enemy_dis2);
+
 
         e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
         e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
