@@ -42,7 +42,7 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
     void Boss_2();
-    obstaculos* colision_player();
+    obstaculos& colision_player();
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
 
