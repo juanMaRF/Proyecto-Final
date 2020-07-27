@@ -17,7 +17,7 @@ private:
     double pos_inicial;
     double g= -9.8;
     double delta =0.1;
-    double posy,posx, ang=50, vel, vel_x=15, vel_y=15;
+    double posy,posx, ang=50, vel, vel_x=30, vel_y=30;
     int r,con=0,tipo1;
 public:
 //    QRectF boundingRect() const;

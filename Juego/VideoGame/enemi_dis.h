@@ -23,6 +23,9 @@ public:
     void setY1(int value);
 
 
+    int getVida() const;
+    void setVida(int value);
+
 private slots:
     void move();
 private:

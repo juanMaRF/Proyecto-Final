@@ -24,6 +24,26 @@ enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): Q
 
 void enemi_dis::move()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
+            if(this->getVida()==0){
+                //scene()->removeItem(colliding_items[i]);
+                scene()->removeItem(this);
+
+                //delete colliding_items[i];
+                delete this;
+            }
+            this->setVida(this->getVida()-5);
+//            if(imagen==0){                        //animacion de daño, no funciona
+//                imagen=1;
+//                setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/daño_e/Scorpio_hurt.png"));
+//            }else if(imagen==1){
+//                imagen=0;
+//                setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/daño_e/Scorpio_hurt1.png"));
+//            }
+        }
+    }
 
     if(tipo1==1){
         if(imagen==0){
@@ -105,6 +125,16 @@ void enemi_dis::move()
         }
     }
 
+}
+
+int enemi_dis::getVida() const
+{
+    return vida;
+}
+
+void enemi_dis::setVida(int value)
+{
+    vida = value;
 }
 
 int enemi_dis::getX1() const

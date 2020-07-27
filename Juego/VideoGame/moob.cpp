@@ -1,4 +1,7 @@
 #include "moob.h"
+#include "mainwindow.h"
+
+extern MainWindow * game;
 
 float moob::getVel_tempx() const
 {
@@ -40,6 +43,16 @@ void moob::setVel_y(float value)
     vel_y = value;
 }
 
+int moob::getVida() const
+{
+    return vida;
+}
+
+void moob::setVida(int value)
+{
+    vida = value;
+}
+
 moob::moob(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;xi=x_;
@@ -57,7 +70,8 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
     timer=new QTimer();
     timer->start(80);// modifica la velocidad en que itera entre las imagenes
 
-    connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
+    //connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
+    connect(timer,SIGNAL(timeout()),this,SLOT(Actualizacion()));
 }
 
 QRectF moob::boundingRect() const
@@ -85,6 +99,21 @@ void moob::move()
 
 void moob::Actualizacion()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
+            if(this->getVida()==0){
+                //scene()->removeItem(colliding_items[i]);
+                scene()->removeItem(this);
+
+                //delete colliding_items[i];
+                delete this;
+            }
+            this->setVida(this->getVida()-5);
+            qDebug()<<"Pajaro: "<<this->getVida();
+        }
+    }
+
     columnas +=50;
     if(columnas >=200)
     {

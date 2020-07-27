@@ -9,7 +9,7 @@
 #include <QPainter>
 #include <math.h>
 
-class moob: public QGraphicsItem,public QObject
+class moob: public QObject,public QGraphicsItem
 {
     int x,xi;
     int y,yi;
@@ -49,7 +49,10 @@ public:
     float getVel_y() const;
     void setVel_y(float value);
 
-public slots:
+    int getVida() const;
+    void setVida(int value);
+
+private slots:
     void Actualizacion();
 };
 #endif // MOOB_H
