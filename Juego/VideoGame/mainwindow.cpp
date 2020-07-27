@@ -8,6 +8,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+<<<<<<< Updated upstream
+=======
+    time=new QTimer;
+    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    //leer_lvl(1);
+    //Boss_1();
+    vidaScor = new Health();
+    vidaScor->setPos(95,100);
+    scene->addItem(vidaScor);
+>>>>>>> Stashed changes
 
     niveles(0);
 
@@ -42,10 +52,21 @@ void MainWindow::niveles(int x)
 
 
         //añadimos el enemigo con ataque a distancia
+<<<<<<< Updated upstream
         enemy_dis = new enemi_dis(0,0,460,100,80,60);
         enemy_dis2 = new enemi_dis(0,1,35,100,80,60);
+=======
+        enemy_dis = new enemi_dis(0,0,850,180);
+        enemy_dis2 = new enemi_dis(0,1,10,180);
+
+>>>>>>> Stashed changes
         scene->addItem(enemy_dis);
+        enemy_dis->setPos(850,180);
+
         scene->addItem(enemy_dis2);
+        enemy_dis2->setPos(10,180);
+
+
 
 
 
@@ -96,13 +117,27 @@ void MainWindow::niveles(int x)
         scene->addItem(B1);
 
         //añadimos al player
-        jugador = new player(1,200,300,20,20);
+        jugador = new player(1,200,400,20,20);
         scene->addItem(jugador);
-        jugador->setPos(200,100);
+        jugador->setPos(200,400);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
 
+<<<<<<< Updated upstream
+=======
+void MainWindow::leer_lvl(int lvl_)
+{
+    QString lvl;
+    if(lvl_==0){
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+    }else if(lvl_==1){
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+    }
+    scene=new QGraphicsScene;
+>>>>>>> Stashed changes
 
     if(x==2){
 
@@ -142,14 +177,48 @@ void MainWindow::niveles(int x)
         scene->addItem(enemy_dis3);
         scene->addItem(enemy_dis4);
     }
+<<<<<<< Updated upstream
+=======
+
+    time->start(20);
+>>>>>>> Stashed changes
 }
 
 bool MainWindow::colision()
 {
+<<<<<<< Updated upstream
     QList <obstaculos *>::iterator it=lista_piedra.begin();
     for (it=lista_piedra.begin();it<lista_piedra.end();it++) {
         if(jugador->collidesWithItem((*it))){
             return  true;
+=======
+    QString lvl;
+    if(lvl_==0){
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
+    }
+    else if(lvl_==1){
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
+    }
+    QFile file(lvl);
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::warning(this,"Title","File not open");         //se abre el archivo para guardarlo en un Qstring
+    }
+    QTextStream in(&file);
+    QString text=in.readAll(),temp;
+    file.close();
+    int comas=0,coordx=0,coordy=0,tempint;
+    for (int i=0;i<text.size();i++) {
+        if(text.at(i)==","){
+            if(comas==0){
+                tempint=temp.toInt();
+                coordx=tempint;
+                temp.clear();
+            }
+            comas+=1;
+            i++;
+>>>>>>> Stashed changes
         }
     }
     return false;
@@ -158,6 +227,7 @@ bool MainWindow::colision()
 /**
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
+<<<<<<< Updated upstream
     //Key Event's de movimiento del jugador
 
     if(event->key()==0x41){
@@ -171,6 +241,42 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setX1(jugador->getX1()-5);
                 tipo=0;
             }
+=======
+    int alea=1;
+    scene=new QGraphicsScene;
+
+    ui->graphicsView->setScene(scene);
+    scene->setSceneRect(0,0,1111,621);
+    scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
+    //Añadimos al player
+//    jugador = new player(1,200,300,20,20);
+//    scene->addItem(jugador);
+//    jugador->setPos(200,100);
+//    jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+//    jugador->setFocus();
+
+    if(alea==0){
+        leer_atks(alea);
+        int pp=1;
+        for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
+            (*it)->setVelx((*it)->getVelx()*pp);
+            pp=pp*-1;
+        }
+        connect(time,SIGNAL(timeout()),this,SLOT(atk_1()));
+    }else if(alea==1){
+        leer_atks(alea);
+        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
+    }else if(alea==2){
+//        b1=new boss(550,450);scene->addItem(b1);atks.push_back(b1);
+//        b2=new boss(190,430);scene->addItem(b2);atks.push_back(b2);
+//        b3=new boss(910,430);scene->addItem(b3);atks.push_back(b3);
+//        b4=new boss(190,500);scene->addItem(b4);atks.push_back(b4);
+//        b5=new boss(910,500);scene->addItem(b5);atks.push_back(b5);
+//        for(int i=0;i<5;i++){
+
+//        }
+//        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
+>>>>>>> Stashed changes
     }
     else if (event->key() == 0x44){
 
@@ -187,9 +293,21 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         jugador->setX1(jugador->getX1()+5);
         tipo=1;
 
+<<<<<<< Updated upstream
+=======
+obstaculos &MainWindow::colision_player()
+{
+    obstaculos* tempo=nullptr;
+    for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        if(jugador->collidesWithItem((*it))){
+            obstaculos *pepo=(*it);
+            return *pepo;
+        }
+>>>>>>> Stashed changes
     }
     else if(event->key()== 0x57){
 
+<<<<<<< Updated upstream
         for(int i=0;i<lentitud.size();i++){
             if(this->collidesWithItem(lentitud.at(i))){
                 rozamiento(1);
@@ -203,9 +321,60 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         jugador->setY1(jugador->getY1()-5);
 
 
+=======
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    //Key Event's de movimiento del jugador
+
+    if(event->key()==65){       //izq
+
+
+        if(!jugador->collidesWithItem(&colision_player())){
+            if(nivel1==0){
+
+                //friccion
+                /**
+                for(int i=0;i<lentitud.size();i++){
+                    if(this->collidesWithItem(lentitud.at(i))){
+                        rozamiento(1);
+                    }
+                    else{
+                        rozamiento(0);
+                    }
+                }
+                **/
+
+                jugador->setPos(jugador->getX1()-5,jugador->getY1());
+                jugador->setX1(jugador->getX1()-5);
+                tipo=0;
+            }
+            else{
+                jugador->setPos(jugador->x()-7,jugador->y());
+            }
+        }
+        /**
+//        else if(jugador->getX1()-5 < colision_player().getX()){
+
+//            if(nivel1==0){
+
+//                jugador->setPos(jugador->getX1()-3,jugador->getY1());
+//                jugador->setX1(jugador->getX1()-3);
+//                tipo=0;
+//            }
+//            else{
+//                jugador->setPos(jugador->x()-7,jugador->y());
+//            }
+//        }
+**/
+        else{
+            jugador->setPos(jugador->getX1()+12,jugador->getY1());
+            jugador->setX1(jugador->getX1()+12);
+        }
+>>>>>>> Stashed changes
     }
     else if(event->key()== 0x53){
 
+<<<<<<< Updated upstream
         for(int i=0;i<lentitud.size();i++){
             if(this->collidesWithItem(lentitud.at(i))){
                 rozamiento(1);
@@ -220,6 +389,128 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     }
 
+=======
+
+    else if (event->key() == 68){       //der
+
+        if(!jugador->collidesWithItem(&colision_player())){
+            if(nivel1==0){
+                //friccion
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1()+5,jugador->getY1());
+                jugador->setX1(jugador->getX1()+5);
+                tipo=1;
+            }
+            else{
+                jugador->setPos(jugador->x()+7,jugador->y());
+            }
+        }
+        /**
+        else if(jugador->getX1()+5 > colision_player().getX()){
+
+            if(nivel1==0){
+                jugador->setPos(jugador->getX1()+3,jugador->getY1());
+                jugador->setX1(jugador->getX1()+3);
+                tipo=1;
+            }
+            else{
+                jugador->setPos(jugador->x()+7,jugador->y());
+            }
+        }
+        **/
+        else{
+            jugador->setPos(jugador->getX1()-12,jugador->getY1());
+            jugador->setX1(jugador->getX1()-12);
+        }
+    }
+
+
+    else if(event->key()== 87){     //up
+
+
+        if(!jugador->collidesWithItem(&colision_player())){
+            if(nivel1==0){
+                //friccion
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1(),jugador->getY1()-5);
+                jugador->setY1(jugador->getY1()-5);
+            }
+            else{
+                jugador->setPos(jugador->x(),jugador->y()-7);
+
+            }
+        }
+        /**
+        else if(jugador->getY1()-5 < colision_player().getY()){
+
+            if(nivel1==0){
+                jugador->setPos(jugador->getX1(),jugador->getY1()-3);
+                jugador->setY1(jugador->getY1()-3);
+            }
+            else{
+                jugador->setPos(jugador->x(),jugador->y()-7);
+
+            }
+        }
+        **/
+        else{
+            jugador->setPos(jugador->getX1(),jugador->getY1()+12);
+            jugador->setY1(jugador->getY1()+12);
+        }
+    }
+
+    else if(event->key()== 83){     //down
+
+
+        if(!jugador->collidesWithItem(&colision_player())){
+            if(nivel1==0){
+    //            for(int i=0;i<lentitud.size();i++){
+    //                if(this->collidesWithItem(lentitud.at(i))){
+    //                    rozamiento(1);
+    //                }
+    //                else{
+    //                    rozamiento(0);
+    //                }
+    //            }
+                jugador->setPos(jugador->getX1(),jugador->getY1()+5);
+                jugador->setY1(jugador->getY1()+5);
+            }
+            else{
+                jugador->setPos(jugador->x(),jugador->y()+7);
+            }
+        }
+        /**
+        else if(jugador->getY1()-5 < colision_player().getY()){
+
+            if(nivel1==0){
+                jugador->setPos(jugador->getX1(),jugador->getY1()+3);
+                jugador->setY1(jugador->getY1()+3);
+            }
+            else{
+                jugador->setPos(jugador->x(),jugador->y()+7);
+            }
+        }
+        **/
+        else{
+            jugador->setPos(jugador->getX1(),jugador->getY1()-12);
+            jugador->setY1(jugador->getY1()-12);
+        }
+    }
+>>>>>>> Stashed changes
 
     //Ataque basico
     else if(event->key()== Qt::Key_Space){
@@ -251,11 +542,90 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    if(tipo==0){
+        if(imagen==2){
+            imagen=3;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk5.png").scaled(60,60));
+
+        }
+        else if(imagen==3){
+            imagen=4;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk4.png").scaled(60,60));
+
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk3.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk2.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk.png").scaled(60,60));
+        }
+    }
+
+    if(tipo==1){
+        if(imagen==2){
+            imagen=3;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk5Der.png").scaled(60,60));
+        }
+        else if(imagen==3){
+            imagen=4;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk4Der.png").scaled(60,60));
+        }
+        else if(imagen==4){
+            imagen=5;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk3Der.png").scaled(60,60));
+        }
+        else if(imagen==5){
+            imagen=6;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk2Der.png").scaled(60,60));
+        }
+        else if(imagen==6){
+            imagen=2;
+            jugador->setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk1Der").scaled(60,60));
+        }
+
+    }
+
+}
+
+void MainWindow::Mover()
+{
+    obstaculos *puntero=nullptr;
+    for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
+        QString onjto=colision((*it),puntero);
+        if(onjto=="lat")
+        {
+            if(!(*it)->collidesWithItem(puntero)){
+                (*it)->setVel_x((*it)->getVel_x()*-1);
+            }
+        }else if(onjto=="valla"){
+            if(!(*it)->collidesWithItem(puntero)){
+                (*it)->setVel_y((*it)->getVel_y()*-1);
+            }
+        }
+        (*it)->move();
+    }
+>>>>>>> Stashed changes
 }
 **/
 
+<<<<<<< Updated upstream
 
 obstaculos *MainWindow::recorrer()
+=======
+void MainWindow::atk_1()
+>>>>>>> Stashed changes
 {
     QList <obstaculos *>::iterator it=lista_piedra.begin();
     for (it=lista_piedra.begin();it<lista_piedra.end();it++) {
@@ -265,3 +635,16 @@ obstaculos *MainWindow::recorrer()
     }
     return (*it);
 }
+<<<<<<< Updated upstream
+=======
+
+void MainWindow::atk_2()
+{
+    for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
+        (*it)->atk_2();
+//        if((*it)->getYi()+300==(*it)->getY()){
+//            scene->removeItem((*it));
+//       }
+    }
+}
+>>>>>>> Stashed changes

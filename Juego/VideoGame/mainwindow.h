@@ -13,8 +13,16 @@
 #include "ataque_bas.h"
 #include "obstaculos.h"
 #include "player.h"
+<<<<<<< Updated upstream
 #include "enemi_dis.h"
 #include "boss1.h"
+=======
+#include "boss_CL.h"
+#include "ataque_bas.h"
+#include "tiropara.h"
+#include "muneco.h"
+#include "health.h"
+>>>>>>> Stashed changes
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -40,12 +48,17 @@ public:
     obstaculos *recorrer();
 
 private:
+<<<<<<< Updated upstream
     short nivel1=0;
     tiropara *ataque_es;
     ataque_Bas *disparo;
     Ui::MainWindow *ui;
     int tipo=0;
     obstaculos *o1,*o2,*o3,*o4,*o5,*o6,*o7,*o8,*o9,*o10,*o11,*o12,*o13,*o14,*o15,*o16,*o17,*o18,*o19,*o20,*o21,*o22,*o23,*o24,*o25;
+=======
+    Health *vidaScor;
+    short tipo,nivel1,imagen=2;
+>>>>>>> Stashed changes
     player *jugador;
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss1 *B1;
