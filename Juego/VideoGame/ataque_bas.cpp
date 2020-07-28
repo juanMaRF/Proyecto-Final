@@ -29,12 +29,12 @@ void ataque_Bas::move()
         if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(moob) or typeid(*(colliding_items[i])) == typeid(obstaculos)){
 
             //scene()->removeItem(colliding_items[i]);
-            if(this->isVisible()){
-                scene()->removeItem(this);
-            }
+            //scene()->removeItem(this);
+            this->setX1(100000);
+            this->setPos(getX1(),0);
 
             //delete colliding_items[i];
-            delete this;
+            //delete this;
 
 
         }
@@ -71,4 +71,24 @@ void ataque_Bas::move()
     }
 
 
+}
+
+int ataque_Bas::getY1() const
+{
+    return y1;
+}
+
+void ataque_Bas::setY1(int value)
+{
+    y1 = value;
+}
+
+int ataque_Bas::getX1() const
+{
+    return x1;
+}
+
+void ataque_Bas::setX1(int value)
+{
+    x1 = value;
 }

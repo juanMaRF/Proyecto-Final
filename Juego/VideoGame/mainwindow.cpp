@@ -265,26 +265,26 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     if(event->key()==65){       //izq
         if(!jugador->collidesWithItem(&colision_player())){
-            jugador->setPos(jugador->getX1()-5,jugador->getY1());
-            jugador->setX1(jugador->getX1()-5);
+            jugador->setPos(jugador->getX1()-7,jugador->getY1());
+            jugador->setX1(jugador->getX1()-7);
             tipo=0;
         }
-        else if(jugador->getX1()-5 < colision_player().getX()){
-            jugador->setPos(jugador->getX1()-5,jugador->getY1());
-            jugador->setX1(jugador->getX1()-5);
+        else if(jugador->getX1()-7 < colision_player().getX()){
+            jugador->setPos(jugador->getX1()-7,jugador->getY1());
+            jugador->setX1(jugador->getX1()-7);
             tipo=0;
     }
     }
 
     else if (event->key() == 68){       //der
         if(!jugador->collidesWithItem(&colision_player())){
-            jugador->setPos(jugador->getX1()+5,jugador->getY1());
-            jugador->setX1(jugador->getX1()+5);
+            jugador->setPos(jugador->getX1()+7,jugador->getY1());
+            jugador->setX1(jugador->getX1()+7);
             tipo=1;
         }
-        else if(jugador->getX1()+5 > colision_player().getX()){
-            jugador->setPos(jugador->getX1()+5,jugador->getY1());
-            jugador->setX1(jugador->getX1()+5);
+        else if(jugador->getX1()+7 > colision_player().getX()){
+            jugador->setPos(jugador->getX1()+7,jugador->getY1());
+            jugador->setX1(jugador->getX1()+7);
             tipo=1;
         }
 
@@ -292,23 +292,23 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     else if(event->key()== 87){     //up
         if(!jugador->collidesWithItem(&colision_player())){
-            jugador->setPos(jugador->getX1(),jugador->getY1()-5);
-            jugador->setY1(jugador->getY1()-5);
+            jugador->setPos(jugador->getX1(),jugador->getY1()-7);
+            jugador->setY1(jugador->getY1()-7);
         }
-        else if(jugador->getY1()-5 < colision_player().getY()){
-            jugador->setPos(jugador->getX1(),jugador->getY1()-5);
-            jugador->setY1(jugador->getY1()-5);
+        else if(jugador->getY1()-7 < colision_player().getY()){
+            jugador->setPos(jugador->getX1(),jugador->getY1()-7);
+            jugador->setY1(jugador->getY1()-7);
         }
     }
 
     else if(event->key()== 83){     //down
         if(!jugador->collidesWithItem(&colision_player())){
-            jugador->setPos(jugador->getX1(),jugador->getY1()+5);
-            jugador->setY1(jugador->getY1()+5);
+            jugador->setPos(jugador->getX1(),jugador->getY1()+7);
+            jugador->setY1(jugador->getY1()+7);
         }
-        else if(jugador->getY1()+5 > colision_player().getY()){
-            jugador->setPos(jugador->getX1(),jugador->getY1()+5);
-            jugador->setY1(jugador->getY1()+5);
+        else if(jugador->getY1()+7 > colision_player().getY()){
+            jugador->setPos(jugador->getX1(),jugador->getY1()+7);
+            jugador->setY1(jugador->getY1()+7);
         }
     }
 
