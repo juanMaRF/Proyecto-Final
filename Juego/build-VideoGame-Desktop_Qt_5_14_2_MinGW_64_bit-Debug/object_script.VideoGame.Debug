@@ -7,7 +7,6 @@ debug/health.o
 debug/main.o
 debug/mainwindow.o
 debug/moob.o
-debug/muneco.o
 debug/obstaculos.o
 debug/player.o
 debug/slime.o
@@ -18,6 +17,7 @@ debug/moc_boss_CL.o
 debug/moc_caida_libre.o
 debug/moc_enemi_dis.o
 debug/moc_mainwindow.o
+debug/moc_moob.o
 debug/moc_player.o
 debug/moc_slime.o
 debug/moc_tiropara.o
