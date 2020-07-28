@@ -29,7 +29,9 @@ void ataque_Bas::move()
         if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(moob) or typeid(*(colliding_items[i])) == typeid(obstaculos)){
 
             //scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
+            if(this->isVisible()){
+                scene()->removeItem(this);
+            }
 
             //delete colliding_items[i];
             delete this;

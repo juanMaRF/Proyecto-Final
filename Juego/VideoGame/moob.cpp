@@ -1,5 +1,9 @@
 #include "moob.h"
 #include "mainwindow.h"
+#include <QTimer>
+#include <QGraphicsScene>
+#include <QGraphicsItem>
+#include <QDebug>
 
 extern MainWindow * game;
 
@@ -53,6 +57,26 @@ void moob::setVida(int value)
     vida = value;
 }
 
+int moob::getX() const
+{
+    return x;
+}
+
+void moob::setX(int value)
+{
+    x = value;
+}
+
+int moob::getY() const
+{
+    return y;
+}
+
+void moob::setY(int value)
+{
+    y = value;
+}
+
 moob::moob(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;xi=x_;
@@ -61,9 +85,6 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
     h=h_;
     if(img=="perro"){
         pixmap.load(":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png");
-        Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png";
-        Iizq=":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png";
-        //Ies=":/Imagenes Proyecto final/2 Hyena/Hyena_idle.png";
     }else if(img=="sans"){
         pixmap.load(":/Imagenes Proyecto final/sans.png");
     }
@@ -73,6 +94,7 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
     //connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
     connect(timer,SIGNAL(timeout()),this,SLOT(Actualizacion()));
 }
+
 
 QRectF moob::boundingRect() const
 {
@@ -84,11 +106,12 @@ void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->drawPixmap(-h/2,-h/2,pixmap,columnas,0,w,h);
 }
 
+
 void moob::move()
 {
-    x=x+vel_x*delta;
+    this->setX(this->getX()+vel_x*delta);
     y=y+vel_y*delta;
-    setPos(x,y);
+    this->setPos(this->getX(),y);
 
     if(vel_x<0){
         pixmap.load(Iizq);
@@ -102,15 +125,16 @@ void moob::Actualizacion()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
-            if(this->getVida()==0){
-                //scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-
-                //delete colliding_items[i];
-                delete this;
-            }
             this->setVida(this->getVida()-5);
             qDebug()<<"Pajaro: "<<this->getVida();
+            if(this->getVida()==0){
+                //scene()->removeItem(colliding_items[i]);
+                //scene()->removeItem(this);
+                this->setX(100000);
+                this->setPos(getX(),y);
+                //delete colliding_items[i];
+                //delete this;
+            }
         }
     }
 

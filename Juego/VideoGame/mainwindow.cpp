@@ -50,6 +50,7 @@ void MainWindow::niveles(int x)
         e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
         e3=new moob(300,400,50,50,"perro");scene->addItem(e3);enemigos.push_back(e3);
         e4=new moob(700,400,50,50,"perro");scene->addItem(e4);enemigos.push_back(e4);
+        e5=new moob(7000,4000,50,50,"perro");scene->addItem(e5);enemigos.push_back(e5);
     }
 
     if(x==1){
@@ -96,11 +97,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
