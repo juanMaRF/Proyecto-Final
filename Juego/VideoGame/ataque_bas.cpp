@@ -25,6 +25,7 @@ ataque_Bas::ataque_Bas(short nivel, short tipo,QGraphicsItem * parent): QObject(
 void ataque_Bas::move()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
+
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(moob) or typeid(*(colliding_items[i])) == typeid(obstaculos)){
 
@@ -35,7 +36,7 @@ void ataque_Bas::move()
 
             //delete colliding_items[i];
             delete this;
-
+            break;
 
         }
     }
