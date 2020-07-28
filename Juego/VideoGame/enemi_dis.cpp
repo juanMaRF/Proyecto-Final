@@ -29,10 +29,11 @@ void enemi_dis::move()
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             if(this->getVida()==0){
                 //scene()->removeItem(colliding_items[i]);
-                scene()->removeItem(this);
-
+                //scene()->removeItem(this);
+                this->setX1(10000);
+                this->setPos(getX1(),getY1());
                 //delete colliding_items[i];
-                delete this;
+                //delete this;
             }
             this->setVida(this->getVida()-5);
 //            if(imagen==0){                        //animacion de daño, no funciona

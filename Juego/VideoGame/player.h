@@ -18,8 +18,6 @@ class player:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
-//    QRectF boundingRect() const;
-//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     int getX1() const;
     void setX1(int value);
 

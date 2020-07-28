@@ -8,21 +8,19 @@ class ataque_Bas:public QObject, public QGraphicsPixmapItem
 public:
     ataque_Bas(short nivel,short tipo,QGraphicsItem * parent=0);
 
-
-
-    void muros();
-
     int getX1() const;
     void setX1(int value);
 
     int getY1() const;
     void setY1(int value);
 
+    void muros();
+
 private slots:
     void move();
 
 private:
-    int pos_inicial,x1,y1;
+    int pos_inicial;
     short ataque,con=1,nivel1;
 
 };
