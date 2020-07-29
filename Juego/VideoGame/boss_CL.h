@@ -19,13 +19,16 @@ class boss_CL:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    QTimer * time = new QTimer();
     boss_CL(int x, int y, int w , int h);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+
 private slots:
     void ataques();
+    void tipoA();
 private:
-    int tipo,tipo2,tipo3,tipo4, cont=50, contro=0;
+    int tipo,tipo2,tipo3,tipo4=0, cont=50, contro=0;
     int x1,y1,w1,h1;
     caida_libre *atack1, *atack1_5;
     ataque_Bas *atack1_lef,*atack1_up,*atack1_rig;

@@ -13,6 +13,10 @@ boss_CL::boss_CL(int x, int y, int w, int h)
 
     timer->start(100); //Velocidad de los ataques
 
+
+    connect(time,SIGNAL(timeout()),this, SLOT(tipoA()));
+
+    time->start(1000); //Cambio de Ataques
 }
 
 QRectF boss_CL::boundingRect() const
@@ -28,10 +32,15 @@ void boss_CL::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 
+void boss_CL::tipoA()
+{
+    //Se cambia el ataque del jefe
+    tipo4=1;
+    time->stop();
+}
+
 void boss_CL::ataques()
 {
-    //Se escoge el ataque del jefe
-    tipo4 = 0;
 
     //ataque 1 del jefe
     if(tipo4==0){
@@ -69,7 +78,7 @@ void boss_CL::ataques()
     if(tipo4 == 1){
         //Ataque de izquierda a derecha
         if(cont<1000 and contro==0){
-            cont+=5;
+            cont+=10;
             if(cont<200 or cont>250){
                 atack1 = new caida_libre(cont);
                 scene()->addItem(atack1);
@@ -81,13 +90,12 @@ void boss_CL::ataques()
         }
         //Ataque de derecha a izquierda
         if(contro==1 and cont>50){
-            cont-=5;
+            cont-=10;
             if(cont>800 or cont<750){
                 atack1_5 = new caida_libre(cont);
                 scene()->addItem(atack1_5);
             }
         }
     }
-
 
 }
