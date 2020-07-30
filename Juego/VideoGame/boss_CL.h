@@ -19,6 +19,7 @@ class boss_CL:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    QTimer * timer = new QTimer();
     QTimer * time = new QTimer();
     boss_CL(int x, int y, int w , int h);
     QRectF boundingRect() const;
@@ -28,6 +29,7 @@ private slots:
     void ataques();
     void tipoA();
 private:
+    int vida=20,ayuda=0,ayuda1;
     int tipo,tipo2,tipo3,tipo4=0, cont=50, contro=0;
     int x1,y1,w1,h1;
     caida_libre *atack1, *atack1_5;

@@ -7,8 +7,6 @@ boss_CL::boss_CL(int x, int y, int w, int h)
     w1=w;
     h1=h;
 
-    QTimer * timer = new QTimer();
-
     connect(timer,SIGNAL(timeout()),this, SLOT(ataques()));
 
     timer->start(100); //Velocidad de los ataques
@@ -16,7 +14,7 @@ boss_CL::boss_CL(int x, int y, int w, int h)
 
     connect(time,SIGNAL(timeout()),this, SLOT(tipoA()));
 
-    time->start(1000); //Cambio de Ataques
+    time->start(25000); //Cambio de Ataques
 }
 
 QRectF boss_CL::boundingRect() const
@@ -34,9 +32,32 @@ void boss_CL::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 
 void boss_CL::tipoA()
 {
+    ayuda1=rand()%101;
+    qDebug()<<"INDICADOR: "<<ayuda1;
+
+    if(ayuda1<=80){
+        vida-=5;
+        qDebug()<<"Daño Jefe";
+    }
+
     //Se cambia el ataque del jefe
-    tipo4=1;
-    time->stop();
+    if(ayuda==0){
+        tipo4=1;
+        ayuda=1;
+        //Reiniciamos variables
+        cont=50;
+        contro=0;
+    }
+    else if(ayuda==1){
+        tipo4=0;
+        ayuda=0;
+    }
+
+    if(vida<=0){
+        qDebug()<<"MUERTE BOSS";
+        timer->stop();
+        time->stop();
+    }
 }
 
 void boss_CL::ataques()

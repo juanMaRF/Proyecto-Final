@@ -1,4 +1,5 @@
 #include "enemi_dis.h"
+#include "ataque_bas.h"
 
 enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
@@ -89,14 +90,14 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial+40 or this->getY1()==pos_inicial+20){
 
             if(tipo1==0){
-                shot=new ataque_Bas(0,0);
-                shot->setPos(x1,y1);
-                scene()->addItem(shot);
+                SED = new ataque_enemy(0,0);
+                SED->setPos(x1,y1);
+                scene()->addItem(SED);
             }
             if(tipo1==1){
-                shot= new ataque_Bas(0,1);
-                shot->setPos(x1+50,y1);
-                scene()->addItem(shot);
+                SED = new ataque_enemy(0,1);
+                SED->setPos(x1+50,y1);
+                scene()->addItem(SED);
             }
             if(this->getY1()==pos_inicial+40){
                col=1;
@@ -110,14 +111,14 @@ void enemi_dis::move()
             if(this->getY1()==pos_inicial or this->getY1()==pos_inicial+20){
 
                 if(tipo1==0){
-                    shot=new ataque_Bas(0,0);
-                    shot->setPos(x1,y1);
-                    scene()->addItem(shot);
+                    SED=new ataque_enemy(0,0);
+                    SED->setPos(x1,y1);
+                    scene()->addItem(SED);
                 }
                 if(tipo1==1){
-                    shot= new ataque_Bas(0,1);
-                    shot->setPos(x1+50,y1);
-                    scene()->addItem(shot);
+                    SED= new ataque_enemy(0,1);
+                    SED->setPos(x1+50,y1);
+                    scene()->addItem(SED);
                 }
                 if(this->getY1()==pos_inicial){
                    col=0;

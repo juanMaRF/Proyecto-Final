@@ -23,6 +23,7 @@ void player::setY1(int value)
     y1 = value;
 }
 
+/**
 void player::rozamiento(short n)
 {
     if(n==0){
@@ -32,7 +33,9 @@ void player::rozamiento(short n)
         fuerzaT=15-R2*6;
     }
 }
+**/
 
+/**
 void player::slime1()
 {
     lentitud.push_back(new slime(200,200));
@@ -44,6 +47,7 @@ void player::slime1()
         scene()->addItem(lentitud[i]);
     }
 }
+**/
 
 int player::getW1() const
 {

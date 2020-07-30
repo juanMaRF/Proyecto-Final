@@ -71,5 +71,9 @@ void ataque_Bas::move()
         }
     }
 
+//    if(pos_inicial+1000000<=pos().x() || pos_inicial-1000000>=pos().x() || pos_inicial-100000>=pos().y()){
+//        scene()->removeItem(this);
+//        delete this;
+//    }
 
 }

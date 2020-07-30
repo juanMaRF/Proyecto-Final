@@ -8,7 +8,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QDebug>
-#include "ataque_bas.h"
+#include "ataque_enemy.h"
 
 class enemi_dis:public QObject, public QGraphicsPixmapItem
 {
@@ -29,7 +29,7 @@ public:
 private slots:
     void move();
 private:
-    ataque_Bas *shot;
+    ataque_enemy *SED;
     int pos_inicial;
     QTimer *timer;
     //QTimer *time;

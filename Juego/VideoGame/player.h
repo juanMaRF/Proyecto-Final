@@ -25,8 +25,8 @@ public:
     void setY1(int value);
 
     void rozamiento(short n);
-    QList<slime *> lentitud;
-    void slime1();
+    //QList<slime *> lentitud;
+    //void slime1();
 
 
     int getW1() const;
@@ -38,8 +38,6 @@ public:
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;
-    double R1=2,R2=2.3;
-    int fuerzaT;
     short tipo=1, nivel1;
     short imagen=0;
     int x1,y1,h1,w1;

@@ -1,4 +1,5 @@
 release/ataque_bas.o
+release/ataque_enemy.o
 release/boss.o
 release/boss_CL.o
 release/caida_libre.o
@@ -13,6 +14,7 @@ release/slime.o
 release/tiropara.o
 release/qrc_imagenes.o
 release/moc_ataque_bas.o
+release/moc_ataque_enemy.o
 release/moc_boss_CL.o
 release/moc_caida_libre.o
 release/moc_enemi_dis.o
