@@ -41,7 +41,11 @@ void caida_libre::move()
         pos_inicial=PosY;
         con=2;
     }
+<<<<<<< Updated upstream
     qDebug()<<"ANTES:  "<<PosX<<"   "<<PosY;
+=======
+
+>>>>>>> Stashed changes
     PosY=PosY-(0.5*Vel*delta);
     qDebug()<<"DESPUES:  "<<PosX<<"   "<<PosY;
     setPos(PosX,PosY);

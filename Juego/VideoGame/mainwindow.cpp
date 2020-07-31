@@ -317,6 +317,7 @@ obstaculos &MainWindow::colision_player()
             }
         }
 
+<<<<<<< Updated upstream
         jugador->setPos(jugador->getX1(),jugador->getY1()-5);
         jugador->setY1(jugador->getY1()-5);
 
@@ -329,6 +330,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     if(event->key()==65){       //izq
 
 
+=======
+>>>>>>> Stashed changes
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
 
@@ -384,6 +387,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
 
+<<<<<<< Updated upstream
         jugador->setPos(jugador->getX1(),jugador->getY1()+5);
         jugador->setY1(jugador->getY1()+5);
 
@@ -393,6 +397,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     else if (event->key() == 68){       //der
 
+=======
+>>>>>>> Stashed changes
         if(!jugador->collidesWithItem(&colision_player())){
             if(nivel1==0){
                 //friccion
@@ -457,6 +463,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         /**
         else if(jugador->getY1()-5 < colision_player().getY()){
 
+<<<<<<< Updated upstream
             if(nivel1==0){
                 jugador->setPos(jugador->getX1(),jugador->getY1()-3);
                 jugador->setY1(jugador->getY1()-3);
@@ -465,6 +472,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setPos(jugador->x(),jugador->y()-7);
 
             }
+=======
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1(),jugador->getY1()-fuerzaT);
+            jugador->setY1(jugador->getY1()-fuerzaT);
+>>>>>>> Stashed changes
         }
         **/
         else{
@@ -496,6 +508,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         /**
         else if(jugador->getY1()-5 < colision_player().getY()){
 
+<<<<<<< Updated upstream
             if(nivel1==0){
                 jugador->setPos(jugador->getX1(),jugador->getY1()+3);
                 jugador->setY1(jugador->getY1()+3);
@@ -503,6 +516,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             else{
                 jugador->setPos(jugador->x(),jugador->y()+7);
             }
+=======
+        if(!jugador->collidesWithItem(&colision_player())){
+            jugador->setPos(jugador->getX1(),jugador->getY1()+fuerzaT);
+            jugador->setY1(jugador->getY1()+fuerzaT);
+>>>>>>> Stashed changes
         }
         **/
         else{

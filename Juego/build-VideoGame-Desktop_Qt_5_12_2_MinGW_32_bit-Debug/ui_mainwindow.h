@@ -38,7 +38,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+<<<<<<< Updated upstream
         MainWindow->resize(1722, 900);
+=======
+        MainWindow->resize(1562, 769);
+        MainWindow->setCursor(QCursor(Qt::CrossCursor));
+>>>>>>> Stashed changes
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
@@ -47,7 +52,11 @@ public:
         graphicsView->setSceneRect(QRectF(0, 0, 0, 0));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+<<<<<<< Updated upstream
         layoutWidget->setGeometry(QRect(1120, 10, 301, 221));
+=======
+        layoutWidget->setGeometry(QRect(1140, 0, 311, 221));
+>>>>>>> Stashed changes
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -69,7 +78,11 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+<<<<<<< Updated upstream
         menubar->setGeometry(QRect(0, 0, 1722, 20));
+=======
+        menubar->setGeometry(QRect(0, 0, 1562, 20));
+>>>>>>> Stashed changes
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

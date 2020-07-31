@@ -23,6 +23,7 @@ void player::setY1(int value)
     y1 = value;
 }
 
+<<<<<<< Updated upstream
 void player::rozamiento(short n)
 {
     if(n==0){
@@ -46,6 +47,9 @@ void player::slime1()
 }
 
 player::player(short nivel,int x_, int y_, int w_, int h_)
+=======
+int player::getW1() const
+>>>>>>> Stashed changes
 {
     nivel1=nivel;
     x1=x_;

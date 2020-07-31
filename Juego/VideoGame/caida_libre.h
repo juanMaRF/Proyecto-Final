@@ -6,11 +6,15 @@ class caida_libre:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+<<<<<<< Updated upstream
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 
     caida_libre(int x);
+=======
+    caida_libre(int x,QGraphicsItem * parent=0);
+>>>>>>> Stashed changes
     void actu_vel();
 
 private slots:
