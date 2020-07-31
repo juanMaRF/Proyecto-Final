@@ -20,12 +20,15 @@ SOURCES += \
     ataque_enemy.cpp \
     boss.cpp \
     boss_CL.cpp \
+    boss_jm.cpp \
     caida_libre.cpp \
     enemi_dis.cpp \
     health.cpp \
     main.cpp \
     mainwindow.cpp \
+    mcu.cpp \
     moob.cpp \
+    mru.cpp \
     obstaculos.cpp \
     player.cpp \
     slime.cpp \
@@ -36,11 +39,14 @@ HEADERS += \
     ataque_enemy.h \
     boss.h \
     boss_CL.h \
+    boss_jm.h \
     caida_libre.h \
     enemi_dis.h \
     health.h \
     mainwindow.h \
+    mcu.h \
     moob.h \
+    mru.h \
     obstaculos.h \
     player.h \
     slime.h \

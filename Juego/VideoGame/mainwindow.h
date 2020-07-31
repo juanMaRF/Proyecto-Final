@@ -21,6 +21,7 @@
 #include "enemi_dis.h"
 #include "player.h"
 #include "boss_CL.h"
+#include "boss_jm.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
 
@@ -69,6 +70,7 @@ private:
     QList<slime *> lentitud;
     ataque_Bas *disparo;
     tiropara *ataque_es;
+    boss_jm *gf;
 
 
 signals:

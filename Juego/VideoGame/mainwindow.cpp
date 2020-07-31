@@ -10,9 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    //Boss_1();
-
-    niveles(0);
+    niveles(2);
 }
 
 MainWindow::~MainWindow()
@@ -49,6 +47,8 @@ void MainWindow::niveles(int x)
         scene->addItem(enemy_dis);
         scene->addItem(enemy_dis2);
 
+
+
         e1=new moob(0,-10,50,50,"perro");scene->addItem(e1);enemigos.push_back(e1);
         e2=new moob(900,-10,50,50,"perro");scene->addItem(e2);enemigos.push_back(e2);
         e3=new moob(300,400,50,50,"perro");scene->addItem(e3);enemigos.push_back(e3);
@@ -69,6 +69,24 @@ void MainWindow::niveles(int x)
         Jefe1 = new boss_CL(450,70,200,200);
         scene->addItem(Jefe1);
 
+
+        //añadimos al player
+        jugador = new player(1,200,300,20,20);
+        scene->addItem(jugador);
+        //jugador->setPos(200,100);
+        jugador->setFlag(QGraphicsItem::ItemIsFocusable);
+        jugador->setFocus();
+    }
+
+    if(x==2){
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(-10,-10,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
+
+        gf=new boss_jm(0,0,0,0);
+        scene->addItem(gf);
 
         //añadimos al player
         jugador = new player(1,200,300,20,20);
