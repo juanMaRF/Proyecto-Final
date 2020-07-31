@@ -23,11 +23,11 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 
 
-    int getX() const;
-    void setX(int value);
+//    int getX() const;
+//    void setX(int value);
 
-    int getY() const;
-    void setY(int value);
+//    int getY() const;
+//    void setY(int value);
 
 private slots:
     void move_x();
