@@ -9,10 +9,12 @@ debug/health.o
 debug/main.o
 debug/mainwindow.o
 debug/mcu.o
+debug/menu.o
 debug/moob.o
 debug/mru.o
 debug/obstaculos.o
 debug/player.o
+debug/score.o
 debug/slime.o
 debug/tiropara.o
 debug/qrc_imagenes.o
@@ -24,6 +26,7 @@ debug/moc_caida_libre.o
 debug/moc_enemi_dis.o
 debug/moc_mainwindow.o
 debug/moc_mcu.o
+debug/moc_menu.o
 debug/moc_moob.o
 debug/moc_mru.o
 debug/moc_player.o

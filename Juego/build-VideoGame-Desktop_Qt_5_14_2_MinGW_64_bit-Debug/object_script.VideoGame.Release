@@ -9,10 +9,12 @@ release/health.o
 release/main.o
 release/mainwindow.o
 release/mcu.o
+release/menu.o
 release/moob.o
 release/mru.o
 release/obstaculos.o
 release/player.o
+release/score.o
 release/slime.o
 release/tiropara.o
 release/qrc_imagenes.o
@@ -24,6 +26,7 @@ release/moc_caida_libre.o
 release/moc_enemi_dis.o
 release/moc_mainwindow.o
 release/moc_mcu.o
+release/moc_menu.o
 release/moc_moob.o
 release/moc_mru.o
 release/moc_player.o

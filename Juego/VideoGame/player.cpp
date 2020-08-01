@@ -47,16 +47,6 @@ void player::setH1(int value)
     h1 = value;
 }
 
-int player::getVida() const
-{
-    return vida;
-}
-
-void player::setVida(int value)
-{
-    vida = value;
-}
-
 void player::choque()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
