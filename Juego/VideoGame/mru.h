@@ -3,14 +3,14 @@
 
 #include <QGraphicsItem>
 #include <QObject>
-#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
 #include <math.h>
 #include <QDebug>
 
-class mru:public QObject,public QGraphicsItem
+class mru:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 
@@ -19,8 +19,8 @@ class mru:public QObject,public QGraphicsItem
     QTimer *timepo=new QTimer;
 public:
     mru(int x_, int y_);
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+//    QRectF boundingRect() const;
+//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 
 
 //    int getX() const;
