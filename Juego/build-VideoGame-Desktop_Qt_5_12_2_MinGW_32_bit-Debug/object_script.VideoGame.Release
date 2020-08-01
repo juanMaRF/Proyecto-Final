@@ -13,6 +13,7 @@ release/moob.o
 release/mru.o
 release/obstaculos.o
 release/player.o
+release/score.o
 release/slime.o
 release/tiropara.o
 release/qrc_imagenes.o

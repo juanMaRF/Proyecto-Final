@@ -13,6 +13,7 @@ debug/moob.o
 debug/mru.o
 debug/obstaculos.o
 debug/player.o
+debug/score.o
 debug/slime.o
 debug/tiropara.o
 debug/qrc_imagenes.o

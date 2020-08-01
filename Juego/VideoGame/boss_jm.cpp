@@ -1,3 +1,4 @@
+
 #include "boss_jm.h"
 
 boss_jm::boss_jm(int x_,int y_,int w_, int h_)

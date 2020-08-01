@@ -31,6 +31,7 @@ SOURCES += \
     mru.cpp \
     obstaculos.cpp \
     player.cpp \
+    score.cpp \
     slime.cpp \
     tiropara.cpp
 
@@ -49,6 +50,7 @@ HEADERS += \
     mru.h \
     obstaculos.h \
     player.h \
+    score.h \
     slime.h \
     tiropara.h
 

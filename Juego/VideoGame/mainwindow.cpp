@@ -10,7 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    niveles(2);
+    niveles(0);
+
+    puntaje = new Score();
+    scene->addItem(puntaje);
+
+    connect(timer,SIGNAL(timeout()),this, SLOT(prueba()));
+
+    timer->start(50000);
 }
 
 MainWindow::~MainWindow()
@@ -512,6 +519,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
         }
     }
+}
+
+void MainWindow::prueba()
+{
+    int x=1;
+    niveles(x);
 }
 
 void MainWindow::Mover()

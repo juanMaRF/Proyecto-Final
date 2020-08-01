@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "enemi_dis.h"
 
-extern MainWindow * game;
+extern MainWindow * juego;
 
 ataque_Bas::ataque_Bas(short nivel, short tipo,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
@@ -31,6 +31,7 @@ void ataque_Bas::move()
 
             //scene()->removeItem(colliding_items[i]);
             if(this->isVisible()){
+                juego->puntaje->increase();
                 scene()->removeItem(this);
                 //delete colliding_items[i];
                 delete this;
