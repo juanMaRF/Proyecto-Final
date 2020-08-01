@@ -35,7 +35,7 @@ void mru::move_y()
     for(int i=0,n=colliding_items.size();i<n;i++){
         if(typeid (*colliding_items[i]) == typeid (player)){
             game->jugador->vida-=5;
-            qDebug()<<game->jugador->vida;
+            //qDebug()<<game->jugador->vida;
             scene()->removeItem(this);
             delete this;
             colliding_items.clear();

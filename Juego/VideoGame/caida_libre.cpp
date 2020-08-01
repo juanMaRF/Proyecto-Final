@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QTimer>
 
-//extern MainWindow * game;
+extern MainWindow * game;
 
 
 caida_libre::caida_libre(int x, QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
@@ -31,7 +31,7 @@ void caida_libre::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid(*(colliding_items[i])) == typeid (player)){
-
+            game->jugador->vida-=5;
             //scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
 

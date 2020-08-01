@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "enemi_dis.h"
 
-//extern MainWindow * game;
+extern MainWindow * game;
 
 ataque_enemy::ataque_enemy(short nivel, short tipo,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
@@ -27,7 +27,7 @@ void ataque_enemy::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
 
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if( typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(obstaculos)){
+        if(typeid(*(colliding_items[i])) == typeid(obstaculos)){
 
             //scene()->removeItem(colliding_items[i]);
             if(this->isVisible()){
@@ -38,6 +38,14 @@ void ataque_enemy::move()
                 break;
             }
 
+        }
+        if( typeid(*(colliding_items[i])) == typeid (player)){
+            game->jugador->vida-=5;
+            scene()->removeItem(this);
+            //delete colliding_items[i];
+            delete this;
+            colliding_items.clear();
+            break;
         }
     }
 

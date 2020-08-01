@@ -46,7 +46,7 @@ private:
     short imagen=0;
     int x1,y1,h1,w1;
 private slots:
-    void choque();
+
 };
 
 #endif // PLAYER_H
