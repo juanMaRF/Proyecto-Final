@@ -1,5 +1,8 @@
 #include "player.h"
 #include "mainwindow.h"
+#include "mru.h"
+#include "mcu.h"
+#include "moob.h"
 #include <QDebug>
 extern MainWindow * game;
 
@@ -43,6 +46,18 @@ void player::setH1(int value)
     h1 = value;
 }
 
+void player::choque()
+{
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid (colliding_items[i]) == typeid (ataque_Bas) || typeid (colliding_items[i]) == typeid (mru) || typeid (colliding_items[i]) == typeid (mcu) || typeid (colliding_items[i]) == typeid (moob)){
+            qDebug()<<vida;
+            vida-=5;
+        }
+    }
+}
+
 player::player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
     nivel1=nivel;
@@ -51,6 +66,9 @@ player::player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent
     w1=w_;
     h1=h_;
     setPos(x1,y1);
+
+    connect(timepo,SIGNAL(timeout()),this,SLOT(choque()));
+    timepo->start(100);
 
     setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
 

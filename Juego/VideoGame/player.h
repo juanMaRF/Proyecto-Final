@@ -38,9 +38,12 @@ public:
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;
+    QTimer *timepo=new QTimer;
     short tipo=1, nivel1;
     short imagen=0;
-    int x1,y1,h1,w1;
+    int x1,y1,h1,w1,vida=20;
+private slots:
+    void choque();
 };
 
 #endif // PLAYER_H

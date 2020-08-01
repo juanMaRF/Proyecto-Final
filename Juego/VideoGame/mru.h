@@ -30,7 +30,6 @@ public:
 //    void setY(int value);
 
 private slots:
-    void move_x();
     void move_y();
 };
 

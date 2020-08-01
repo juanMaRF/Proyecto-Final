@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    niveles(2);
+    niveles(0);
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +36,7 @@ void MainWindow::niveles(int x)
         }
 
         //añadimos el jugador a la escena
-        jugador = new player(0,200,100,60,60);
+        jugador = new player(0,400,100,60,60);
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
@@ -65,6 +65,8 @@ void MainWindow::niveles(int x)
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
 
+
+
         //añadimos al boss
         Jefe1 = new boss_CL(450,70,200,200);
         scene->addItem(Jefe1);
@@ -78,16 +80,24 @@ void MainWindow::niveles(int x)
         jugador->setFocus();
     }
 
-    if(x==2){
+    if(x==3){
         nivel1=1;
+        //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(-10,-10,1111,621);
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
 
+        //añadimos el boss
         gf=new boss_jm(0,0,0,0);
         scene->addItem(gf);
+
+        //añadimos los limites de movimiento
+        pared1=new obstaculos(110,285,910,5,"nada");scene->addItem(pared1);lista_piedra.push_back(pared1);
+        pared2=new obstaculos(110,285,5,310,"nada");scene->addItem(pared2);lista_piedra.push_back(pared2);
+        pared3=new obstaculos(110,595,910,5,"nada");scene->addItem(pared3);lista_piedra.push_back(pared3);
+        pared4=new obstaculos(1018,285,5,310,"nada");scene->addItem(pared4);lista_piedra.push_back(pared4);
 
         //añadimos al player
         jugador = new player(1,200,300,20,20);
@@ -119,11 +129,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -310,7 +320,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
 
 
-            qDebug()<<fuerzaT;
+            //qDebug()<<fuerzaT;
 
             if(!jugador->collidesWithItem(&colision_player())){
                 jugador->setPos(jugador->getX1()-fuerzaT,jugador->getY1());
@@ -324,8 +334,18 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else{
-            jugador->setPos(jugador->getX1()-7,jugador->getY1());
-            jugador->setX1(jugador->getX1()-7);
+            if(!jugador->collidesWithItem(&colision_player())){
+                jugador->setPos(jugador->getX1()-7,jugador->getY1());
+                jugador->setX1(jugador->getX1()-7);
+                tipo=0;
+            }
+            else if(jugador->getX1()-5 < colision_player().getX()){
+//                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
+//                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
+                jugador->setPos(jugador->getX1()-7,jugador->getY1());
+                jugador->setX1(jugador->getX1()-7);
+                tipo=0;
+            }
         }
     }
 
@@ -343,7 +363,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 }
             }
 
-            qDebug()<<fuerzaT;
+            //qDebug()<<fuerzaT;
 
             if(!jugador->collidesWithItem(&colision_player())){
                 jugador->setPos(jugador->getX1()+fuerzaT,jugador->getY1());
@@ -357,8 +377,19 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else{
-            jugador->setPos(jugador->getX1()+7,jugador->getY1());
-            jugador->setX1(jugador->getX1()+7);
+
+            if(!jugador->collidesWithItem(&colision_player())){
+                jugador->setPos(jugador->getX1()+7,jugador->getY1());
+                jugador->setX1(jugador->getX1()+7);
+                tipo=1;
+            }
+            else if(jugador->getX1()+5 > colision_player().getX()){
+//                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
+//                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
+                jugador->setPos(jugador->getX1()+7,jugador->getY1());
+                jugador->setX1(jugador->getX1()+7);
+                tipo=1;
+            }
         }
 
     }
@@ -377,7 +408,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 }
             }
 
-            qDebug()<<fuerzaT;
+            //qDebug()<<fuerzaT;
 
             if(!jugador->collidesWithItem(&colision_player())){
                 jugador->setPos(jugador->getX1(),jugador->getY1()-fuerzaT);
@@ -389,8 +420,16 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else{
-            jugador->setPos(jugador->getX1(),jugador->getY1()-7);
-            jugador->setY1(jugador->getY1()-7);
+            if(!jugador->collidesWithItem(&colision_player())){
+                jugador->setPos(jugador->getX1(),jugador->getY1()-7);
+                jugador->setY1(jugador->getY1()-7);
+            }
+            else if(jugador->getY1()-5 < colision_player().getY()){
+//                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
+//                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
+                jugador->setPos(jugador->getX1(),jugador->getY1()-7);
+                jugador->setY1(jugador->getY1()-7);
+            }
         }
     }
 
@@ -408,7 +447,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 }
             }
 
-            qDebug()<<fuerzaT;
+            //qDebug()<<fuerzaT;
 
             if(!jugador->collidesWithItem(&colision_player())){
                 jugador->setPos(jugador->getX1(),jugador->getY1()+fuerzaT);
@@ -420,8 +459,17 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             }
         }
         else{
-            jugador->setPos(jugador->getX1(),jugador->getY1()+7);
-            jugador->setY1(jugador->getY1()+7);
+
+            if(!jugador->collidesWithItem(&colision_player())){
+                jugador->setPos(jugador->getX1(),jugador->getY1()+7);
+                jugador->setY1(jugador->getY1()+7);
+            }
+            else if(jugador->getY1()+5 > colision_player().getY()){
+//                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
+//                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
+                jugador->setPos(jugador->getX1(),jugador->getY1()+7);
+                jugador->setY1(jugador->getY1()+7);
+            }
         }
     }
 
