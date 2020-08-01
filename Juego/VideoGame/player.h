@@ -17,6 +17,7 @@ class player:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    player(QGraphicsItem * parent=0);
     player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
     int getX1() const;
     void setX1(int value);
@@ -35,13 +36,15 @@ public:
     int getH1() const;
     void setH1(int value);
 
+    int vida=20;
+
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;
     QTimer *timepo=new QTimer;
     short tipo=1, nivel1;
     short imagen=0;
-    int x1,y1,h1,w1,vida=20;
+    int x1,y1,h1,w1;
 private slots:
     void choque();
 };

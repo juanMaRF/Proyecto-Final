@@ -24,7 +24,6 @@
 #include "boss_jm.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
-#include "score.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -49,21 +48,18 @@ public:
     bool prueba_colsion();
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
-    Score *puntaje;
-
+    player *jugador;
 private:
-
-    QTimer * timer = new QTimer();
     double R1=1.666,R2=2;
     int fuerzaT;
     short tipo,nivel1,imagen=2;
-    player *jugador;
+
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;
     QGraphicsScene *scene;
     Ui::MainWindow *ui;
     QTimer *time;
-    QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup;
+    QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup,p_boss;
     QList <moob*> enemigos;
     QList <ataque_Bas*> balas;
     moob *e1,*e2,*e3,*e4,*e5;
@@ -81,9 +77,9 @@ signals:
     void keyCaught(QKeyEvent *e);
 
 private slots:
-    void prueba();
     void Mover();
     void atk_1();
     void atk_2();
 };
+
 #endif // MAINWINDOW_H

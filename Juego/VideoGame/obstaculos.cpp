@@ -69,9 +69,11 @@ QRectF obstaculos::boundingRect() const
 void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     if(imga=="nada"){
+        //setPos(x,y);
         painter->setBrush(Qt::white);
         painter->drawRect(boundingRect());
     }else{
+        setPos(x,y);
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
 }
