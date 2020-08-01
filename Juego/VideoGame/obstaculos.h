@@ -14,6 +14,7 @@ class obstaculos: public QGraphicsItem
     int y;
     int w;
     int h;
+    QString imga;
     QPixmap pixmap;
 public:
     obstaculos();

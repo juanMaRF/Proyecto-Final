@@ -67,7 +67,7 @@ private:
     QList <moob*> enemigos;
     QList <ataque_Bas*> balas;
     moob *e1,*e2,*e3,*e4,*e5;
-    moob *boss1;
+    obstaculos *pared1,*pared2,*pared3,*pared4;
     int cant_obj=0;
     int turn=1,direc;
     QList <boss*> atks;

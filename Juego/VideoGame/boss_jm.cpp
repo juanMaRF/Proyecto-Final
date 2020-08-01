@@ -33,21 +33,6 @@ void boss_jm::ataques()
        alea=169+rand()%(170-950);
        caida=new mru(alea,300);
        scene()->addItem(caida);
-//       caida=new mru(170,300);scene()->addItem(caida);
-//       caida1=new mru(230,300);scene()->addItem(caida1);
-//       caida2=new mru(290,300);scene()->addItem(caida2);
-//       caida3=new mru(350,300);scene()->addItem(caida3);
-//       caida4=new mru(410,300);scene()->addItem(caida4);
-//       caida5=new mru(470,300);scene()->addItem(caida5);
-//       caida6=new mru(530,300);scene()->addItem(caida6);
-//       caida7=new mru(590,300);scene()->addItem(caida7);
-//       caida8=new mru(650,300);scene()->addItem(caida8);
-//       caida9=new mru(710,300);scene()->addItem(caida9);
-//       caida10=new mru(770,300);scene()->addItem(caida10);
-//       caida11=new mru(830,300);scene()->addItem(caida11);
-//       caida12=new mru(890,300);scene()->addItem(caida12);
-//       caida13=new mru(950,300);scene()->addItem(caida13);
-//       tipo=3;
    }
    if(tipo==1){
        //y 400 a 490
