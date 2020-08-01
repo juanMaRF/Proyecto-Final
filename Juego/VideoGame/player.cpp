@@ -4,7 +4,7 @@
 #include "mcu.h"
 #include "moob.h"
 #include <QDebug>
-extern MainWindow * game;
+//extern MainWindow * game;
 
 int player::getX1() const
 {
@@ -46,10 +46,20 @@ void player::setH1(int value)
     h1 = value;
 }
 
+int player::getVida() const
+{
+    return vida;
+}
+
+void player::setVida(int value)
+{
+    vida = value;
+}
+
 void player::choque()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
-
+    
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid (colliding_items[i]) == typeid (ataque_Bas) || typeid (colliding_items[i]) == typeid (mru) || typeid (colliding_items[i]) == typeid (mcu) || typeid (colliding_items[i]) == typeid (moob)){
             qDebug()<<vida;

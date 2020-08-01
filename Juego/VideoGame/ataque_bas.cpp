@@ -5,8 +5,9 @@
 #include <QGraphicsItem>
 #include <QDebug>
 #include "enemi_dis.h"
+#include "score.h"
 
-extern MainWindow * juego;
+extern MainWindow *juego;
 
 ataque_Bas::ataque_Bas(short nivel, short tipo,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
@@ -30,8 +31,9 @@ void ataque_Bas::move()
         if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(moob) or typeid(*(colliding_items[i])) == typeid(obstaculos)){
 
             //scene()->removeItem(colliding_items[i]);
+            //juego->puntaje->increase();
             if(this->isVisible()){
-                juego->puntaje->increase();
+
                 scene()->removeItem(this);
                 //delete colliding_items[i];
                 delete this;

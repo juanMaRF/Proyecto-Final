@@ -8,9 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+
     niveles(0);
+    puntaje = new Score();
+    scene->addItem(puntaje);
 }
 
 MainWindow::~MainWindow()
@@ -129,11 +133,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -319,10 +323,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 }
             }
 
-
-            //qDebug()<<fuerzaT;
-
             if(!jugador->collidesWithItem(&colision_player())){
+
                 jugador->setPos(jugador->getX1()-fuerzaT,jugador->getY1());
                 jugador->setX1(jugador->getX1()-fuerzaT);
                 tipo=0;
@@ -339,12 +341,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setX1(jugador->getX1()-7);
                 tipo=0;
             }
-            else if(jugador->getX1()-5 < colision_player().getX()){
-//                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
-//                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
+            else if(jugador->getX1()-7 < colision_player().getX()){
+
+                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
+                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
                 jugador->setPos(jugador->getX1()-7,jugador->getY1());
                 jugador->setX1(jugador->getX1()-7);
-                tipo=0;
             }
         }
     }
@@ -383,7 +385,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setX1(jugador->getX1()+7);
                 tipo=1;
             }
-            else if(jugador->getX1()+5 > colision_player().getX()){
+            else if(jugador->getX1()+7 > colision_player().getX()){
 //                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
 //                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
                 jugador->setPos(jugador->getX1()+7,jugador->getY1());
@@ -414,7 +416,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setPos(jugador->getX1(),jugador->getY1()-fuerzaT);
                 jugador->setY1(jugador->getY1()-fuerzaT);
             }
-            else if(jugador->getY1()-5 < colision_player().getY()){
+            else if(jugador->getY1()-7 < colision_player().getY()){
                 jugador->setPos(jugador->getX1(),jugador->getY1()-fuerzaT);
                 jugador->setY1(jugador->getY1()-fuerzaT);
             }
@@ -464,7 +466,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                 jugador->setPos(jugador->getX1(),jugador->getY1()+7);
                 jugador->setY1(jugador->getY1()+7);
             }
-            else if(jugador->getY1()+5 > colision_player().getY()){
+            else if(jugador->getY1()+7 > colision_player().getY()){
 //                qDebug()<<"jugador x: "<<jugador->getX1()<<"  y: "<<jugador->getY1();
 //                qDebug()<<"pared   x: "<<colision_player().getX()<<"  y: "<<colision_player().getY();
                 jugador->setPos(jugador->getX1(),jugador->getY1()+7);
@@ -580,7 +582,6 @@ void MainWindow::Mover()
         (*it)->move();
     }
 }
-
 
 void MainWindow::atk_1()
 {

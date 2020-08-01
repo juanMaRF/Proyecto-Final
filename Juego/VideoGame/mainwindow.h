@@ -25,6 +25,7 @@
 #include "ataque_bas.h"
 #include "tiropara.h"
 #include "score.h"
+#include "menu.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -52,7 +53,6 @@ public:
     Score *puntaje;
 
 private:
-
     QTimer * timer = new QTimer();
     double R1=1.666,R2=2;
     int fuerzaT;
@@ -81,7 +81,7 @@ signals:
     void keyCaught(QKeyEvent *e);
 
 private slots:
-    void prueba();
+    //void prueba();
     void Mover();
     void atk_1();
     void atk_2();

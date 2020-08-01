@@ -5,7 +5,7 @@
 #include <QGraphicsItem>
 #include <QDebug>
 
-extern MainWindow * game;
+//extern MainWindow * game;
 
 float moob::getVel_tempx() const
 {

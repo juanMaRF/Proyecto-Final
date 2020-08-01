@@ -17,6 +17,7 @@ class player:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+
     player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
     int getX1() const;
     void setX1(int value);
@@ -34,6 +35,9 @@ public:
 
     int getH1() const;
     void setH1(int value);
+
+    int getVida() const;
+    void setVida(int value);
 
 private:
     tiropara *ataque_es;
