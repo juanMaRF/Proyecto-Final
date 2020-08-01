@@ -9,7 +9,7 @@
 #include <QPainter>
 #include <math.h>
 
-class mcu:public QObject,public QGraphicsItem
+class mcu:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
     int x,y,r=8;
@@ -18,8 +18,8 @@ class mcu:public QObject,public QGraphicsItem
 public:
     mcu();
     mcu(int x_,int y_);
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+//    QRectF boundingRect() const;
+//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 private slots:
     void move();
     void borra();

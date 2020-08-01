@@ -48,18 +48,18 @@ public:
     bool prueba_colsion();
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
-
+    player *jugador;
 private:
     double R1=1.666,R2=2;
     int fuerzaT;
     short tipo,nivel1,imagen=2;
-    player *jugador;
+
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;
     QGraphicsScene *scene;
     Ui::MainWindow *ui;
     QTimer *time;
-    QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup;
+    QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup,p_boss;
     QList <moob*> enemigos;
     QList <ataque_Bas*> balas;
     moob *e1,*e2,*e3,*e4,*e5;
@@ -81,4 +81,5 @@ private slots:
     void atk_1();
     void atk_2();
 };
+
 #endif // MAINWINDOW_H
