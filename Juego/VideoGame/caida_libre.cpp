@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QTimer>
 
-//extern MainWindow * game;
+extern MainWindow * game;
 
 
 caida_libre::caida_libre(int x, QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()

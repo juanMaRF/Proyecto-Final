@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "enemi_dis.h"
 
-//extern MainWindow * game;
+extern MainWindow * game;
 
 ataque_enemy::ataque_enemy(short nivel, short tipo,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {

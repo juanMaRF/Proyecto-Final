@@ -27,7 +27,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mcu.cpp \
-    menu.cpp \
     moob.cpp \
     mru.cpp \
     obstaculos.cpp \
@@ -47,7 +46,6 @@ HEADERS += \
     health.h \
     mainwindow.h \
     mcu.h \
-    menu.h \
     moob.h \
     mru.h \
     obstaculos.h \
@@ -57,8 +55,7 @@ HEADERS += \
     tiropara.h
 
 FORMS += \
-    mainwindow.ui \
-    menu.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
