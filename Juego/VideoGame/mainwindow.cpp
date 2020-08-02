@@ -10,7 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     time=new QTimer;
     connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
-    niveles(3);
+    niveles(0);
+
+    puntaje = new Score();
+    scene->addItem(puntaje);
 }
 
 MainWindow::~MainWindow()

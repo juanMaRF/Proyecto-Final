@@ -23,7 +23,7 @@ class Ui_Menu
 public:
     QWidget *widget;
     QVBoxLayout *verticalLayout;
-    QPushButton *un_pla;
+    QPushButton *pushButton;
     QPushButton *pushButton_2;
 
     void setupUi(QDialog *Menu)
@@ -33,14 +33,14 @@ public:
         Menu->resize(400, 300);
         widget = new QWidget(Menu);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(70, 100, 251, 50));
+        widget->setGeometry(QRect(160, 100, 82, 50));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        un_pla = new QPushButton(widget);
-        un_pla->setObjectName(QString::fromUtf8("un_pla"));
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        verticalLayout->addWidget(un_pla);
+        verticalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(widget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -56,7 +56,7 @@ public:
     void retranslateUi(QDialog *Menu)
     {
         Menu->setWindowTitle(QApplication::translate("Menu", "Dialog", nullptr));
-        un_pla->setText(QApplication::translate("Menu", "Un Jugador", nullptr));
+        pushButton->setText(QApplication::translate("Menu", "Un Jugador", nullptr));
         pushButton_2->setText(QApplication::translate("Menu", "Dos Jugadores", nullptr));
     } // retranslateUi
 

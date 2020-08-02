@@ -17,13 +17,11 @@ public:
     ~Menu();
 
 private slots:
-    void on_un_pla_clicked();
-
-    void on_pushButton_2_clicked();
+    void on_pushButton_clicked();
 
 private:
+    MainWindow *game;
     Ui::Menu *ui;
-    MainWindow *juego;
 };
 
 #endif // MENU_H

@@ -127,7 +127,9 @@ void moob::Actualizacion()
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             this->setVida(this->getVida()-5);
             qDebug()<<"Pajaro: "<<this->getVida();
+
             if(this->getVida()==0){
+                game->puntaje->increase();
                 //scene()->removeItem(colliding_items[i]);
                 //scene()->removeItem(this);
                 this->setX(100000);
