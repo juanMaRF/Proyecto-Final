@@ -37,6 +37,8 @@ private:
     int x1,y1,w1,h1;
     caida_libre *atack1, *atack1_5;
     ataque_Bas *atack1_lef,*atack1_up,*atack1_rig;
+    QList<caida_libre*> b1;
+    QList<ataque_Bas*> b2;
 };
 
 #endif // BOSS1_H

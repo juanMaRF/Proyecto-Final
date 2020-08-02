@@ -110,10 +110,11 @@ void MainWindow::niveles(int x)
 
         //añadimos el enemigo con ataque a distancia
         enemy_dis = new enemi_dis(0,0,850,100);
-        enemy_dis2 = new enemi_dis(0,1,25,180);
+        enemy_dis2 = new enemi_dis(0,1,20,100);
         scene->addItem(enemy_dis);
         scene->addItem(enemy_dis2);
         enemy_dis3 = new enemi_dis(0,0,850,300);scene->addItem(enemy_dis3);
+        enemy_dis4 = new enemi_dis(0,1,20,300);scene->addItem(enemy_dis4);
 
 
 
@@ -239,9 +240,6 @@ void MainWindow::leer_lvl(int lvl_)
     }
     time->start(20);
 }
-
-
-
 
 obstaculos &MainWindow::colision_player()
 {
@@ -536,6 +534,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::Mover()
 {
+    if(!enemigos.empty()){
     obstaculos *puntero=nullptr;
     for(QList <moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++){
         QString onjto=colision((*it),puntero);
@@ -551,11 +550,34 @@ void MainWindow::Mover()
         }
         (*it)->move();
     }
+    }else{
+        time->stop();
+    }
 }
 
 
 void MainWindow::cambio_mapas(int x)
 {
+    for (QList<enemi_dis*>::iterator it=mru.begin();it!=mru.end();it++) {
+        scene->removeItem((*it));
+        mru.removeOne((*it));
+        delete (*it);
+    }
+    for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
+        scene->removeItem((*it));
+        lista_piedra.removeOne((*it));
+        delete (*it);
+    }
+    for (QList<moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++) {
+        scene->removeItem((*it));
+        enemigos.removeOne((*it));
+        delete (*it);
+    }
+    for (QList<ataque_Bas*>::iterator it=balas.begin();it!=balas.end();it++) {
+        scene->removeItem((*it));
+        balas.removeOne((*it));
+        delete (*it);
+    }
     niveles(x);
     game->show();
 }

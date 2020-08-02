@@ -60,6 +60,16 @@ void boss_CL::tipoA()
         game->puntaje->setScore(game->puntaje->getScore()+1);
         qDebug()<<"SCORE: "<<game->puntaje->getScore();
         qDebug()<<"MUERTE BOSS";
+//        for(QList<caida_libre*>::iterator it=b1.begin();it!=b1.end();it++){
+//            scene()->removeItem((*it));
+//            b1.removeOne((*it));
+//            delete (*it);
+//        }
+//        for(QList<ataque_Bas*>::iterator it=b2.begin();it!=b2.end();it++){
+//            scene()->removeItem((*it));
+//            b2.removeOne((*it));
+//            delete (*it);
+//        }
         game->cambio_mapas(2);
         timer->stop();
         time->stop();
@@ -88,24 +98,24 @@ void boss_CL::ataques()
         tipo= rand()% 4;
         //ataque del jefe con caida libre (direccion: abajo)
         if(tipo==0){
-            atack1 = new caida_libre(tipo3);
+            atack1 = new caida_libre(tipo3);b1.push_back(atack1);
             scene()->addItem(atack1);
         }
         //ataque del jefe direccion: arriba
         if(tipo==1){
-            atack1_up= new ataque_Bas(1,2);
+            atack1_up= new ataque_Bas(1,2);b2.push_back(atack1_up);
             scene()->addItem(atack1_up);
             atack1_up->setPos(tipo3,510);
         }
         //ataque del jefe direccion: izquierda
         if(tipo==2){
-            atack1_lef = new ataque_Bas(1,0);
+            atack1_lef = new ataque_Bas(1,0);b2.push_back(atack1_lef);
             scene()->addItem(atack1_lef);
             atack1_lef->setPos(950,tipo2);
         }
         //ataque del jefe direccion: derecha
         if(tipo==3){
-            atack1_rig = new ataque_Bas(1,1);
+            atack1_rig = new ataque_Bas(1,1);b2.push_back(atack1_rig);
             scene()->addItem(atack1_rig);
             atack1_rig->setPos(150,tipo2);
         }
@@ -117,7 +127,7 @@ void boss_CL::ataques()
         if(cont<1000 and contro==0){
             cont+=10;
             if(cont<200 or cont>250){
-                atack1 = new caida_libre(cont);
+                atack1 = new caida_libre(cont);b1.push_back(atack1);
                 scene()->addItem(atack1);
             }
             //Se cambia la direccion
@@ -129,7 +139,7 @@ void boss_CL::ataques()
         if(contro==1 and cont>50){
             cont-=10;
             if(cont>800 or cont<750){
-                atack1_5 = new caida_libre(cont);
+                atack1_5 = new caida_libre(cont);b1.push_back(atack1_5);
                 scene()->addItem(atack1_5);
             }
         }

@@ -1,6 +1,5 @@
 release/ataque_bas.o
 release/ataque_enemy.o
-release/boss.o
 release/boss_CL.o
 release/boss_jm.o
 release/caida_libre.o
