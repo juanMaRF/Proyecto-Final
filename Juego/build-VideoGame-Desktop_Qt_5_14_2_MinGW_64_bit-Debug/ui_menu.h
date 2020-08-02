@@ -21,7 +21,7 @@ QT_BEGIN_NAMESPACE
 class Ui_Menu
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *un_pla;
     QPushButton *pushButton_2;
@@ -31,18 +31,18 @@ public:
         if (Menu->objectName().isEmpty())
             Menu->setObjectName(QString::fromUtf8("Menu"));
         Menu->resize(400, 300);
-        widget = new QWidget(Menu);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(70, 100, 251, 50));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(Menu);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(70, 100, 251, 59));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        un_pla = new QPushButton(widget);
+        un_pla = new QPushButton(layoutWidget);
         un_pla->setObjectName(QString::fromUtf8("un_pla"));
 
         verticalLayout->addWidget(un_pla);
 
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         verticalLayout->addWidget(pushButton_2);
@@ -56,8 +56,8 @@ public:
     void retranslateUi(QDialog *Menu)
     {
         Menu->setWindowTitle(QCoreApplication::translate("Menu", "Dialog", nullptr));
-        un_pla->setText(QCoreApplication::translate("Menu", "Un Jugador", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Menu", "Dos Jugadores", nullptr));
+        un_pla->setText(QCoreApplication::translate("Menu", "Iniciar sesion", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("Menu", "registrarse", nullptr));
     } // retranslateUi
 
 };

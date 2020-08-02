@@ -1,16 +1,16 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "player.h"
-#include "menu.h"
+#include "mainmenu.h"
 
-MainWindow *game;
-Menu *menu;
+MainWindow * game;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    game = new MainWindow();
-    menu = new Menu();
-    menu->show();
+//    MainWindow w;
+//    game = new MainWindow();
+//    w.show();
+    Menu m;
+    m.show();
     return a.exec();
 }
