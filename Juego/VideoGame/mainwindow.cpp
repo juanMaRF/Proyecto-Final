@@ -240,78 +240,8 @@ void MainWindow::leer_lvl(int lvl_)
     time->start(20);
 }
 
-void MainWindow::leer_atks(int lvl_)
-{
-    QString lvl;
-    if(lvl_==0){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_1.TXT";
-    }
-    else if(lvl_==1){
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/atk_2.TXT";
-    }
-    QFile file(lvl);
-    if(!file.open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox::warning(this,"Title","File not open");         //se abre el archivo para guardarlo en un Qstring
-    }
-    QTextStream in(&file);
-    QString text=in.readAll(),temp;
-    file.close();
-    int comas=0,coordx=0,coordy=0,tempint;
-    for (int i=0;i<text.size();i++) {
-        if(text.at(i)==","){
-            if(comas==0){
-                tempint=temp.toInt();
-                coordx=tempint;
-                temp.clear();
-            }
-            comas+=1;
-            i++;
-        }
-        if(text.at(i)=="\n"){
-            tempint=temp.toInt();
-            coordy=tempint;
-            temp.clear();
-            atks.push_back(new boss(coordx,coordy));
-            comas=0;
-        }else
-        temp.append(text.at(i));
-    }
-    for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
-        scene->addItem((*it));
-    }
-}
-
-void MainWindow::Boss_2()
-{
-    int alea=1;
-    scene=new QGraphicsScene;
-
-    ui->graphicsView->setScene(scene);
-    scene->setSceneRect(0,0,1111,621);
-    scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
-    //Añadimos al player
-//    jugador = new player(1,200,300,20,20);
-//    scene->addItem(jugador);
-//    jugador->setPos(200,100);
-//    jugador->setFlag(QGraphicsItem::ItemIsFocusable);
-//    jugador->setFocus();
-
-    if(alea==0){
-        leer_atks(alea);
-        int pp=1;
-        for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
-            (*it)->setVelx((*it)->getVelx()*pp);
-            pp=pp*-1;
-        }
-        connect(time,SIGNAL(timeout()),this,SLOT(atk_1()));
-    }else if(alea==1){
-        leer_atks(alea);
-        connect(time,SIGNAL(timeout()),this,SLOT(atk_2()));
-    }
 
 
-    time->start(50);
-}
 
 obstaculos &MainWindow::colision_player()
 {
@@ -339,16 +269,6 @@ void MainWindow::rozamiento(short n)
     if(n==1){
         fuerzaT=15-R2*6;
     }
-}
-
-bool MainWindow::prueba_colsion()
-{
-    for(int i=0,n=lista_piedra.size();i<n;i++){
-        if(typeid ((lista_piedra[i])) == typeid (player)){
-            return true;
-        }
-    }
-    return false;
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -633,22 +553,6 @@ void MainWindow::Mover()
     }
 }
 
-void MainWindow::atk_1()
-{
-    for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
-        (*it)->atk_1();
-        if((*it)->getYi()+300==(*it)->getY()){
-            scene->removeItem((*it));
-        }
-    }
-}
-
-void MainWindow::atk_2()
-{
-    for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
-        (*it)->atk_2();
-    }
-}
 
 void MainWindow::cambio_mapas(int x)
 {
