@@ -15,6 +15,7 @@ Menu::~Menu()
 
 void Menu::on_un_pla_clicked()
 {
+    //se cierra la ventana y abre la interfaz de inicio de sesion
     close();
     in=new inicio(this);
     in->setModal(true);
@@ -24,6 +25,7 @@ void Menu::on_un_pla_clicked()
 
 void Menu::on_pushButton_2_clicked()
 {
+    //abre la interfaz de registro
     reg=new Registro;
     reg->setModal(true);
     reg->show();

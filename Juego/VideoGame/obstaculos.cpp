@@ -47,7 +47,7 @@ obstaculos::obstaculos(int x_, int y_, int w_, int h_, QString img)
     w=w_;
     h=h_;
     imga=img;
-    //setPos(x,y);
+    //se le asignan las posiciones y altura y ancho tambien el nombre de la imagen para usar como diferentes obstaculos
     if(img=="piedra1"){
         pixmap.load(":/Imagenes Proyecto final/roca1.gif");
     }else if(img=="valla1"){
@@ -68,6 +68,7 @@ QRectF obstaculos::boundingRect() const
 
 void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    //uso nada para crear los muros en el boss
     if(imga=="nada"){
         //setPos(x,y);
         painter->setBrush(Qt::white);

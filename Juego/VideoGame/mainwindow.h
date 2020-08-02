@@ -17,7 +17,6 @@
 #include "moob.h"
 #include <QLabel>
 #include <QMovie>
-#include "boss.h"
 #include "enemi_dis.h"
 #include "player.h"
 #include "boss_CL.h"

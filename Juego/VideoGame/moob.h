@@ -14,16 +14,16 @@ class moob: public QObject,public QGraphicsItem
    Q_OBJECT
 
 public:
-    moob(int x_, int y_, int w_, int h_,QString img);
+    moob(int x_, int y_, int w_, int h_,QString img); //constuctor
     QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);//funciones que lo dibujan en pantalla
 
     QPixmap *getPixmap() const;
     void setPixmap(QPixmap *value);
 
     void move_x();
     void move_y();
-    void move();
+    void move();    //funcione que se encargan del movimiento
     float getVel_tempx() const;
     void setVel_tempx(float value);
 
@@ -46,7 +46,7 @@ public:
     void setY(int value);
 
 private:
-    int x,xi;
+    int x,xi;       //propiedades del objeto
     int y,yi;
     int w;
     int h;
@@ -57,11 +57,11 @@ private:
     int columnas=0;
     QTimer *timer;
     QString Ies;
-    QString Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png";
+    QString Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png"; //sprites
     QString Iizq=":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png";
 
 
 private slots:
-    void Actualizacion();
+    void Actualizacion(); //funcion que va a estar actualizando el sprite
 };
 #endif // MOOB_H

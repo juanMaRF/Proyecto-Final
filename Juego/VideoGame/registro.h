@@ -12,9 +12,10 @@ class Registro : public QDialog
     Q_OBJECT
 
 public:
-    explicit Registro(QWidget *parent = nullptr);
+    explicit Registro(QWidget *parent = nullptr);//el constructor
     ~Registro();
-    void registrar(QString nombre, QString pass);
+    void registrar(QString nombre, QString pass);//funcion para escribir en el archivo de texto
+    bool verificar(QString nombre, QString pass);//la uso para ver si esta cuenta ya esta registrada
 
 private slots:
     void on_pushButton_clicked();

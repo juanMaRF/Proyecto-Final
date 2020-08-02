@@ -83,15 +83,17 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
     y=y_;yi=y_;
     w=w_;
     h=h_;
+    //asigna variables
     if(img=="perro"){
         pixmap.load(":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png");
     }else if(img=="sans"){
         pixmap.load(":/Imagenes Proyecto final/sans.png");
     }
+
     timer=new QTimer();
     timer->start(80);// modifica la velocidad en que itera entre las imagenes
 
-    //connect(timer,&QTimer::timeout,this,&moob::Actualizacion);
+    //conecta a la funcion de actualizacion
     connect(timer,SIGNAL(timeout()),this,SLOT(Actualizacion()));
 }
 
@@ -109,6 +111,7 @@ void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 void moob::move()
 {
+    //se encarga de realizar el MRU y dependiendo en que direccion se mueva cambia de sprite
     this->setX(this->getX()+vel_x*delta);
     y=y+vel_y*delta;
     this->setPos(this->getX(),y);
@@ -122,15 +125,22 @@ void moob::move()
 
 void moob::Actualizacion()
 {
+    //crea una lista con objetos que colicionen en ese instante
     QList<QGraphicsItem *> colliding_items = collidingItems();
+    //recorre la lista
     for(int i = 0, n = colliding_items.size(); i < n; i++){
+        //verifica si choca con las balas
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
+            //le quita vida al moob
             this->setVida(this->getVida()-5);
             if(this->getVida()==0){
+                //si su vida llega a 0 sube el score del jugador
+                //y quita al moob de escena
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
                 this->setX(100000);
                 this->setPos(getX(),y);
+                //verifica el puntaje para luego cambiar de nivel
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
                 }
@@ -139,9 +149,31 @@ void moob::Actualizacion()
                 }
 
             }
-        }
-    }
+        }else if(typeid (*colliding_items[i]) == typeid (tiropara)){
+            //le quita vida al moob
+            this->setVida(this->getVida()-10);
+            qDebug()<<this->getVida();
+            if(this->getVida()==0){
+                //si su vida llega a 0 sube el score del jugador
+                //y quita al moob de escena
+                game->puntaje->setScore(game->puntaje->getScore()+1);
+                qDebug()<<"SCORE: "<<game->puntaje->getScore();
+                this->setX(100000);
+                this->setPos(getX(),y);
+                //verifica el puntaje para luego cambiar de nivel
+                if(game->puntaje->getScore()==6){
+                    game->cambio_mapas(1);
+                }
+                if(game->puntaje->getScore()==15){
+                    game->cambio_mapas(3);
+                }
+            }
 
+        }
+        colliding_items.clear();
+        break;
+    }
+    //el tamaño del sprite
     columnas +=50;
     if(columnas >=200)
     {
