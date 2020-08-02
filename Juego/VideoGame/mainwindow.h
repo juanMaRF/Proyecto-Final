@@ -44,10 +44,8 @@ public:
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
-    void Boss_2();
     obstaculos& colision_player();
     void rozamiento(short n);
-    bool prueba_colsion();
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
     player *jugador;
@@ -70,7 +68,6 @@ private:
     obstaculos *pared1,*pared2,*pared3,*pared4;
     int cant_obj=0;
     int turn=1,direc;
-    QList <boss*> atks;
     QList<slime *> lentitud;
     ataque_Bas *disparo;
     tiropara *ataque_es;
@@ -82,8 +79,6 @@ signals:
 
 public slots:
     void Mover();
-    void atk_1();
-    void atk_2();
 };
 
 #endif // MAINWINDOW_H

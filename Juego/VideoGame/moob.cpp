@@ -131,7 +131,7 @@ void moob::Actualizacion()
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
                 this->setX(100000);
                 this->setPos(getX(),y);
-                if(game->puntaje->getScore()==1){
+                if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
                 }
                 if(game->puntaje->getScore()==15){
