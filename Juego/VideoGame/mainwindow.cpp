@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include <math.h>
 
+extern MainWindow * game;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     niveles(0);
 
     puntaje = new Score();
-    scene->addItem(puntaje);
+
 }
 
 MainWindow::~MainWindow()
@@ -60,6 +62,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==1){
+
         nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
@@ -73,7 +76,7 @@ void MainWindow::niveles(int x)
         //añadimos al boss
         Jefe1 = new boss_CL(450,70,200,200);
         scene->addItem(Jefe1);
-
+        qDebug()<<"PRIMER CAMBIO";
 
         //añadimos al player
         jugador = new player(1,200,300,20,20);
@@ -84,6 +87,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==2){
+        qDebug()<<"SEGUNDO CAMBIO";
         nivel1=0;
         //añadimos el fondo
         leer_lvl(1);
@@ -644,6 +648,12 @@ void MainWindow::atk_2()
     for (QList <boss*>::iterator it=atks.begin();it!=atks.end();it++) {
         (*it)->atk_2();
     }
+}
+
+void MainWindow::cambio_mapas(int x)
+{
+    niveles(x);
+    game->show();
 }
 
 

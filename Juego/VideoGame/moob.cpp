@@ -126,16 +126,18 @@ void moob::Actualizacion()
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             this->setVida(this->getVida()-5);
-            qDebug()<<"Pajaro: "<<this->getVida();
-
             if(this->getVida()==0){
-                game->puntaje->increase();
-                //scene()->removeItem(colliding_items[i]);
-                //scene()->removeItem(this);
+                game->puntaje->setScore(game->puntaje->getScore()+1);
+                qDebug()<<"SCORE: "<<game->puntaje->getScore();
                 this->setX(100000);
                 this->setPos(getX(),y);
-                //delete colliding_items[i];
-                //delete this;
+                if(game->puntaje->getScore()==1){
+                    game->cambio_mapas(1);
+                }
+                if(game->puntaje->getScore()==15){
+                    game->cambio_mapas(3);
+                }
+
             }
         }
     }

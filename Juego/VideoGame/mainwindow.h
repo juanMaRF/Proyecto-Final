@@ -38,6 +38,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void cambio_mapas(int x);
     void niveles(int tipo);
     QString colision(moob *cuerpo,obstaculos *que);
     void leer_lvl(int lvl_);
@@ -51,9 +52,10 @@ public:
     QList <enemi_dis*> mru;
     player *jugador;
     Score *puntaje;
+    QTimer * timer;
 private:
     double R1=1.666,R2=2;
-    int fuerzaT;
+    int fuerzaT,ayuda;
     short tipo,nivel1,imagen=2;
 
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
@@ -78,7 +80,7 @@ private:
 signals:
     void keyCaught(QKeyEvent *e);
 
-private slots:
+public slots:
     void Mover();
     void atk_1();
     void atk_2();

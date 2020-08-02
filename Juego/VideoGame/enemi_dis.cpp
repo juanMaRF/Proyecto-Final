@@ -32,22 +32,18 @@ void enemi_dis::move()
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             if(this->getVida()==0){
-                //scene()->removeItem(colliding_items[i]);
-                //scene()->removeItem(this);
-                game->puntaje->increase();
+                game->puntaje->setScore(game->puntaje->getScore()+1);
+                qDebug()<<"SCORE: "<<game->puntaje->getScore();
                 this->setX1(10000);
                 this->setPos(getX1(),getY1());
-                //delete colliding_items[i];
-                //delete this;
+                if(game->puntaje->getScore()==6){
+                    game->cambio_mapas(1);
+                }
+                if(game->puntaje->getScore()==15){
+                    game->cambio_mapas(3);
+                }
             }
             this->setVida(this->getVida()-5);
-//            if(imagen==0){                        //animacion de daño, no funciona
-//                imagen=1;
-//                setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/daño_e/Scorpio_hurt.png"));
-//            }else if(imagen==1){
-//                imagen=0;
-//                setPixmap(QPixmap(":/Imagenes Proyecto final/3 Scorpio/daño_e/Scorpio_hurt1.png"));
-//            }
         }
     }
 

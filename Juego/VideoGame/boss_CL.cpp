@@ -1,4 +1,7 @@
 #include "boss_CL.h"
+#include "mainwindow.h"
+
+extern MainWindow * game;
 
 boss_CL::boss_CL(int x, int y, int w, int h)
 {
@@ -36,8 +39,8 @@ void boss_CL::tipoA()
     qDebug()<<"INDICADOR: "<<ayuda1;
 
     if(ayuda1<=80){
-        vida-=5;
-        qDebug()<<"Daño Jefe";
+        setVida(getVida()-5);
+        qDebug()<<"Daño Jefe: "<<getVida();
     }
 
     //Se cambia el ataque del jefe
@@ -53,11 +56,24 @@ void boss_CL::tipoA()
         ayuda=0;
     }
 
-    if(vida<=0){
+    if(getVida()<=0){
+        game->puntaje->setScore(game->puntaje->getScore()+1);
+        qDebug()<<"SCORE: "<<game->puntaje->getScore();
         qDebug()<<"MUERTE BOSS";
+        game->cambio_mapas(2);
         timer->stop();
         time->stop();
     }
+}
+
+int boss_CL::getVida() const
+{
+    return vida;
+}
+
+void boss_CL::setVida(int value)
+{
+    vida = value;
 }
 
 void boss_CL::ataques()
