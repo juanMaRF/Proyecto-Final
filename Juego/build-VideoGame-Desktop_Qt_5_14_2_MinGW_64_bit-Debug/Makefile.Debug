@@ -572,6 +572,7 @@ debug/moc_boss_CL.cpp: ../VideoGame/boss_CL.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
 		../VideoGame/caida_libre.h \
 		../VideoGame/ataque_bas.h \
+		../VideoGame/ataque_enemy.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\boss_CL.h -o debug\moc_boss_CL.cpp
@@ -2805,6 +2806,7 @@ debug/boss_CL.o: ../VideoGame/boss_CL.cpp ../VideoGame/boss_CL.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
 		../VideoGame/caida_libre.h \
 		../VideoGame/ataque_bas.h \
+		../VideoGame/ataque_enemy.h \
 		../VideoGame/mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsview.h \
@@ -2847,7 +2849,6 @@ debug/boss_CL.o: ../VideoGame/boss_CL.cpp ../VideoGame/boss_CL.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonvalue.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfactoryinterface.h \
 		../VideoGame/enemi_dis.h \
-		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
@@ -3552,19 +3553,6 @@ debug/inicio.o: ../VideoGame/inicio.cpp ../VideoGame/inicio.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
 		ui_inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLineEdit \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTextStream \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h
@@ -3734,22 +3722,9 @@ debug/jugar.o: ../VideoGame/jugar.cpp ../VideoGame/jugar.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
 		ui_jugar.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\jugar.o ..\VideoGame\jugar.cpp
 
 debug/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
@@ -4091,21 +4066,7 @@ debug/mainmenu.o: ../VideoGame/mainmenu.cpp ../VideoGame/mainmenu.h \
 		../VideoGame/registro.h \
 		../VideoGame/inicio.h \
 		../VideoGame/jugar.h \
-		ui_menu.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h
+		ui_mainmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainmenu.o ..\VideoGame\mainmenu.cpp
 
 debug/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
@@ -4269,27 +4230,6 @@ debug/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
 		ui_mainwindow.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
@@ -5156,27 +5096,6 @@ debug/registro.o: ../VideoGame/registro.cpp ../VideoGame/registro.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtouchdevice.h \
 		ui_registro.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLineEdit \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QFile \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTextStream \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \

@@ -39,6 +39,7 @@ public:
 
     void cambio_mapas(int x);
     void niveles(int tipo);
+    void guardado(int nivel);
     QString colision(moob *cuerpo,obstaculos *que);
     void leer_lvl(int lvl_);
     void path(int x_play,int y_play,moob *enemy);
@@ -71,6 +72,7 @@ private:
     ataque_Bas *disparo;
     tiropara *ataque_es;
     boss_jm *gf;
+    int nivel_;
 
 
 signals:

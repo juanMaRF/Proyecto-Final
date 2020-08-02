@@ -15,9 +15,14 @@ class jugar : public QDialog
 public:
     explicit jugar(QWidget *parent = nullptr); //el constructor para el single player y el multiplayer
     ~jugar();
+    int carga();
 
 private slots:
     void on_pushButton_clicked(); //inicia el singleplayer
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::jugar *ui;

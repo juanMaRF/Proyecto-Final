@@ -26,6 +26,7 @@ MainWindow::~MainWindow()
 void MainWindow::niveles(int x)
 {
     if(x==0){
+        guardado(0);
         nivel1=0;
         //añadimos el fondo
         leer_lvl(x);
@@ -62,7 +63,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==1){
-
+        guardado(1);
         nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
@@ -87,6 +88,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==2){
+        guardado(2);
         qDebug()<<"SEGUNDO CAMBIO";
         nivel1=0;
         //añadimos el fondo
@@ -126,6 +128,7 @@ void MainWindow::niveles(int x)
     }
 
     if(x==3){
+        guardado(3);
         nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
@@ -151,6 +154,21 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
+}
+
+void MainWindow::guardado(int nivel)
+{
+    //QString lvl="‪‪E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.TXT";
+    QFile file("‪‪E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.TXT");
+    if(!(file.open(QFile::WriteOnly | QFile::Text))){
+        QMessageBox::warning(this,"aviso","error");
+    }
+    QTextStream out(&file);
+    QString num=QString::number(nivel);
+    out<<num;
+    file.flush();
+    file.close();
+
 }
 
 QString MainWindow::colision(moob *cuerpo, obstaculos *que)
@@ -559,22 +577,22 @@ void MainWindow::Mover()
 void MainWindow::cambio_mapas(int x)
 {
     for (QList<enemi_dis*>::iterator it=mru.begin();it!=mru.end();it++) {
-        scene->removeItem((*it));
+        //scene->removeItem((*it));
         mru.removeOne((*it));
         delete (*it);
     }
     for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
-        scene->removeItem((*it));
+        //scene->removeItem((*it));
         lista_piedra.removeOne((*it));
         delete (*it);
     }
     for (QList<moob*>::iterator it=enemigos.begin();it!=enemigos.end();it++) {
-        scene->removeItem((*it));
+        //scene->removeItem((*it));
         enemigos.removeOne((*it));
         delete (*it);
     }
     for (QList<ataque_Bas*>::iterator it=balas.begin();it!=balas.end();it++) {
-        scene->removeItem((*it));
+        //scene->removeItem((*it));
         balas.removeOne((*it));
         delete (*it);
     }

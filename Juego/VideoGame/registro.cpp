@@ -18,8 +18,8 @@ Registro::~Registro()
 
 void Registro::registrar(QString nombre, QString pass)
 {
-    //QString ff="E:/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
-    QString ff="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    QString ff="E:/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    //QString ff="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
 
     QFile file(ff);
 
