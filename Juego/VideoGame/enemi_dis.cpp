@@ -1,5 +1,8 @@
 #include "enemi_dis.h"
 #include "ataque_bas.h"
+#include "mainwindow.h"
+
+extern MainWindow *game;
 
 enemi_dis::enemi_dis(int nivel, int tipo,int x, int y,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
@@ -31,6 +34,7 @@ void enemi_dis::move()
             if(this->getVida()==0){
                 //scene()->removeItem(colliding_items[i]);
                 //scene()->removeItem(this);
+                game->puntaje->increase();
                 this->setX1(10000);
                 this->setPos(getX1(),getY1());
                 //delete colliding_items[i];

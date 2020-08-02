@@ -24,6 +24,7 @@
 #include "boss_jm.h"
 #include "ataque_bas.h"
 #include "tiropara.h"
+#include "score.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -49,6 +50,7 @@ public:
     void keyPressEvent(QKeyEvent *event);
     QList <enemi_dis*> mru;
     player *jugador;
+    Score *puntaje;
 private:
     double R1=1.666,R2=2;
     int fuerzaT;

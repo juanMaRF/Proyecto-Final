@@ -2,7 +2,7 @@
 #include "mainwindow.h"
 #include "enemi_dis.h"
 
-//extern MainWindow * game;
+extern MainWindow * game;
 
 tiropara::tiropara(int tipo,double x, double y, double v, double a,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {

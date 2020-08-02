@@ -216,6 +216,7 @@ release/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_walk.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_idle.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Ball.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/bola.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Deceased_walk_der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Caminar_Player_Der/Deceased_walk5Der.png \
 		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/Caminar_Player_Der/Deceased_walk6Der.png \
@@ -346,8 +347,6 @@ release/moc_ataque_bas.cpp: ../VideoGame/ataque_bas.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimage.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtransform.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_32/bin/moc.exe
 	C:\Qt\5.12.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_12_2_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/5.12.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.12.2/mingw73_32/include -IC:/Qt/5.12.2/mingw73_32/include/QtWidgets -IC:/Qt/5.12.2/mingw73_32/include/QtGui -IC:/Qt/5.12.2/mingw73_32/include/QtANGLE -IC:/Qt/5.12.2/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\VideoGame\ataque_bas.h -o release\moc_ataque_bas.cpp
@@ -553,8 +552,6 @@ release/moc_boss_CL.cpp: ../VideoGame/boss_CL.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/caida_libre.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_32/bin/moc.exe
 	C:\Qt\5.12.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_12_2_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/5.12.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.12.2/mingw73_32/include -IC:/Qt/5.12.2/mingw73_32/include/QtWidgets -IC:/Qt/5.12.2/mingw73_32/include/QtGui -IC:/Qt/5.12.2/mingw73_32/include/QtANGLE -IC:/Qt/5.12.2/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\VideoGame\boss_CL.h -o release\moc_boss_CL.cpp
@@ -1026,8 +1023,6 @@ release/moc_mainwindow.cpp: ../VideoGame/mainwindow.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
@@ -1035,6 +1030,8 @@ release/moc_mainwindow.cpp: ../VideoGame/mainwindow.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_32/bin/moc.exe
 	C:\Qt\5.12.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_12_2_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/5.12.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.12.2/mingw73_32/include -IC:/Qt/5.12.2/mingw73_32/include/QtWidgets -IC:/Qt/5.12.2/mingw73_32/include/QtGui -IC:/Qt/5.12.2/mingw73_32/include/QtANGLE -IC:/Qt/5.12.2/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\VideoGame\mainwindow.h -o release\moc_mainwindow.cpp
@@ -1299,8 +1296,6 @@ release/moc_menu.cpp: ../VideoGame/menu.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
@@ -1308,6 +1303,8 @@ release/moc_menu.cpp: ../VideoGame/menu.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/5.12.2/mingw73_32/bin/moc.exe
 	C:\Qt\5.12.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_12_2_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/5.12.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.12.2/mingw73_32/include -IC:/Qt/5.12.2/mingw73_32/include/QtWidgets -IC:/Qt/5.12.2/mingw73_32/include/QtGui -IC:/Qt/5.12.2/mingw73_32/include/QtANGLE -IC:/Qt/5.12.2/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\VideoGame\menu.h -o release\moc_menu.cpp
@@ -1509,6 +1506,7 @@ release/moc_mru.cpp: ../VideoGame/mru.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QObject \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QTimer \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/qtimer.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/qbasictimer.h \
@@ -1641,8 +1639,6 @@ release/moc_player.cpp: ../VideoGame/player.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/slime.h \
@@ -1976,8 +1972,6 @@ release/ataque_bas.o: ../VideoGame/ataque_bas.cpp ../VideoGame/ataque_bas.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimage.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtransform.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/mainwindow.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsView \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsview.h \
@@ -2046,7 +2040,9 @@ release/ataque_bas.o: ../VideoGame/ataque_bas.cpp ../VideoGame/ataque_bas.h \
 		../VideoGame/caida_libre.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ataque_bas.o ..\VideoGame\ataque_bas.cpp
 
 release/ataque_enemy.o: ../VideoGame/ataque_enemy.cpp ../VideoGame/ataque_enemy.h \
@@ -2200,15 +2196,15 @@ release/ataque_enemy.o: ../VideoGame/ataque_enemy.cpp ../VideoGame/ataque_enemy.
 		../VideoGame/enemi_dis.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
 		../VideoGame/caida_libre.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ataque_enemy.o ..\VideoGame\ataque_enemy.cpp
 
 release/boss.o: ../VideoGame/boss.cpp ../VideoGame/boss.h \
@@ -2423,9 +2419,7 @@ release/boss_CL.o: ../VideoGame/boss_CL.cpp ../VideoGame/boss_CL.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/caida_libre.h \
-		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
+		../VideoGame/ataque_bas.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\boss_CL.o ..\VideoGame\boss_CL.cpp
 
 release/boss_jm.o: ../VideoGame/boss_jm.cpp ../VideoGame/boss_jm.h \
@@ -2690,14 +2684,14 @@ release/caida_libre.o: ../VideoGame/caida_libre.cpp ../VideoGame/caida_libre.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\caida_libre.o ..\VideoGame\caida_libre.cpp
 
 release/enemi_dis.o: ../VideoGame/enemi_dis.cpp ../VideoGame/enemi_dis.h \
@@ -2808,6 +2802,56 @@ release/enemi_dis.o: ../VideoGame/enemi_dis.cpp ../VideoGame/enemi_dis.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/ataque_bas.h \
+		../VideoGame/mainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QRectF \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QWidget \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QFile \
+		../VideoGame/obstaculos.h \
+		../VideoGame/moob.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/QMovie \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qmovie.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimagereader.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qplugin.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qpointer.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonobject.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfactoryinterface.h \
+		../VideoGame/boss.h \
+		../VideoGame/player.h \
+		../VideoGame/tiropara.h \
+		../VideoGame/slime.h \
+		../VideoGame/boss_CL.h \
+		../VideoGame/caida_libre.h \
+		../VideoGame/boss_jm.h \
+		../VideoGame/mru.h \
+		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\enemi_dis.o ..\VideoGame\enemi_dis.cpp
@@ -3056,8 +3100,6 @@ release/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
@@ -3065,11 +3107,16 @@ release/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QApplication \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtGui/qinputmethod.h
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qinputmethod.h \
+		../VideoGame/menu.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QDialog \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\VideoGame\main.cpp
 
 release/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
@@ -3223,8 +3270,6 @@ release/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
@@ -3232,6 +3277,8 @@ release/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		ui_mainwindow.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QApplication \
@@ -3360,7 +3407,65 @@ release/mcu.o: ../VideoGame/mcu.cpp ../VideoGame/mcu.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qbrush.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfont.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfontmetrics.h
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfontmetrics.h \
+		../VideoGame/player.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		../VideoGame/ataque_bas.h \
+		../VideoGame/tiropara.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
+		../VideoGame/slime.h \
+		../VideoGame/mainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QRectF \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QWidget \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QFile \
+		../VideoGame/obstaculos.h \
+		../VideoGame/moob.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/QMovie \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qmovie.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimagereader.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qplugin.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qpointer.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonobject.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfactoryinterface.h \
+		../VideoGame/boss.h \
+		../VideoGame/enemi_dis.h \
+		../VideoGame/ataque_enemy.h \
+		../VideoGame/boss_CL.h \
+		../VideoGame/caida_libre.h \
+		../VideoGame/boss_jm.h \
+		../VideoGame/mru.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mcu.o ..\VideoGame\mcu.cpp
 
 release/menu.o: ../VideoGame/menu.cpp ../VideoGame/menu.h \
@@ -3517,8 +3622,6 @@ release/menu.o: ../VideoGame/menu.cpp ../VideoGame/menu.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
@@ -3526,7 +3629,23 @@ release/menu.o: ../VideoGame/menu.cpp ../VideoGame/menu.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
-		ui_menu.h
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
+		ui_menu.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QVariant \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QPushButton \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QVBoxLayout \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qboxlayout.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qlayout.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\VideoGame\menu.cpp
 
 release/moob.o: ../VideoGame/moob.cpp ../VideoGame/moob.h \
@@ -3680,15 +3799,15 @@ release/moob.o: ../VideoGame/moob.cpp ../VideoGame/moob.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
 		../VideoGame/caida_libre.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moob.o ..\VideoGame\moob.cpp
 
 release/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
@@ -3781,6 +3900,7 @@ release/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QObject \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QTimer \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/qtimer.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/qbasictimer.h \
@@ -3795,7 +3915,6 @@ release/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/player.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent \
@@ -3808,10 +3927,49 @@ release/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
-		../VideoGame/slime.h
+		../VideoGame/slime.h \
+		../VideoGame/mainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsView \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QRectF \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QWidget \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QFile \
+		../VideoGame/obstaculos.h \
+		../VideoGame/moob.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/QMovie \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qmovie.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimagereader.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qplugin.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qpointer.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonobject.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/qfactoryinterface.h \
+		../VideoGame/boss.h \
+		../VideoGame/enemi_dis.h \
+		../VideoGame/ataque_enemy.h \
+		../VideoGame/boss_CL.h \
+		../VideoGame/caida_libre.h \
+		../VideoGame/boss_jm.h \
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mru.o ..\VideoGame\mru.cpp
 
 release/obstaculos.o: ../VideoGame/obstaculos.cpp ../VideoGame/obstaculos.h \
@@ -4034,8 +4192,6 @@ release/player.o: ../VideoGame/player.cpp ../VideoGame/player.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/tiropara.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug \
 		../VideoGame/slime.h \
@@ -4078,7 +4234,9 @@ release/player.o: ../VideoGame/player.cpp ../VideoGame/player.h \
 		../VideoGame/caida_libre.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\player.o ..\VideoGame\player.cpp
 
 release/score.o: ../VideoGame/score.cpp ../VideoGame/score.h \
@@ -4171,7 +4329,8 @@ release/score.o: ../VideoGame/score.cpp ../VideoGame/score.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/QFont \
-		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfont.h
+		C:/Qt/5.12.2/mingw73_32/include/QtGui/qfont.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\score.o ..\VideoGame\score.cpp
 
 release/slime.o: ../VideoGame/slime.cpp ../VideoGame/slime.h \
@@ -4426,14 +4585,14 @@ release/tiropara.o: ../VideoGame/tiropara.cpp ../VideoGame/tiropara.h \
 		../VideoGame/ataque_enemy.h \
 		../VideoGame/player.h \
 		../VideoGame/ataque_bas.h \
-		../VideoGame/score.h \
-		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem \
 		../VideoGame/slime.h \
 		../VideoGame/boss_CL.h \
 		../VideoGame/caida_libre.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
-		../VideoGame/mcu.h
+		../VideoGame/mcu.h \
+		../VideoGame/score.h \
+		C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tiropara.o ..\VideoGame\tiropara.cpp
 
 release/qrc_imagenes.o: release/qrc_imagenes.cpp 

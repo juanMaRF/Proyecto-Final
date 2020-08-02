@@ -1,7 +1,6 @@
 #ifndef ATAQUE_BAS_H
 #define ATAQUE_BAS_H
 #include <QGraphicsPixmapItem>
-#include "score.h"
 
 class ataque_Bas:public QObject, public QGraphicsPixmapItem
 {
@@ -21,7 +20,6 @@ private slots:
     void move();
 
 private:
-    //MainWindow *juego;
     int pos_inicial;
     short ataque,con=1,nivel1;
 

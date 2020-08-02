@@ -1,6 +1,5 @@
 #include "moob.h"
 #include "mainwindow.h"
-#include "player.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -127,8 +126,10 @@ void moob::Actualizacion()
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             this->setVida(this->getVida()-5);
-            //qDebug()<<"Pajaro: "<<this->getVida();
+            qDebug()<<"Pajaro: "<<this->getVida();
+
             if(this->getVida()==0){
+                game->puntaje->increase();
                 //scene()->removeItem(colliding_items[i]);
                 //scene()->removeItem(this);
                 this->setX(100000);
@@ -136,9 +137,6 @@ void moob::Actualizacion()
                 //delete colliding_items[i];
                 //delete this;
             }
-        }
-        if(typeid (*colliding_items[i]) == typeid (player)){
-            game->jugador->vida-=5;
         }
     }
 

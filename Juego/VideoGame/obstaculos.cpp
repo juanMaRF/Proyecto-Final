@@ -73,7 +73,7 @@ void obstaculos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         painter->setBrush(Qt::white);
         painter->drawRect(boundingRect());
     }else{
-        setPos(x,y);
+        //setPos(x,y);
         painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
     }
 }
