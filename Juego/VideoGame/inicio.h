@@ -2,6 +2,7 @@
 #define INICIO_H
 
 #include <QDialog>
+#include "jugar.h"
 
 namespace Ui {
 class inicio;
@@ -22,6 +23,7 @@ private slots:
 private:
     Ui::inicio *ui;
     QString nom,pass;
+    jugar * play;
 };
 
 #endif // INICIO_H

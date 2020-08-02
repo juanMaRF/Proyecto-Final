@@ -25,6 +25,7 @@ SOURCES += \
     enemi_dis.cpp \
     health.cpp \
     inicio.cpp \
+    jugar.cpp \
     main.cpp \
     mainmenu.cpp \
     mainwindow.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     enemi_dis.h \
     health.h \
     inicio.h \
+    jugar.h \
     mainmenu.h \
     mainwindow.h \
     mcu.h \
@@ -62,6 +64,7 @@ HEADERS += \
 
 FORMS += \
     inicio.ui \
+    jugar.ui \
     mainmenu.ui \
     mainwindow.ui \
     registro.ui

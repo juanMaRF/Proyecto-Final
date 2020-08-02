@@ -15,9 +15,11 @@ Menu::~Menu()
 
 void Menu::on_un_pla_clicked()
 {
+    close();
     in=new inicio(this);
     in->setModal(true);
     in->show();
+
 }
 
 void Menu::on_pushButton_2_clicked()

@@ -7,6 +7,7 @@ debug/caida_libre.o
 debug/enemi_dis.o
 debug/health.o
 debug/inicio.o
+debug/jugar.o
 debug/main.o
 debug/mainmenu.o
 debug/mainwindow.o
@@ -27,6 +28,7 @@ debug/moc_boss_jm.o
 debug/moc_caida_libre.o
 debug/moc_enemi_dis.o
 debug/moc_inicio.o
+debug/moc_jugar.o
 debug/moc_mainmenu.o
 debug/moc_mainwindow.o
 debug/moc_mcu.o

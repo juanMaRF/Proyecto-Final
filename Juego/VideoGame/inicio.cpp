@@ -4,6 +4,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 
+
 inicio::inicio(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::inicio)
@@ -59,8 +60,9 @@ void inicio::on_pushButton_clicked()
     nom=ui->user->text();
     pass=ui->pass->text();
     if(iniciar(nom,pass)){
-        //entrar a otro menu
-        QMessageBox::warning(this,"Nice","Nice");
+        close();
+        play=new jugar(this);
+        play->show();
     }else{
         QMessageBox::warning(this,"Alerta","Usuario o Contraseña incorrectas");
     }
