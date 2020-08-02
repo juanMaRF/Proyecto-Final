@@ -26,9 +26,9 @@ SOURCES += \
     health.cpp \
     inicio.cpp \
     main.cpp \
+    mainmenu.cpp \
     mainwindow.cpp \
     mcu.cpp \
-    menu.cpp \
     moob.cpp \
     mru.cpp \
     obstaculos.cpp \
@@ -48,9 +48,9 @@ HEADERS += \
     enemi_dis.h \
     health.h \
     inicio.h \
+    mainmenu.h \
     mainwindow.h \
     mcu.h \
-    menu.h \
     moob.h \
     mru.h \
     obstaculos.h \
@@ -62,8 +62,8 @@ HEADERS += \
 
 FORMS += \
     inicio.ui \
+    mainmenu.ui \
     mainwindow.ui \
-    menu.ui \
     registro.ui
 
 # Default rules for deployment.
