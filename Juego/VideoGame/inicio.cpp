@@ -57,12 +57,17 @@ bool inicio::iniciar(QString nom_,QString cla_)
             temp.append(text[i]);
         }
     }
+    //recorre la lista de usuarios
     for(QList<QString>::iterator it=usuarios.begin();it!=usuarios.end();it++){
+        //verifica el nombre
         if((*it)==nom_){
+            //cuando encuentra el nombre en la poscicion j tambien esta la clave
             if(claves.at(j)==cla_){
                 return true;
+                j=0;
             }else{
                 return false;
+                j=0;
             }
         }
         j++;

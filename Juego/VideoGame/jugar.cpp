@@ -17,8 +17,7 @@ jugar::~jugar()
 
 void jugar::on_pushButton_clicked()
 {
+    //se cierra la ventana y se inicia el juego
     close();
-//    w=new MainWindow();
-//    w->show();
     game->show();
 }

@@ -44,7 +44,24 @@ void enemi_dis::move()
                 }
             }
             this->setVida(this->getVida()-5);
+            break;
+        }else if(typeid (*colliding_items[i]) == typeid (tiropara)){
+            if(this->getVida()==0){
+                game->puntaje->setScore(game->puntaje->getScore()+1);
+                qDebug()<<"SCORE: "<<game->puntaje->getScore();
+                this->setX1(10000);
+                this->setPos(getX1(),getY1());
+                if(game->puntaje->getScore()==6){
+                    game->cambio_mapas(1);
+                }
+                if(game->puntaje->getScore()==15){
+                    game->cambio_mapas(3);
+                }
+            }
+            this->setVida(this->getVida()-5);
+            break;
         }
+
     }
 
     if(tipo1==1){
