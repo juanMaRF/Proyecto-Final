@@ -20,7 +20,12 @@ void Score::increase()
     setPlainText(QString("Score: " + guardar));
 }
 
-//int Score::getScore()
-//{
-//    return score;
-//}
+int Score::getScore()
+{
+    return score;
+}
+
+void Score::setScore(int value)
+{
+    score = value;
+}

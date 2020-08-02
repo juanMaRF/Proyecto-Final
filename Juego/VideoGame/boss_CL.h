@@ -25,6 +25,9 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
 
+    int getVida() const;
+    void setVida(int value);
+
 private slots:
     void ataques();
     void tipoA();
