@@ -15,12 +15,14 @@ Menu::~Menu()
 
 void Menu::on_un_pla_clicked()
 {
-    juego= new MainWindow();
-    juego->show();
+    in=new inicio(this);
+    in->setModal(true);
+    in->show();
 }
 
 void Menu::on_pushButton_2_clicked()
 {
-    juego= new MainWindow();
-    juego->show();
+    reg=new Registro;
+    reg->setModal(true);
+    reg->show();
 }

@@ -24,6 +24,7 @@ SOURCES += \
     caida_libre.cpp \
     enemi_dis.cpp \
     health.cpp \
+    inicio.cpp \
     main.cpp \
     mainwindow.cpp \
     mcu.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
     mru.cpp \
     obstaculos.cpp \
     player.cpp \
+    registro.cpp \
     score.cpp \
     slime.cpp \
     tiropara.cpp
@@ -45,6 +47,7 @@ HEADERS += \
     caida_libre.h \
     enemi_dis.h \
     health.h \
+    inicio.h \
     mainwindow.h \
     mcu.h \
     menu.h \
@@ -52,13 +55,16 @@ HEADERS += \
     mru.h \
     obstaculos.h \
     player.h \
+    registro.h \
     score.h \
     slime.h \
     tiropara.h
 
 FORMS += \
+    inicio.ui \
     mainwindow.ui \
-    menu.ui
+    menu.ui \
+    registro.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

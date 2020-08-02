@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "registro.h"
+#include "inicio.h"
 
 namespace Ui {
 class Menu;
@@ -24,6 +26,8 @@ private slots:
 private:
     Ui::Menu *ui;
     MainWindow *juego;
+    Registro * reg;
+    inicio * in;
 };
 
 #endif // MENU_H
