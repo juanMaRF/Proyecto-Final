@@ -1,6 +1,7 @@
 #include "jugar.h"
 #include "ui_jugar.h"
 
+extern MainWindow *game;
 
 jugar::jugar(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +18,6 @@ jugar::~jugar()
 void jugar::on_pushButton_clicked()
 {
     close();
-    w=new MainWindow();
-    w->show();
+    //w=new MainWindow();
+    game->show();
 }

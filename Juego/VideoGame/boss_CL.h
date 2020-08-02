@@ -14,6 +14,7 @@
 #include <QDebug>
 #include "caida_libre.h"
 #include "ataque_bas.h"
+#include "ataque_enemy.h"
 
 class boss_CL:public QObject, public QGraphicsPixmapItem
 {
@@ -36,7 +37,7 @@ private:
     int tipo,tipo2,tipo3,tipo4=0, cont=50, contro=0;
     int x1,y1,w1,h1;
     caida_libre *atack1, *atack1_5;
-    ataque_Bas *atack1_lef,*atack1_up,*atack1_rig;
+    ataque_enemy *atack1_lef,*atack1_up,*atack1_rig;
 };
 
 #endif // BOSS1_H

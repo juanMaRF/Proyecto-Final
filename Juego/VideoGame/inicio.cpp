@@ -19,7 +19,8 @@ inicio::~inicio()
 
 bool inicio::iniciar(QString nom_,QString cla_)
 {
-    QString ff="E:/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    //QString ff="E:/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    QString ff="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
     QFile file(ff);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::warning(this,"Title","File not open");

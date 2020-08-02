@@ -93,19 +93,19 @@ void boss_CL::ataques()
         }
         //ataque del jefe direccion: arriba
         if(tipo==1){
-            atack1_up= new ataque_Bas(1,2);
+            atack1_up= new ataque_enemy(1,2);
             scene()->addItem(atack1_up);
             atack1_up->setPos(tipo3,510);
         }
         //ataque del jefe direccion: izquierda
         if(tipo==2){
-            atack1_lef = new ataque_Bas(1,0);
+            atack1_lef = new ataque_enemy(1,0);
             scene()->addItem(atack1_lef);
             atack1_lef->setPos(950,tipo2);
         }
         //ataque del jefe direccion: derecha
         if(tipo==3){
-            atack1_rig = new ataque_Bas(1,1);
+            atack1_rig = new ataque_enemy(1,1);
             scene()->addItem(atack1_rig);
             atack1_rig->setPos(150,tipo2);
         }
