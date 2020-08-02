@@ -16,6 +16,7 @@ jugar::~jugar()
 
 void jugar::on_pushButton_clicked()
 {
+    close();
     w=new MainWindow();
     w->show();
 }
