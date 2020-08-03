@@ -50,6 +50,7 @@ public:
     void path(int x_play,int y_play,moob *enemy);
     void leer_atks(int lvl_);
     obstaculos& colision_player();
+    obstaculos& colision_player2();
     void rozamiento(short n);
     void keyPressEvent(QKeyEvent *event);
     void limpiar();
