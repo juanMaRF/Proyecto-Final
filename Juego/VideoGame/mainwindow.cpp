@@ -72,7 +72,7 @@ void MainWindow::niveles(int x)
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(-10,-10,1111,621);
         scene->addRect(scene->sceneRect());
-        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo boss.jpeg")));
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo.png")));
 
 
 
@@ -80,6 +80,12 @@ void MainWindow::niveles(int x)
         Jefe1 = new boss_CL(450,70,200,200);
         scene->addItem(Jefe1);
         qDebug()<<"PRIMER CAMBIO";
+
+        //añadimos los limites de movimiento
+        pared1=new obstaculos(110,286,910,5,"nada");scene->addItem(pared1);p_boss.push_back(pared1);
+        pared2=new obstaculos(109,285,5,310,"nada");scene->addItem(pared2);p_boss.push_back(pared2);
+        pared3=new obstaculos(110,595,910,5,"nada");scene->addItem(pared3);p_boss.push_back(pared3);
+        pared4=new obstaculos(1018,285,5,310,"nada");scene->addItem(pared4);p_boss.push_back(pared4);
 
         //añadimos al player
         jugador = new player(1,200,300,20,20);
@@ -137,10 +143,10 @@ void MainWindow::niveles(int x)
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(-10,-10,1111,621);
         scene->addRect(scene->sceneRect());
-        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/escena_boss.png")));
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/fondo.png")));
 
         //añadimos el boss
-        gf=new boss_jm(0,0,0,0);
+        gf=new boss_jm(450,70,200,200);
         scene->addItem(gf);
 
         //añadimos los limites de movimiento
@@ -567,6 +573,11 @@ void MainWindow::cambio_mapas(int x)
     for (QList<ataque_Bas*>::iterator it=balas.begin();it!=balas.end();it++) {
         //scene->removeItem((*it));
         balas.removeOne((*it));
+        delete (*it);
+    }
+    for (QList<obstaculos*>::iterator it=p_boss.begin();it!=p_boss.end();it++) {
+        //scene->removeItem((*it));
+        p_boss.removeOne((*it));
         delete (*it);
     }
     close();
