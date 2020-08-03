@@ -92,3 +92,13 @@ void inicio::on_pushButton_clicked()
         QMessageBox::warning(this,"Alerta","Usuario o Contraseña incorrectas");
     }
 }
+
+QString inicio::getNom() const
+{
+    return nom;
+}
+
+void inicio::setNom(const QString &value)
+{
+    nom = value;
+}

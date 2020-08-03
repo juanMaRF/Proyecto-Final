@@ -7,76 +7,6 @@
 
 extern MainWindow * game;
 
-float moob::getVel_tempx() const
-{
-    return vel_tempx;
-}
-
-void moob::setVel_tempx(float value)
-{
-    vel_tempx = value;
-}
-
-float moob::getVel_tempy() const
-{
-    return vel_tempy;
-}
-
-void moob::setVel_tempy(float value)
-{
-    vel_tempy = value;
-}
-
-float moob::getVel_x() const
-{
-    return vel_x;
-}
-
-void moob::setVel_x(float value)
-{
-    vel_x = value;
-}
-
-float moob::getVel_y() const
-{
-    return vel_y;
-}
-
-void moob::setVel_y(float value)
-{
-    vel_y = value;
-}
-
-int moob::getVida() const
-{
-    return vida;
-}
-
-void moob::setVida(int value)
-{
-    vida = value;
-}
-
-int moob::getX() const
-{
-    return x;
-}
-
-void moob::setX(int value)
-{
-    x = value;
-}
-
-int moob::getY() const
-{
-    return y;
-}
-
-void moob::setY(int value)
-{
-    y = value;
-}
-
 moob::moob(int x_, int y_, int w_, int h_, QString img)
 {
     x=x_;xi=x_;
@@ -95,6 +25,11 @@ moob::moob(int x_, int y_, int w_, int h_, QString img)
 
     //conecta a la funcion de actualizacion
     connect(timer,SIGNAL(timeout()),this,SLOT(Actualizacion()));
+
+
+    connect(timepo,SIGNAL(timeout()),this,SLOT(move()));
+    timepo->start(30);
+
 }
 
 
@@ -108,22 +43,18 @@ void moob::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->drawPixmap(-h/2,-h/2,pixmap,columnas,0,w,h);
 }
 
-
-void moob::move()
+int moob::getVida() const
 {
-    //se encarga de realizar el MRU y dependiendo en que direccion se mueva cambia de sprite
-    this->setX(this->getX()+vel_x*delta);
-    y=y+vel_y*delta;
-    this->setPos(this->getX(),y);
-
-    if(vel_x<0){
-        pixmap.load(Iizq);
-    }else{
-        pixmap.load(Ider);
-    }
+    return vida;
 }
 
-void moob::Actualizacion()
+void moob::setVida(int value)
+{
+    vida = value;
+}
+
+
+void moob::move()
 {
     //crea una lista con objetos que colicionen en ese instante
     QList<QGraphicsItem *> colliding_items = collidingItems();
@@ -138,8 +69,11 @@ void moob::Actualizacion()
                 //y quita al moob de escena
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                this->setX(100000);
-                this->setPos(getX(),y);
+                game->scene->removeItem(this);
+                x=10000;
+                setPos(x,y);
+                timepo->stop();
+                timer->stop();
                 //verifica el puntaje para luego cambiar de nivel
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
@@ -158,8 +92,11 @@ void moob::Actualizacion()
                 //y quita al moob de escena
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                this->setX(100000);
-                this->setPos(getX(),y);
+                game->scene->removeItem(this);
+                x=10000;
+                setPos(x,y);
+                timepo->stop();
+                timer->stop();
                 //verifica el puntaje para luego cambiar de nivel
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
@@ -173,6 +110,34 @@ void moob::Actualizacion()
         colliding_items.clear();
         break;
     }
+
+    //se encarga de realizar el MRU y dependiendo en que direccion se mueva cambia de sprite
+    obstaculos *puntero=nullptr;
+    QString onjto=game->colision(this,puntero);
+    if(onjto=="lat")
+    {
+        if(!this->collidesWithItem(puntero)){
+            velx=velx*-1;
+        }
+    }else if(onjto=="valla"){
+        if(!this->collidesWithItem(puntero)){
+            vely=vely*-1;
+        }
+    }
+    x=x+velx*delta;
+    y=y+vely*delta;
+    setPos(x,y);
+
+    if(velx<0){
+        pixmap.load(Iizq);
+    }else{
+        pixmap.load(Ider);
+    }
+}
+
+void moob::Actualizacion()
+{
+
     //el tamaño del sprite
     columnas +=50;
     if(columnas >=200)

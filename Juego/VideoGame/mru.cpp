@@ -29,6 +29,7 @@ void mru::move_y()
             //le quita al jugador vida
             game->jugador->vida-=5;
             //y elimina a el objeto
+            timepo->stop();
             scene()->removeItem(this);
             delete this;
             colliding_items.clear();

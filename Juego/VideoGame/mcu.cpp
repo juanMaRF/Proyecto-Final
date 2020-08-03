@@ -31,6 +31,8 @@ void mcu::move()
             //le quita al jugador vida
             game->jugador->vida-=5;
             //y elimina a el objeto
+            timepo->stop();
+            timepo1->stop();
             scene()->removeItem(this);
             delete this;
             colliding_items.clear();

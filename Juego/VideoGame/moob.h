@@ -21,29 +21,10 @@ public:
     QPixmap *getPixmap() const;
     void setPixmap(QPixmap *value);
 
-    void move_x();
-    void move_y();
-    void move();    //funcione que se encargan del movimiento
-    float getVel_tempx() const;
-    void setVel_tempx(float value);
 
-    float getVel_tempy() const;
-    void setVel_tempy(float value);
-
-    float getVel_x() const;
-    void setVel_x(float value);
-
-    float getVel_y() const;
-    void setVel_y(float value);
 
     int getVida() const;
     void setVida(int value);
-
-    int getX() const;
-    void setX(int value);
-
-    int getY() const;
-    void setY(int value);
 
 private:
     int x,xi;       //propiedades del objeto
@@ -51,11 +32,12 @@ private:
     int w;
     int h;
     int vida=30;
-    float vel_x=25,vel_y=25,delta=0.1;
-    float vel_tempx=vel_x,vel_tempy=vel_y;
+    float velx=25,vely=25,delta=0.1;
+    float vel_tempx=velx,vel_tempy=vely;
     QPixmap pixmap;
     int columnas=0;
     QTimer *timer;
+    QTimer *timepo=new QTimer;
     QString Ies;
     QString Ider=":/Imagenes Proyecto final/4 Vulture/Vulture_walk_der.png"; //sprites
     QString Iizq=":/Imagenes Proyecto final/4 Vulture/Vulture_walk.png";
@@ -63,5 +45,6 @@ private:
 
 private slots:
     void Actualizacion(); //funcion que va a estar actualizando el sprite
+    void move();    //funcione que se encargan del movimiento
 };
 #endif // MOOB_H

@@ -19,14 +19,19 @@ public:
     //verifica si el usuario y la clave son correctas
     bool iniciar(QString nom_, QString cla_);
 
+
+    QString getNom() const;
+    void setNom(const QString &value);
+
 private slots:
     //llama a la funcion iniciar
     void on_pushButton_clicked();
 
+
 private:
-    Ui::inicio *ui;
-    QString nom,pass;
+    Ui::inicio *ui;   
     jugar * play;
+    QString nom,pass;
 };
 
 #endif // INICIO_H

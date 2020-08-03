@@ -16,7 +16,7 @@ caida_libre::caida_libre(int x, QGraphicsItem * parent): QObject(), QGraphicsPix
 
     setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Ball.png").scaled(w,h));
 
-    QTimer * timer = new QTimer();
+
     connect(timer,SIGNAL(timeout()),this, SLOT(move()));
     timer->start(50);
 }
@@ -28,6 +28,11 @@ void caida_libre::actu_vel()
 
 void caida_libre::move()
 {
+    if(PosY==700){
+        scene()->removeItem(this);
+        timer->stop();
+        delete this;
+    }
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid(*(colliding_items[i])) == typeid (player)){

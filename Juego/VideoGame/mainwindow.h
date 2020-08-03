@@ -51,6 +51,8 @@ public:
     player *jugador;
     Score *puntaje;
     QTimer * timer;
+    QGraphicsScene *scene;
+    int NIVEL;
 private:
     double R1=1.666,R2=2;
     int fuerzaT,ayuda;
@@ -58,11 +60,10 @@ private:
 
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;
-    QGraphicsScene *scene;
+
     Ui::MainWindow *ui;
     QTimer *time;
     QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup,p_boss;
-    QList <moob*> enemigos;
     QList <ataque_Bas*> balas;
     moob *e1,*e2,*e3,*e4,*e5;
     obstaculos *pared1,*pared2,*pared3,*pared4;
@@ -79,7 +80,7 @@ signals:
     void keyCaught(QKeyEvent *e);
 
 public slots:
-    void Mover();
+
 };
 
 #endif // MAINWINDOW_H

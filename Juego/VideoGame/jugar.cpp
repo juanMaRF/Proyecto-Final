@@ -3,8 +3,10 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
+#include "inicio.h"
 
 extern MainWindow * game;
+extern inicio * ini;
 
 jugar::jugar(QWidget *parent) :
     QDialog(parent),
@@ -20,7 +22,7 @@ jugar::~jugar()
 
 int jugar::carga()
 {
-    QString lvl="‪E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.TXT";
+    QString lvl="‪‪‪:/"+ini->getNom()+".TXT";
     QFile file(lvl);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::warning(this,"Title","File not open");

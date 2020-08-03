@@ -34,8 +34,10 @@ void enemi_dis::move()
             if(this->getVida()==0){
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                this->setX1(10000);
-                this->setPos(getX1(),getY1());
+//                this->setX1(10000);
+//                this->setPos(getX1(),getY1());
+                game->scene->removeItem(this);
+                timer->stop();
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
                 }
@@ -49,8 +51,10 @@ void enemi_dis::move()
             if(this->getVida()==0){
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                this->setX1(10000);
-                this->setPos(getX1(),getY1());
+//                this->setX1(10000);
+//                this->setPos(getX1(),getY1());
+                game->scene->removeItem(this);
+                timer->stop();
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
                 }
