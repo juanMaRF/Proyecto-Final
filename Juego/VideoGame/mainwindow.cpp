@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <math.h>
+#include <string>
 
 extern MainWindow * game;
 
@@ -25,8 +26,6 @@ MainWindow::~MainWindow()
 void MainWindow::niveles(int x)
 {
     if(x==0){
-        //
-        //guardado(x);
 
         //
         nivel1=0;
@@ -62,10 +61,11 @@ void MainWindow::niveles(int x)
         e3=new moob(300,400,50,50,"perro");scene->addItem(e3);
         e4=new moob(700,400,50,50,"perro");scene->addItem(e4);
         e5=new moob(7000,4000,50,50,"perro");scene->addItem(e5);
+
+
     }
 
     if(x==1){
-        //guardado(1);
         nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
@@ -96,7 +96,6 @@ void MainWindow::niveles(int x)
     }
 
     if(x==2){
-        //guardado(2);
         qDebug()<<"SEGUNDO CAMBIO";
         nivel1=0;
         //añadimos el fondo
@@ -136,7 +135,6 @@ void MainWindow::niveles(int x)
     }
 
     if(x==3){
-        //guardado(3);
         nivel1=1;
         //añadimos el fondo
         scene=new QGraphicsScene;
@@ -166,14 +164,14 @@ void MainWindow::niveles(int x)
 
 void MainWindow::guardado(int nivel)
 {
-    QString lvl="‪‪E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/nivel.TXT";
-    QFile fil(lvl);
-    if(!(fil.open(QFile::WriteOnly | QFile::Text))){
-        QMessageBox::warning(this,"aviso","error");
+    //QString lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/"+ini->getNom()+".txt";
+    QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    fil.open(QIODevice::WriteOnly | QIODevice::Text);
+    if(!fil.isOpen()){
+        qDebug()<<"El archivo no se abrio";
     }
-    QTextStream out(&fil);
-    QString num=QString::number(nivel);
-    out<<num;
+    QTextStream stream(&fil);
+    stream << nivel;
     fil.flush();
     fil.close();
 
@@ -558,7 +556,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MainWindow::cambio_mapas(int x)
+void MainWindow::limpiar()
 {
     for (QList<enemi_dis*>::iterator it=mru.begin();it!=mru.end();it++) {
         //scene->removeItem((*it));
@@ -580,8 +578,14 @@ void MainWindow::cambio_mapas(int x)
         p_boss.removeOne((*it));
         delete (*it);
     }
+}
+
+void MainWindow::cambio_mapas(int x)
+{
+    limpiar();
     close();
     niveles(x);
+    guardado(x);
     game->show();
 }
 

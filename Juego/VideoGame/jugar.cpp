@@ -22,13 +22,13 @@ jugar::~jugar()
 
 int jugar::carga()
 {
-    QString lvl="‪‪‪:/"+ini->getNom()+".TXT";
-    QFile file(lvl);
-    if(!file.open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox::warning(this,"Title","File not open");
-    }
+    QFile file("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&file);
-    int numero=in.readAll().toInt();
+    QString temp=in.readAll();
+    int numero=temp.toInt();
+    file.flush();
+    file.close();
     return numero;
 }
 
@@ -47,6 +47,7 @@ void jugar::on_pushButton_2_clicked()
 void jugar::on_pushButton_3_clicked()
 {
     close();
+    game->limpiar();
     game->niveles(carga());
     game->show();
 }

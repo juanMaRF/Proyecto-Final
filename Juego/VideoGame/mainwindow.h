@@ -13,6 +13,10 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QFile>
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <QString>
 #include "obstaculos.h"
 #include "moob.h"
 #include <QLabel>
@@ -24,6 +28,7 @@
 #include "ataque_bas.h"
 #include "tiropara.h"
 #include "score.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -47,6 +52,7 @@ public:
     obstaculos& colision_player();
     void rozamiento(short n);
     void keyPressEvent(QKeyEvent *event);
+    void limpiar();
     QList <enemi_dis*> mru;
     player *jugador;
     Score *puntaje;
