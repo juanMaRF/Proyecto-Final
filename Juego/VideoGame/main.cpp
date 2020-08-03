@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 //    MainWindow w;
-    game = new MainWindow();
+    game = new MainWindow(1);
 //    w.show();
     Menu m;
     m.show();

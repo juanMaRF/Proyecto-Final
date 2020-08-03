@@ -18,7 +18,7 @@ class player:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     player(QGraphicsItem * parent=0);
-    player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
+    player(short tipo,short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent=0);
     int getX1() const;
     void setX1(int value);
 
@@ -41,7 +41,7 @@ public:
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;
-    short tipo=1, nivel1;
+    short tipo=1, nivel1,multi;
     short imagen=0;
     int x1,y1,h1,w1;
 };

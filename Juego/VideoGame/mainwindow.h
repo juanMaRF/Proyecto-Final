@@ -39,7 +39,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(int tipo,QWidget *parent = nullptr);
     ~MainWindow();
 
     void cambio_mapas(int x);
@@ -54,18 +54,26 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void limpiar();
     QList <enemi_dis*> mru;
-    player *jugador;
+    player *jugador,*jugador2;
     Score *puntaje;
     QTimer * timer;
-    QGraphicsScene *scene;
+    QList <player *> rects;
+    QGraphicsScene *scene= new QGraphicsScene(this);
     int NIVEL;
 private:
+
+    short animacion;
+    int multi;
+
     double R1=1.666,R2=2;
     int fuerzaT,ayuda;
-    short tipo,nivel1,imagen=2;
+    short tipo,nivel1,imagen=2,imagen2=2;
 
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;
+
+
+    QGraphicsView * view = new QGraphicsView(this);
 
     Ui::MainWindow *ui;
     QTimer *time;
@@ -84,8 +92,6 @@ private:
 
 signals:
     void keyCaught(QKeyEvent *e);
-
-public slots:
 
 };
 

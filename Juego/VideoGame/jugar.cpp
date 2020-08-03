@@ -34,14 +34,16 @@ int jugar::carga()
 
 void jugar::on_pushButton_clicked()
 {
-    //se cierra la ventana y se inicia el juego
     close();
+    game = new MainWindow(1);
     game->show();
 }
 
 void jugar::on_pushButton_2_clicked()
 {
-
+    close();
+    game = new MainWindow(2);
+    game->show();
 }
 
 void jugar::on_pushButton_3_clicked()

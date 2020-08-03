@@ -21,32 +21,36 @@ QT_BEGIN_NAMESPACE
 class Ui_jugar
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QFormLayout *formLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
 
     void setupUi(QDialog *jugar)
     {
         if (jugar->objectName().isEmpty())
             jugar->setObjectName(QString::fromUtf8("jugar"));
         jugar->resize(400, 300);
-        widget = new QWidget(jugar);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(100, 110, 191, 61));
-        formLayout = new QFormLayout(widget);
+        layoutWidget = new QWidget(jugar);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(100, 110, 191, 61));
+        formLayout = new QFormLayout(layoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         formLayout->setWidget(0, QFormLayout::SpanningRole, pushButton);
 
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         formLayout->setWidget(1, QFormLayout::SpanningRole, pushButton_2);
 
+        pushButton_3 = new QPushButton(jugar);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(100, 180, 191, 25));
 
         retranslateUi(jugar);
 
@@ -58,6 +62,7 @@ public:
         jugar->setWindowTitle(QApplication::translate("jugar", "Dialog", nullptr));
         pushButton->setText(QApplication::translate("jugar", "1 Jugador", nullptr));
         pushButton_2->setText(QApplication::translate("jugar", "2 Jugadores", nullptr));
+        pushButton_3->setText(QApplication::translate("jugar", "Cargar Partida", nullptr));
     } // retranslateUi
 
 };

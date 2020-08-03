@@ -1,6 +1,5 @@
 debug/ataque_bas.o
 debug/ataque_enemy.o
-debug/boss.o
 debug/boss_CL.o
 debug/boss_jm.o
 debug/caida_libre.o
