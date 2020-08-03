@@ -35,6 +35,7 @@ void ataque_Bas::move()
                 scene()->removeItem(this);
                 //delete colliding_items[i];
                 delete this;
+
                 colliding_items.clear();
                 break;
             }

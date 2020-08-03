@@ -1,6 +1,7 @@
 #ifndef CAIDA_LIBRE_H
 #define CAIDA_LIBRE_H
 #include <QGraphicsPixmapItem>
+#include <QTimer>
 
 class caida_libre:public QObject, public QGraphicsPixmapItem
 {
@@ -17,6 +18,7 @@ private slots:
     void move();
 private:
     short con=0;
+    QTimer * timer = new QTimer();
     double pos_inicial;
     double g= 9.8;
     double PosY,PosX, h, w,Vel,delta=0.5;

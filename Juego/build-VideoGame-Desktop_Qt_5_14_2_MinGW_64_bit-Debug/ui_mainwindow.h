@@ -14,9 +14,7 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,12 +24,6 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
-    QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout;
-    QPushButton *Solo;
-    QPushButton *Cop;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,35 +36,11 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(0, 0, 1141, 641));
+        graphicsView->setGeometry(QRect(0, 0, 1561, 711));
         graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         graphicsView->setSceneRect(QRectF(0, 0, 0, 0));
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(1250, 20, 311, 221));
-        verticalLayout = new QVBoxLayout(layoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        Solo = new QPushButton(layoutWidget);
-        Solo->setObjectName(QString::fromUtf8("Solo"));
-
-        verticalLayout->addWidget(Solo);
-
-        Cop = new QPushButton(layoutWidget);
-        Cop->setObjectName(QString::fromUtf8("Cop"));
-
-        verticalLayout->addWidget(Cop);
-
-        pushButton_5 = new QPushButton(layoutWidget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-
-        verticalLayout->addWidget(pushButton_5);
-
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(1270, 564, 291, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -90,10 +58,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Solo->setText(QCoreApplication::translate("MainWindow", "Un Jugador", nullptr));
-        Cop->setText(QCoreApplication::translate("MainWindow", "Dos Jugadores", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MainWindow", "Guardar", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Cargar partida", nullptr));
     } // retranslateUi
 
 };
