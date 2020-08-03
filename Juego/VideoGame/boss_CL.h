@@ -22,7 +22,6 @@ class boss_CL:public QObject, public QGraphicsPixmapItem
 public:
     QTimer * timer = new QTimer();
     QTimer * time = new QTimer();
-    QTimer * tim = new QTimer();
     boss_CL(int x, int y, int w , int h);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
@@ -33,7 +32,6 @@ public:
 private slots:
     void ataques();
     void tipoA();
-    void carga();
 private:
     int vida=20,ayuda=0,ayuda1;
     int tipo,tipo2,tipo3,tipo4=0, cont=50, contro=0;
