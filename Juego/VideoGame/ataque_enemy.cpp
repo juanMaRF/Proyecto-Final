@@ -55,19 +55,21 @@ void ataque_enemy::move()
                     break;
                 }
 
-                if(game->multi==1){
-                    if(game->jugador->getVida()==0){
-                        game->jugador->setX1(2000);
-                        game->jugador->setY1(2000);
-                        game->cambio_mapas(4);
-                    }
-                }
+        if(game->multi==1){
+            if(game->jugador->getVida()==0 && game->jugador->fin==false){
+                game->jugador->setX1(2000);
+                game->jugador->setY1(2000);
+                game->jugador->fin=true;
+//                        game->cambio_mapas(4);
+                game->final();
+            }
+        }
 
                 if(game->multi==2){
                     if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
                         game->jugador->setX1(2000);
                         game->jugador->setY1(2000);
-                        game->cambio_mapas(4);
+                        game->final();
                     }
                     if(game->jugador->getVida()<=0 && game->jugador->bre==false){
                         game->jugador->setX1(2000);

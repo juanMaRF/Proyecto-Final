@@ -110,7 +110,7 @@ void moob::move()
                         game->jugador->setX1(2000);
                         game->jugador->setY1(2000);
                         game->jugador->fin=true;
-                        game->cambio_mapas(4);
+                        game->final();
                     }
                     if(game->jugador->getVida()<=0 && game->jugador->bre==false){
                         game->jugador->setX1(2000);
