@@ -53,6 +53,7 @@ public:
     void rozamiento(short n);
     void keyPressEvent(QKeyEvent *event);
     void limpiar();
+    void final();
     QList <enemi_dis*> mru;
     player *jugador,*jugador2;
     Score *puntaje;

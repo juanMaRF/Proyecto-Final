@@ -1163,6 +1163,13 @@ void MainWindow::limpiar()
     }
 }
 
+void MainWindow::final()
+{
+    close();
+    niveles(4);
+    game->show();
+}
+
 void MainWindow::cambio_mapas(int x)
 {
     limpiar();

@@ -36,13 +36,48 @@ void caida_libre::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid(*(colliding_items[i])) == typeid (player)){
-            game->jugador->vida-=5;
-            //scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
+                    if(this->collidesWithItem(game->jugador)){
+                        game->jugador->setVida(game->jugador->getVida()-1);
+                        qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+                    }
+                    if(this->collidesWithItem(game->jugador2)){
+                        game->jugador2->setVida(game->jugador2->getVida()-1);
+                        qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+                    }
+                    scene()->removeItem(this);
+                    delete this;
+                    colliding_items.clear();
+                    //termina el ciclo para evitar errores
+                    break;
+                }
 
-            //delete colliding_items[i];
-            delete this;
-        }
+                if(game->multi==1){
+                    if(game->jugador->getVida()==0){
+                        game->jugador->setX1(2000);
+                        game->jugador->setY1(2000);
+                        game->cambio_mapas(4);
+                    }
+                }
+
+                if(game->multi==2){
+                    if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                        game->jugador->setX1(2000);
+                        game->jugador->setY1(2000);
+                        game->cambio_mapas(4);
+                    }
+                    if(game->jugador->getVida()<=0 && game->jugador->bre==false){
+                        game->jugador->setX1(2000);
+                        game->jugador->setY1(2000);
+                        game->jugador->bre=true;
+                        scene()->removeItem(game->jugador);
+                    }
+                    if(game->jugador2->getVida()<=0 && game->jugador2->bre==false){
+                        game->jugador->setX1(2000);
+                        game->jugador->setY1(2000);
+                        game->jugador2->bre=true;
+                        scene()->removeItem(game->jugador2);
+                    }
+                }
     }
 
     if(con==0){
