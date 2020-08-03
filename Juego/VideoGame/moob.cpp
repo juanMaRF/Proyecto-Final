@@ -106,9 +106,8 @@ void moob::move()
                 }
 
                 if(game->multi==2){
-                    if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 && game->jugador->fin==false){
-                        game->jugador->setX1(2000);
-                        game->jugador->setY1(2000);
+                    if(game->jugador->getVida()<=0 and game->jugador2->getVida()<=0 and game->jugador2->fin==false){
+                        game->jugador2->fin=true;
                         game->jugador->fin=true;
                         game->final();
                     }

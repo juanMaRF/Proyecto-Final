@@ -22,7 +22,7 @@ jugar::~jugar()
 
 int jugar::carga()
 {
-    QFile file("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    QFile file(":/nivel.TXT");
     file.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&file);
     QString temp=in.readAll();

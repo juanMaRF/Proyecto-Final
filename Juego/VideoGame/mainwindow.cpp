@@ -231,7 +231,7 @@ void MainWindow::niveles(int x)
 void MainWindow::guardado(int nivel)
 {
     //QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
-    QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    QFile fil(":/nivel.TXT");
     fil.open(QIODevice::WriteOnly | QIODevice::Text);
     if(!fil.isOpen()){
         qDebug()<<"El archivo no se abrio";
@@ -264,10 +264,10 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl=":/lvl_1.TXT";
         //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl=":/lvl_2.TXT";
         //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;

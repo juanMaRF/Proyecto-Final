@@ -65,25 +65,26 @@ void ataque_enemy::move()
             }
         }
 
-                if(game->multi==2){
-                    if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
-                        game->jugador->setX1(2000);
-                        game->jugador->setY1(2000);
-                        game->final();
-                    }
-                    if(game->jugador->getVida()<=0 && game->jugador->bre==false){
-                        game->jugador->setX1(2000);
-                        game->jugador->setY1(2000);
-                        game->jugador->bre=true;
-                        scene()->removeItem(game->jugador);
-                    }
-                    if(game->jugador2->getVida()<=0 && game->jugador2->bre==false){
-                        game->jugador->setX1(2000);
-                        game->jugador->setY1(2000);
-                        game->jugador2->bre=true;
-                        scene()->removeItem(game->jugador2);
-                    }
-                }
+        if(game->multi==2){
+            if(game->jugador->getVida()<=0 and game->jugador2->getVida()<=0 and game->jugador2->fin==false){
+                game->jugador2->fin=true;
+                game->jugador->fin=true;
+                game->final();
+            }
+            if(game->jugador->getVida()<=0 && game->jugador->bre==false){
+                game->jugador->setX1(2000);
+                game->jugador->setY1(2000);
+                game->jugador->bre=true;
+                scene()->removeItem(game->jugador);
+            }
+            if(game->jugador2->getVida()<=0 && game->jugador2->bre==false){
+                game->jugador->setX1(2000);
+                game->jugador->setY1(2000);
+                game->jugador2->bre=true;
+                scene()->removeItem(game->jugador2);
+            }
+        }
+        break;
 
     }
 
