@@ -217,6 +217,19 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_imagenes.cpp
 debug/qrc_imagenes.cpp: ../VideoGame/imagenes.qrc \
 		C:/Qt/5.14.2/mingw73_64/bin/rcc.exe \
+		../VideoGame/Imagenes\ Proyecto\ final/playerproto2.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk5Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk6Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk3Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk4Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk1Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_Der/Deceased_walk2Der.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk5.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk4.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk3.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk2.png \
+		../VideoGame/Imagenes\ Proyecto\ final/6\ Deceased/MultiPlayer/Multi_iz/Deceased_walk6.png \
 		../VideoGame/Imagenes\ Proyecto\ final/roca1.gif \
 		../VideoGame/Imagenes\ Proyecto\ final/fondo.png \
 		../VideoGame/Imagenes\ Proyecto\ final/roca2.gif \
@@ -1066,7 +1079,6 @@ debug/moc_inicio.cpp: ../VideoGame/inicio.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\inicio.h -o debug\moc_inicio.cpp
@@ -1235,8 +1247,6 @@ debug/moc_jugar.cpp: ../VideoGame/jugar.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		../VideoGame/jugar.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\jugar.h -o debug\moc_jugar.cpp
@@ -1405,9 +1415,9 @@ debug/moc_mainmenu.cpp: ../VideoGame/mainmenu.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
+		../VideoGame/registro.h \
 		../VideoGame/inicio.h \
 		../VideoGame/jugar.h \
-		../VideoGame/registro.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\mainmenu.h -o debug\moc_mainmenu.cpp
@@ -1573,11 +1583,6 @@ debug/moc_mainwindow.cpp: ../VideoGame/mainwindow.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h \
-		../VideoGame/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include E:/Desktop/Proyecto-Final/Juego/build-VideoGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IE:/Desktop/Proyecto-Final/Juego/VideoGame -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\VideoGame\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -2550,11 +2555,7 @@ debug/ataque_bas.o: ../VideoGame/ataque_bas.cpp ../VideoGame/ataque_bas.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ataque_bas.o ..\VideoGame\ataque_bas.cpp
 
 debug/ataque_enemy.o: ../VideoGame/ataque_enemy.cpp ../VideoGame/ataque_enemy.h \
@@ -2717,11 +2718,7 @@ debug/ataque_enemy.o: ../VideoGame/ataque_enemy.cpp ../VideoGame/ataque_enemy.h 
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ataque_enemy.o ..\VideoGame\ataque_enemy.cpp
 
 debug/boss_CL.o: ../VideoGame/boss_CL.cpp ../VideoGame/boss_CL.h \
@@ -2884,11 +2881,7 @@ debug/boss_CL.o: ../VideoGame/boss_CL.cpp ../VideoGame/boss_CL.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\boss_CL.o ..\VideoGame\boss_CL.cpp
 
 debug/boss_jm.o: ../VideoGame/boss_jm.cpp ../VideoGame/boss_jm.h \
@@ -3162,11 +3155,7 @@ debug/caida_libre.o: ../VideoGame/caida_libre.cpp ../VideoGame/caida_libre.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\caida_libre.o ..\VideoGame\caida_libre.cpp
 
 debug/enemi_dis.o: ../VideoGame/enemi_dis.cpp ../VideoGame/enemi_dis.h \
@@ -3329,11 +3318,7 @@ debug/enemi_dis.o: ../VideoGame/enemi_dis.cpp ../VideoGame/enemi_dis.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enemi_dis.o ..\VideoGame\enemi_dis.cpp
 
 debug/health.o: ../VideoGame/health.cpp ../VideoGame/health.h \
@@ -3765,11 +3750,11 @@ debug/jugar.o: ../VideoGame/jugar.cpp ../VideoGame/jugar.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
 		ui_jugar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTextStream
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTextStream \
+		../VideoGame/inicio.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\jugar.o ..\VideoGame\jugar.cpp
 
 debug/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
@@ -3933,17 +3918,17 @@ debug/main.o: ../VideoGame/main.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
 		../VideoGame/mainmenu.h \
-		../VideoGame/registro.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		../VideoGame/registro.h \
+		../VideoGame/inicio.h \
+		../VideoGame/jugar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\VideoGame\main.cpp
 
 debug/mainmenu.o: ../VideoGame/mainmenu.cpp ../VideoGame/mainmenu.h \
@@ -4110,9 +4095,9 @@ debug/mainmenu.o: ../VideoGame/mainmenu.cpp ../VideoGame/mainmenu.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
+		../VideoGame/registro.h \
 		../VideoGame/inicio.h \
 		../VideoGame/jugar.h \
-		../VideoGame/registro.h \
 		ui_mainmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainmenu.o ..\VideoGame\mainmenu.cpp
 
@@ -4277,13 +4262,10 @@ debug/mainwindow.o: ../VideoGame/mainwindow.cpp ../VideoGame/mainwindow.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h \
 		ui_mainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\VideoGame\mainwindow.cpp
 
 debug/mcu.o: ../VideoGame/mcu.cpp ../VideoGame/mcu.h \
@@ -4446,11 +4428,7 @@ debug/mcu.o: ../VideoGame/mcu.cpp ../VideoGame/mcu.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mru.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mcu.o ..\VideoGame\mcu.cpp
 
 debug/moob.o: ../VideoGame/moob.cpp ../VideoGame/moob.h \
@@ -4613,11 +4591,7 @@ debug/moob.o: ../VideoGame/moob.cpp ../VideoGame/moob.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moob.o ..\VideoGame\moob.cpp
 
 debug/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
@@ -4780,11 +4754,7 @@ debug/mru.o: ../VideoGame/mru.cpp ../VideoGame/mru.h \
 		../VideoGame/boss_jm.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mru.o ..\VideoGame\mru.cpp
 
 debug/obstaculos.o: ../VideoGame/obstaculos.cpp ../VideoGame/obstaculos.h \
@@ -5053,11 +5023,7 @@ debug/player.o: ../VideoGame/player.cpp ../VideoGame/player.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\player.o ..\VideoGame\player.cpp
 
 debug/registro.o: ../VideoGame/registro.cpp ../VideoGame/registro.h \
@@ -5529,11 +5495,7 @@ debug/tiropara.o: ../VideoGame/tiropara.cpp ../VideoGame/tiropara.h \
 		../VideoGame/mru.h \
 		../VideoGame/mcu.h \
 		../VideoGame/score.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem \
-		../VideoGame/inicio.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
-		../VideoGame/jugar.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tiropara.o ..\VideoGame\tiropara.cpp
 
 debug/qrc_imagenes.o: debug/qrc_imagenes.cpp 

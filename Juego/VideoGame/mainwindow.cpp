@@ -18,7 +18,7 @@ MainWindow::MainWindow(int tipo, QWidget *parent)
 
     multi = tipo;
     time=new QTimer;
-    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    //connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
     niveles(0);
 
     puntaje = new Score();
@@ -240,11 +240,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
