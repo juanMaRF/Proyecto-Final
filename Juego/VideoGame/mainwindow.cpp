@@ -228,8 +228,8 @@ void MainWindow::niveles(int x)
 
 void MainWindow::guardado(int nivel)
 {
-    QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
-    //QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame");
+    //QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
     fil.open(QIODevice::WriteOnly | QIODevice::Text);
     if(!fil.isOpen()){
         qDebug()<<"El archivo no se abrio";
@@ -262,11 +262,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 
@@ -331,9 +331,14 @@ void MainWindow::leer_lvl(int lvl_)
 
 obstaculos &MainWindow::colision_player()
 {
+
     obstaculos* tempo=nullptr;
     for (QList<obstaculos*>::iterator it=lista_piedra.begin();it!=lista_piedra.end();it++) {
         if(jugador->collidesWithItem((*it))){
+            obstaculos *pepo=(*it);
+            return *pepo;
+        }
+        if(jugador2->collidesWithItem((*it))){
             obstaculos *pepo=(*it);
             return *pepo;
         }
@@ -343,7 +348,12 @@ obstaculos &MainWindow::colision_player()
             obstaculos *pepo=(*it);
             return *pepo;
         }
+        if(jugador2->collidesWithItem((*it))){
+            obstaculos *pepo=(*it);
+            return *pepo;
+        }
     }
+
     return *tempo;
 }
 

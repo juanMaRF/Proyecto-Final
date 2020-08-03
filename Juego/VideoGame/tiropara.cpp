@@ -12,14 +12,15 @@ tiropara::tiropara(int tipo,double x, double y, double v, double a,QGraphicsItem
     vel=v;
     ang=a;
     r=10;
-
+    
+    //Imagen del tiro parabolico
     setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Ball.png").scaled(20,20));
 
     QTimer * timer = new QTimer();
 
     connect(timer,SIGNAL(timeout()),this, SLOT(ActualizarPosicion()));
 
-    timer->start(50);
+    timer->start(50);//velocidad del tiro
 }
 
 double tiropara::getPosy() const
@@ -34,14 +35,13 @@ double tiropara::getPosx() const
 
 void tiropara::ActualizarPosicion()
 {
+    //Almacenamos las colisiones en una QList
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
+        //Comprobamos si colisiona contra una enemigo o jugador
         if(typeid(*(colliding_items[i])) == typeid (enemi_dis) or typeid(*(colliding_items[i])) == typeid (player) or typeid(*(colliding_items[i])) == typeid(moob)){
-
-            //scene()->removeItem(colliding_items[i]);
+            //De ser asi eliminamos el tiro
             scene()->removeItem(this);
-
-            //delete colliding_items[i];
             delete this;
         }
     }
