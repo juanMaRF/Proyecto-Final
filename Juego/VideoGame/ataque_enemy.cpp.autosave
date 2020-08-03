@@ -63,27 +63,43 @@ void ataque_enemy::move()
             setPos(x()-10,y());
         }
         if(ataque == 1){
+<<<<<<< HEAD
             //Movimiento de la bala de izquierda a derecha
+=======
+            //Movimiento de la bala de 
+>>>>>>> vida
             setPos(x()+10,y());
         }
 
         if(pos_inicial+400<=pos().x() or pos_inicial-400>=pos().x()){
+<<<<<<< HEAD
             //Rango de ataque si lo iguala o sobrepasa se elimina la bala
+=======
+>>>>>>> vida
             scene()->removeItem(this);
             delete this;
         }
     }
+<<<<<<< HEAD
     
     //Nivel del primer boss
     if(nivel1==1){
 
         if(con==1){
             //guardamos la posicion inicial
+=======
+    if(nivel1==1){
+
+        if(con==1){
+>>>>>>> vida
             pos_inicial=pos().x();
             con=2;
         }
 
+<<<<<<< HEAD
         //Movimientos de la bala
+=======
+>>>>>>> vida
         if(ataque == 0){
             setPos(x()-30,y());
         }
@@ -94,7 +110,10 @@ void ataque_enemy::move()
             setPos(x(),y()-30);
         }
 
+<<<<<<< HEAD
         //Rango de Ataque
+=======
+>>>>>>> vida
         if(pos_inicial+800<=pos().x() or pos_inicial-800>=pos().x()){
             scene()->removeItem(this);
             delete this;
