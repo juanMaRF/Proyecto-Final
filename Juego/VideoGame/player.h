@@ -41,6 +41,9 @@ public:
     int getVida() const;
     void setVida(int value);
 
+    bool bre=false;
+    bool fin=false;
+
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;
