@@ -1,0 +1,18 @@
+#include "mainwindow.h"
+#include <QApplication>
+#include "mainmenu.h"
+#include "inicio.h"
+#include "jugar.h"
+
+MainWindow * game;
+inicio * ini;
+jugar *jue;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    game = new MainWindow(1);
+    Menu m;
+    m.show();
+    return a.exec();
+}

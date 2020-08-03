@@ -28,9 +28,36 @@ void mcu::move()
     for(int i=0,n=colliding_items.size();i<n;i++){
         //verifica que halla colicionado con el jugador
         if(typeid (*colliding_items[i]) == typeid (player)){
-            //le quita al jugador vida
-            game->jugador->vida-=5;
-            //y elimina a el objeto
+
+            if(this->collidesWithItem(game->jugador)){
+                game->jugador->setVida(game->jugador->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+            }
+            if(this->collidesWithItem(game->jugador2)){
+                game->jugador2->setVida(game->jugador2->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+            }
+
+            if(game->multi==1){
+                if(game->jugador->getVida()==0){
+                    game->cambio_mapas(4);
+                }
+            }
+
+            if(game->multi==2){
+                if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                    game->puntaje->setScore(0);
+                    game->cambio_mapas(4);
+                }
+                if(game->jugador->getVida()<=0){
+                    scene()->removeItem(game->jugador);
+                }
+                if(game->jugador2->getVida()<=0){
+                    scene()->removeItem(game->jugador2);
+                }
+            }
+
+
             timepo->stop();
             timepo1->stop();
             scene()->removeItem(this);

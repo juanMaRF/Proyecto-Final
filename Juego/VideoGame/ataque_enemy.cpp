@@ -40,7 +40,35 @@ void ataque_enemy::move()
 
         }
         if( typeid(*(colliding_items[i])) == typeid (player)){
-            game->jugador->vida-=5;
+            if(this->collidesWithItem(game->jugador)){
+                game->jugador->setVida(game->jugador->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+            }
+            if(this->collidesWithItem(game->jugador2)){
+                game->jugador2->setVida(game->jugador2->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+            }
+
+            if(game->multi==1){
+                if(game->jugador->getVida()==0){
+                    game->cambio_mapas(4);
+                }
+            }
+
+            if(game->multi==2){
+                if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                    game->puntaje->setScore(0);
+                    game->cambio_mapas(4);
+                }
+                if(game->jugador->getVida()<=0){
+                    scene()->removeItem(game->jugador);
+                }
+                if(game->jugador2->getVida()<=0){
+                    scene()->removeItem(game->jugador2);
+                }
+            }
+
+
             scene()->removeItem(this);
             //delete colliding_items[i];
             delete this;

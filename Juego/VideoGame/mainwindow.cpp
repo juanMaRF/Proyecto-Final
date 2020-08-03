@@ -201,6 +201,16 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
+
+    if(x==4){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(-10,-10,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/new/prefix1/Imagenes Proyecto final/final.png")));
+    }
+
 }
 
 void MainWindow::guardado(int nivel)

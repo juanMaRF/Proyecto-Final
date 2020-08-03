@@ -36,9 +36,11 @@ public:
     int getH1() const;
     void setH1(int value);
 
-    int vida=20;
+    int getVida() const;
+    void setVida(int value);
 
 private:
+    int vida=50;
     tiropara *ataque_es;
     ataque_Bas *disparo;
     short tipo=1, nivel1,multi;

@@ -60,10 +60,10 @@ public:
     QList <player *> rects;
     QGraphicsScene *scene= new QGraphicsScene(this);
     int NIVEL;
+    int multi;
 private:
 
     short animacion;
-    int multi;
 
     double R1=1.666,R2=2;
     int fuerzaT,ayuda;

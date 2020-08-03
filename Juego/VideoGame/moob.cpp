@@ -60,6 +60,36 @@ void moob::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     //recorre la lista
     for(int i = 0, n = colliding_items.size(); i < n; i++){
+
+        if(typeid(*(colliding_items[i])) == typeid (player)){
+            if(this->collidesWithItem(game->jugador)){
+                game->jugador->setVida(game->jugador->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+            }
+            if(this->collidesWithItem(game->jugador2)){
+                game->jugador2->setVida(game->jugador2->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+            }
+        }
+
+        if(game->multi==1){
+            if(game->jugador->getVida()==0){
+                game->cambio_mapas(4);
+            }
+        }
+
+        if(game->multi==2){
+            if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                game->cambio_mapas(4);
+            }
+            if(game->jugador->getVida()<=0){
+                scene()->removeItem(game->jugador);
+            }
+            if(game->jugador2->getVida()<=0){
+                scene()->removeItem(game->jugador2);
+            }
+        }
+
         //verifica si choca con las balas
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             //le quita vida al moob

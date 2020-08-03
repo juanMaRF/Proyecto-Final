@@ -1,0 +1,89 @@
+#include "caida_libre.h"
+#include "mainwindow.h"
+#include <QDebug>
+#include <QTimer>
+
+extern MainWindow * game;
+
+
+caida_libre::caida_libre(int x, QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
+{
+    PosX= x;
+    PosY=70;
+    Vel=0;
+    w=10;
+    h=10;
+
+    //Imagen del ataque en caida libre
+    setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Ball.png").scaled(w,h));
+
+
+    connect(timer,SIGNAL(timeout()),this, SLOT(move())); //Movimiento del ataque
+    timer->start(50);
+}
+
+void caida_libre::actu_vel()
+{
+    //Actualizamos la velocidad
+   Vel=Vel-g*delta;
+}
+
+void caida_libre::move()
+{
+    //Si llega a la posicion de 700 se elimina de la escena
+    if(PosY==700){
+        scene()->removeItem(this);
+        timer->stop();
+        delete this;
+    }
+    //Se almacenan las colisiones en una QList
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        //Si choca con un jugador
+        if(typeid(*(colliding_items[i])) == typeid (player)){
+            //Si choca con el jugador1
+            if(this->collidesWithItem(game->jugador)){
+                //Le quita vida al jugador1
+                game->jugador->setVida(game->jugador->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+            }
+            //Si choca con el jugador 2
+            if(this->collidesWithItem(game->jugador2)){
+                //Le quita vida al jugador 2
+                game->jugador2->setVida(game->jugador2->getVida()-1);
+                qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+            }
+            
+            //Si juega en un jugador, si el jugador llega a 0 de vida pierde el juego
+            if(game->multi==1){
+                if(game->jugador->getVida()==0){
+                    game->cambio_mapas(4);
+                }
+            }
+
+            //En dos jugadore, Si ambos jugadores llegan a 0 pierden el juego
+            if(game->multi==2){
+                if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                    game->puntaje->setScore(0);
+                    game->cambio_mapas(4);
+                }
+                if(game->jugador->getVida()<=0){
+                    scene()->removeItem(game->jugador);
+                }
+                if(game->jugador2->getVida()<=0){
+                    scene()->removeItem(game->jugador2);
+                }
+            }
+
+            //Si colisiona se elimina al objeto
+            scene()->removeItem(this);
+            delete this;
+        }
+    }
+
+    //Movimiento en caida libre
+    PosY=PosY-(0.5*Vel*delta);
+    setPos(PosX,PosY);
+    actu_vel();
+
+}
