@@ -10,15 +10,14 @@ boss_CL::boss_CL(int x, int y, int w, int h)
     w1=w;
     h1=h;
 
-    connect(tim,SIGNAL(timeout()),this, SLOT(carga()));
-
     connect(timer,SIGNAL(timeout()),this, SLOT(ataques()));
+
+    timer->start(100); //Velocidad de los ataques
+
 
     connect(time,SIGNAL(timeout()),this, SLOT(tipoA()));
 
-    tim->start(2500); //Tiempo de espera para empezar el ataque
-
-
+    time->start(25000); //Cambio de Ataques
 }
 
 QRectF boss_CL::boundingRect() const
@@ -37,6 +36,7 @@ void boss_CL::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 void boss_CL::tipoA()
 {
     ayuda1=rand()%101;
+    qDebug()<<"INDICADOR: "<<ayuda1;
 
     if(ayuda1<=80){
         setVida(getVida()-5);
@@ -64,15 +64,6 @@ void boss_CL::tipoA()
         timer->stop();
         time->stop();
     }
-}
-
-void boss_CL::carga()
-{
-    timer->start(100); //Velocidad de los ataques
-
-    time->start(25000); //Cambio de Ataques
-
-    tim->stop();
 }
 
 int boss_CL::getVida() const
