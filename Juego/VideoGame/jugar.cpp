@@ -34,6 +34,7 @@ int jugar::carga()
 
 void jugar::on_pushButton_clicked()
 {
+    //Se inicia el juego en modo: Un jugador
     close();
     game = new MainWindow(1);
     game->show();
@@ -41,6 +42,7 @@ void jugar::on_pushButton_clicked()
 
 void jugar::on_pushButton_2_clicked()
 {
+    //Se inicia el juego en modo: Dos jugadores
     close();
     game = new MainWindow(2);
     game->show();
