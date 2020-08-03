@@ -51,6 +51,7 @@ void MainWindow::niveles(int x)
 
         //añadimos el jugador a la escena
         jugador = new player(1,0,400,100,60,60);
+        jugador2=nullptr;
         scene->addItem(jugador);
         rects.push_back(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -106,6 +107,7 @@ void MainWindow::niveles(int x)
 
         //añadimos al player
         jugador = new player(3,1,200,300,20,20);
+        jugador2=nullptr;
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
@@ -139,6 +141,8 @@ void MainWindow::niveles(int x)
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
+
+        jugador2=nullptr;
 
         if(multi==2){
             jugador2 = new player(2,0,600,100,60,60);
@@ -190,6 +194,8 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
 
+        jugador2=nullptr;
+
         if(multi==2){
             jugador2 = new player(4,1,500,600,20,20);
             scene->addItem(jugador2);
@@ -202,7 +208,7 @@ void MainWindow::niveles(int x)
         jugador->setFocus();
     }
 
-    if(x==4){
+    if(x==5){
         //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
@@ -210,7 +216,7 @@ void MainWindow::niveles(int x)
         scene->addRect(scene->sceneRect());
         scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/final.png")));
     }
-    if(x==5){
+    if(x==4){
         //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);

@@ -38,6 +38,9 @@ public:
 
     int vida=50;
 
+    int getVida() const;
+    void setVida(int value);
+
 private:
     tiropara *ataque_es;
     ataque_Bas *disparo;

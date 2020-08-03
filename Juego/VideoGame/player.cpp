@@ -47,6 +47,16 @@ void player::setH1(int value)
     h1 = value;
 }
 
+int player::getVida() const
+{
+    return vida;
+}
+
+void player::setVida(int value)
+{
+    vida = value;
+}
+
 player::player(short x,short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
     multi=x;

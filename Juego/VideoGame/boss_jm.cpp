@@ -77,7 +77,7 @@ void boss_jm::tipoA()
         game->puntaje->setScore(game->puntaje->getScore()+1);
         qDebug()<<"SCORE: "<<game->puntaje->getScore();
         qDebug()<<"MUERTE BOSS";
-        game->cambio_mapas(4);
+        game->cambio_mapas(5);
         timepo->stop();
         timepo1->stop();
     }
