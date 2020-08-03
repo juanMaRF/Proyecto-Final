@@ -1,5 +1,7 @@
-
 #include "boss_jm.h"
+#include "mainwindow.h"
+
+extern MainWindow * game;
 
 boss_jm::boss_jm(int x_,int y_,int w_, int h_)      //constructor
 {
@@ -72,6 +74,10 @@ void boss_jm::tipoA()
     }
     //Se detienen los timers cuando el boss muere
     if(vida<=0){
+        game->puntaje->setScore(game->puntaje->getScore()+1);
+        qDebug()<<"SCORE: "<<game->puntaje->getScore();
+        qDebug()<<"MUERTE BOSS";
+        game->cambio_mapas(4);
         timepo->stop();
         timepo1->stop();
     }

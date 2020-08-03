@@ -38,15 +38,17 @@ void ataque_enemy::move()
                 break;
             }
 
-        }
-        if( typeid(*(colliding_items[i])) == typeid (player)){
-            game->jugador->vida-=5;
-            scene()->removeItem(this);
-            //delete colliding_items[i];
-            delete this;
-            colliding_items.clear();
-            break;
-        }
+        } //verifica que halla colicionado con el jugador
+            if(typeid (*colliding_items[i]) == typeid (player)){
+                //le quita al jugador vida
+                game->jugador->vida-=5;
+                qDebug()<<game->jugador->vida;
+                //y elimina a el objeto
+                colliding_items.clear();
+                //termina el ciclo para evitar errores
+                break;
+            }
+
     }
 
     if(nivel1==0){

@@ -36,7 +36,7 @@ public:
     int getH1() const;
     void setH1(int value);
 
-    int vida=20;
+    int vida=50;
 
 private:
     tiropara *ataque_es;

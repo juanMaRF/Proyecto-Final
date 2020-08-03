@@ -30,11 +30,10 @@ void mcu::move()
         if(typeid (*colliding_items[i]) == typeid (player)){
             //le quita al jugador vida
             game->jugador->vida-=5;
+            qDebug()<<game->jugador->vida;
             //y elimina a el objeto
             timepo->stop();
             timepo1->stop();
-            scene()->removeItem(this);
-            delete this;
             colliding_items.clear();
             //termina el ciclo para evitar errores
             break;

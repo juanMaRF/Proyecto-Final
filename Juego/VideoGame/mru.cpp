@@ -23,16 +23,15 @@ void mru::move_y()
     //crea una lista con objetos que colicionen en ese instante
     QList<QGraphicsItem *> colliding_items = collidingItems();
     //recorre la lista
-    for(int i=0,n=colliding_items.size();i<n;i++){
-        //verifica que halla colicionado con el jugador
+    for(int i=0,n=colliding_items.size();i<n;i++){        //verifica que halla colicionado con el jugador
         if(typeid (*colliding_items[i]) == typeid (player)){
             //le quita al jugador vida
             game->jugador->vida-=5;
+            qDebug()<<game->jugador->vida;
             //y elimina a el objeto
             timepo->stop();
-            scene()->removeItem(this);
-            delete this;
             colliding_items.clear();
+            //termina el ciclo para evitar errores
             break;
         }
     }

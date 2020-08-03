@@ -201,13 +201,29 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
     }
+
+    if(x==4){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(-10,-10,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/final.png")));
+    }
+    if(x==5){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(-10,-10,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/perder.png")));
+    }
 }
 
 void MainWindow::guardado(int nivel)
 {
-    //QString lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/"+ini->getNom()+".txt";
-    //QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
-    QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame");
+    QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    //QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame");
     fil.open(QIODevice::WriteOnly | QIODevice::Text);
     if(!fil.isOpen()){
         qDebug()<<"El archivo no se abrio";

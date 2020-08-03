@@ -83,32 +83,18 @@ void moob::move()
                 }
 
             }
-        }else if(typeid (*colliding_items[i]) == typeid (tiropara)){
-            //le quita vida al moob
-            this->setVida(this->getVida()-10);
-            qDebug()<<this->getVida();
-            if(this->getVida()==0){
-                //si su vida llega a 0 sube el score del jugador
-                //y quita al moob de escena
-                game->puntaje->setScore(game->puntaje->getScore()+1);
-                qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                game->scene->removeItem(this);
-                x=10000;
-                setPos(x,y);
+        }//verifica que halla colicionado con el jugador
+            if(typeid (*colliding_items[i]) == typeid (player)){
+                //le quita al jugador vida
+                game->jugador->vida-=5;
+                qDebug()<<game->jugador->vida;
+                //y elimina a el objeto
                 timepo->stop();
-                timer->stop();
-                //verifica el puntaje para luego cambiar de nivel
-                if(game->puntaje->getScore()==6){
-                    game->cambio_mapas(1);
-                }
-                if(game->puntaje->getScore()==15){
-                    game->cambio_mapas(3);
-                }
+                colliding_items.clear();
+                //termina el ciclo para evitar errores
+                break;
             }
 
-        }
-        colliding_items.clear();
-        break;
     }
 
     //se encarga de realizar el MRU y dependiendo en que direccion se mueva cambia de sprite
