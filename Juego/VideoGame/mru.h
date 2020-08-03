@@ -13,15 +13,24 @@
 class mru:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
-    //propiedades del objeto y del MRU
+
     int x,y,r=8,xi,yi;
     double velx=30,vely=30,delta=0.1;
     QTimer *timepo=new QTimer;
 public:
-    mru(int x_, int y_); //constructor
+    mru(int x_, int y_);
+//    QRectF boundingRect() const;
+//    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
+
+
+//    int getX() const;
+//    void setX(int value);
+
+//    int getY() const;
+//    void setY(int value);
 
 private slots:
-    void move_y(); //se encarga del movimiento
+    void move_y();
 };
 
 #endif // MRU_H

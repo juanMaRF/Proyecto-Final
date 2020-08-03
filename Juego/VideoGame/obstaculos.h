@@ -18,8 +18,8 @@ class obstaculos: public QGraphicsItem
     QPixmap pixmap;
 public:
     obstaculos();
-    obstaculos(int x_, int y_, int w_, int h_,QString img);//constructor
-    QRectF boundingRect() const;                                            //para pintarlos en pantalla
+    obstaculos(int x_, int y_, int w_, int h_,QString img);
+    QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     int getX() const;
     void setX(int value);
