@@ -47,9 +47,8 @@ void player::setH1(int value)
     h1 = value;
 }
 
-player::player(short x,short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
+player::player(short nivel,int x_, int y_, int w_, int h_,QGraphicsItem * parent): QObject(), QGraphicsPixmapItem()
 {
-    multi=x;
     nivel1=nivel;
     x1=x_;
     y1=y_;
@@ -57,21 +56,17 @@ player::player(short x,short nivel,int x_, int y_, int w_, int h_,QGraphicsItem 
     h1=h_;
     setPos(x1,y1);
 
+    setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
 
     if(nivel1==0){
-        if(multi==1){
-            setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
-        }
-        if(multi==2){
-            setPixmap(QPixmap(":/new/prefix1/Imagenes Proyecto final/6 Deceased/MultiPlayer/Multi_iz/Deceased_walk.png").scaled(w1,h1));
-        }
+          if(tipo==1){
+              setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player_Der/Deceased_walk6Der.png").scaled(w1,h1));
+           }
+          else{
+              setPixmap(QPixmap(":/Imagenes Proyecto final/6 Deceased/Caminar_Player/Deceased_walk6.png").scaled(w1,h1));
+          }
     }
     if(nivel1==1){
-        if(multi==3){
-            setPixmap(QPixmap(":/new/prefix1/Imagenes Proyecto final/playerproto2.png").scaled(w1,h1));
-        }
-        if(multi==4){
-            setPixmap(QPixmap(":/Imagenes Proyecto final/playerproto.png").scaled(w1,h1));
-        }
+        setPixmap(QPixmap(":/Imagenes Proyecto final/playerproto.png").scaled(w1,h1));
     }
 }

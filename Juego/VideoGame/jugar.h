@@ -24,8 +24,6 @@ private slots:
 
     void on_pushButton_3_clicked();
 
-    void on_pushButton_2_clicked();
-
 private:
     Ui::jugar *ui;
     MainWindow *w;
