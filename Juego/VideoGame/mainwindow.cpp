@@ -18,7 +18,7 @@ MainWindow::MainWindow(int tipo, QWidget *parent)
 
     multi = tipo;
     time=new QTimer;
-    connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
+    //connect(time,SIGNAL(timeout()),this,SLOT(Mover()));
     niveles(0);
 
     puntaje = new Score();
@@ -51,6 +51,7 @@ void MainWindow::niveles(int x)
 
         //añadimos el jugador a la escena
         jugador = new player(1,0,400,100,60,60);
+        jugador2=nullptr;
         scene->addItem(jugador);
         rects.push_back(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -106,6 +107,7 @@ void MainWindow::niveles(int x)
 
         //añadimos al player
         jugador = new player(3,1,200,300,20,20);
+        jugador2=nullptr;
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
@@ -139,6 +141,8 @@ void MainWindow::niveles(int x)
         scene->addItem(jugador);
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
+
+        jugador2=nullptr;
 
         if(multi==2){
             jugador2 = new player(2,0,600,100,60,60);
@@ -190,6 +194,8 @@ void MainWindow::niveles(int x)
         jugador->setFlag(QGraphicsItem::ItemIsFocusable);
         jugador->setFocus();
 
+        jugador2=nullptr;
+
         if(multi==2){
             jugador2 = new player(4,1,500,600,20,20);
             scene->addItem(jugador2);
@@ -202,22 +208,28 @@ void MainWindow::niveles(int x)
         jugador->setFocus();
     }
 
+    if(x==5){
+        //añadimos el fondo
+        scene=new QGraphicsScene;
+        ui->graphicsView->setScene(scene);
+        scene->setSceneRect(-10,-10,1111,621);
+        scene->addRect(scene->sceneRect());
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/final.png")));
+    }
     if(x==4){
         //añadimos el fondo
         scene=new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         scene->setSceneRect(-10,-10,1111,621);
         scene->addRect(scene->sceneRect());
-        scene->setBackgroundBrush(QBrush(QImage(":/new/prefix1/Imagenes Proyecto final/final.png")));
+        scene->setBackgroundBrush(QBrush(QImage(":/Imagenes Proyecto final/perder.png")));
     }
-
 }
 
 void MainWindow::guardado(int nivel)
 {
-    //QString lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/"+ini->getNom()+".txt";
-    //QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
-    QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame");
+    QFile fil("E:/Desktop/Proyecto-Final/Juego/VideoGame/nivel.txt");
+    //QFile fil("C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame");
     fil.open(QIODevice::WriteOnly | QIODevice::Text);
     if(!fil.isOpen()){
         qDebug()<<"El archivo no se abrio";
@@ -250,11 +262,11 @@ void MainWindow::leer_lvl(int lvl_)
 {
     QString lvl;
     if(lvl_==0){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_1.TXT";
     }else if(lvl_==1){
-        lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
-        //lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        //lvl="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
+        lvl="E:/Desktop/Proyecto-Final/Juego/VideoGame/lvl_2.TXT";
     }
     scene=new QGraphicsScene;
 

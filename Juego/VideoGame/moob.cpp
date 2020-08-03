@@ -60,36 +60,6 @@ void moob::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     //recorre la lista
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-
-        if(typeid(*(colliding_items[i])) == typeid (player)){
-            if(this->collidesWithItem(game->jugador)){
-                game->jugador->setVida(game->jugador->getVida()-1);
-                qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
-            }
-            if(this->collidesWithItem(game->jugador2)){
-                game->jugador2->setVida(game->jugador2->getVida()-1);
-                qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
-            }
-        }
-
-        if(game->multi==1){
-            if(game->jugador->getVida()==0){
-                game->cambio_mapas(4);
-            }
-        }
-
-        if(game->multi==2){
-            if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
-                game->cambio_mapas(4);
-            }
-            if(game->jugador->getVida()<=0){
-                scene()->removeItem(game->jugador);
-            }
-            if(game->jugador2->getVida()<=0){
-                scene()->removeItem(game->jugador2);
-            }
-        }
-
         //verifica si choca con las balas
         if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
             //le quita vida al moob
@@ -113,32 +83,36 @@ void moob::move()
                 }
 
             }
-        }else if(typeid (*colliding_items[i]) == typeid (tiropara)){
-            //le quita vida al moob
-            this->setVida(this->getVida()-10);
-            qDebug()<<this->getVida();
-            if(this->getVida()==0){
-                //si su vida llega a 0 sube el score del jugador
-                //y quita al moob de escena
-                game->puntaje->setScore(game->puntaje->getScore()+1);
-                qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                game->scene->removeItem(this);
-                x=10000;
-                setPos(x,y);
-                timepo->stop();
-                timer->stop();
-                //verifica el puntaje para luego cambiar de nivel
-                if(game->puntaje->getScore()==6){
-                    game->cambio_mapas(1);
+        }//verifica que halla colicionado con el jugador
+        if(typeid(*(colliding_items[i])) == typeid (player)){
+                    if(this->collidesWithItem(game->jugador)){
+                        game->jugador->setVida(game->jugador->getVida()-1);
+                        qDebug()<<"VIDA JUGADOR 1: "<<game->jugador->getVida();
+                    }
+                    if(this->collidesWithItem(game->jugador2)){
+                        game->jugador2->setVida(game->jugador2->getVida()-1);
+                        qDebug()<<"VIDA JUGADOR 2: "<<game->jugador2->getVida();
+                    }
                 }
-                if(game->puntaje->getScore()==15){
-                    game->cambio_mapas(3);
-                }
-            }
 
-        }
-        colliding_items.clear();
-        break;
+                if(game->multi==1){
+                    if(game->jugador->getVida()==0){
+                        game->cambio_mapas(4);
+                    }
+                }
+
+                if(game->multi==2){
+                    if(game->jugador->getVida()<=0 && game->jugador2->getVida()<=0 ){
+                        game->cambio_mapas(4);
+                    }
+                    if(game->jugador->getVida()<=0){
+                        scene()->removeItem(game->jugador);
+                    }
+                    if(game->jugador2->getVida()<=0){
+                        scene()->removeItem(game->jugador2);
+                    }
+                }
+
     }
 
     //se encarga de realizar el MRU y dependiendo en que direccion se mueva cambia de sprite

@@ -65,6 +65,7 @@ private:
 
     short animacion;
 
+
     double R1=1.666,R2=2;
     int fuerzaT,ayuda;
     short tipo,nivel1,imagen=2,imagen2=2;
