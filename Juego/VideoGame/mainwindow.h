@@ -35,7 +35,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(int tipo,QWidget *parent = nullptr);
     ~MainWindow();
 
     void cambio_mapas(int x);
@@ -47,18 +47,23 @@ public:
     obstaculos& colision_player();
     void rozamiento(short n);
     void keyPressEvent(QKeyEvent *event);
+    QList <player *> rects;
     QList <enemi_dis*> mru;
-    player *jugador;
+    player *jugador,*jugador2;
     Score *puntaje;
     QTimer * timer;
 private:
+    short animacion;
+    int multi;
+
     double R1=1.666,R2=2;
     int fuerzaT,ayuda;
-    short tipo,nivel1,imagen=2;
+    short tipo,nivel1,imagen=2,imagen2=2;
 
     enemi_dis *enemy_dis,*enemy_dis2,*enemy_dis3,*enemy_dis4;
     boss_CL *Jefe1;
-    QGraphicsScene *scene;
+    QGraphicsScene *scene= new QGraphicsScene(this);
+    QGraphicsView * view = new QGraphicsView(this);
     Ui::MainWindow *ui;
     QTimer *time;
     QList <obstaculos*> lista_piedra,paredes_lateral,paredes_sup,p_boss;

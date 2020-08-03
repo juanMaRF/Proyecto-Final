@@ -68,6 +68,12 @@ void ataque_enemy::move()
         }
     }
     if(nivel1==1){
+
+        if(con==1){
+            pos_inicial=pos().x();
+            con=2;
+        }
+
         if(ataque == 0){
             setPos(x()-30,y());
         }
@@ -77,11 +83,12 @@ void ataque_enemy::move()
         if(ataque == 2){
             setPos(x(),y()-30);
         }
-    }
 
-//    if(pos_inicial+1000000<=pos().x() || pos_inicial-1000000>=pos().x() || pos_inicial-100000>=pos().y()){
-//        scene()->removeItem(this);
-//        delete this;
-//    }
+        if(pos_inicial+800<=pos().x() or pos_inicial-800>=pos().x()){
+            scene()->removeItem(this);
+            delete this;
+        }
+
+    }
 
 }

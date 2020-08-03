@@ -1,5 +1,6 @@
 #include "moob.h"
 #include "mainwindow.h"
+#include "tiropara.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -124,20 +125,21 @@ void moob::Actualizacion()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
-            this->setVida(this->getVida()-5);
+        if(typeid (*colliding_items[i]) == typeid (ataque_Bas) || typeid (*colliding_items[i]) == typeid (tiropara)){
             if(this->getVida()==0){
                 game->puntaje->setScore(game->puntaje->getScore()+1);
                 qDebug()<<"SCORE: "<<game->puntaje->getScore();
-                this->setX(100000);
-                this->setPos(getX(),y);
+                this->setX(10000);
+                this->setPos(getX(),getY());
                 if(game->puntaje->getScore()==6){
                     game->cambio_mapas(1);
                 }
-                if(game->puntaje->getScore()==15){
+                if(game->puntaje->getScore()==14){
                     game->cambio_mapas(3);
                 }
-
+            }
+            if(typeid (*colliding_items[i]) == typeid (ataque_Bas)){
+               this->setVida(this->getVida()-5);
             }
         }
     }

@@ -44,6 +44,12 @@ void caida_libre::move()
         pos_inicial=PosY;
         con=2;
     }
+
+    if(pos_inicial+400<=PosY){
+        scene()->removeItem(this);
+        delete this;
+    }
+
     PosY=PosY-(0.5*Vel*delta);
     setPos(PosX,PosY);
     actu_vel();
