@@ -20,6 +20,7 @@ void Registro::registrar(QString nombre, QString pass)
 {
     QString ff=":/registro.TXT";
     //QString ff="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    //QString ff="E:\Desktop\Proyecto-Final\Juego\VideoGame\registro.TXT";
 
     QFile file(ff);
 
@@ -36,6 +37,7 @@ bool Registro::verificar(QString nombre, QString pass)
     //se guarda en un string la direccion del txt, para el mejor manejo en el equipo
     QString ff=":/registro.TXT";
     //QString ff="C:/Users/Usuario/Desktop/Proyecto-Final/Juego/VideoGame/registro.TXT";
+    //QString ff="E:\Desktop\Proyecto-Final\Juego\VideoGame\registro.TXT";
     //se abre el archivo
     QFile file(ff);
     //se comprueba si el txt se puede abrir en modo lectura, de lo contrario sale un mensage de alerta
